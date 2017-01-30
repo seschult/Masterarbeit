@@ -146,6 +146,7 @@ Background_fit :: Background_fit(){
 	//Rbq
 	frbq_Back = new TF1("frbq_Back",fit,0.3,3,6);
 	frbq_Back->SetParameters(10, 0.9, 1, 10, 1.3, 10); 
+	//frbq_Back->SetParameters(10, 0.9, 1, 10, 1.3, 10); 
 	//frbq_Back->SetParameters(400, 190, 0.2);  
 	frbq_Back->SetParLimits(0,0.0,1000000);
 	frbq_Back->SetParLimits(3,0.0,1000000);

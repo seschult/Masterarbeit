@@ -1,0 +1,123 @@
+\documentclass{beamer}
+\usepackage{etex}
+\usepackage[export]{adjustbox}
+\usepackage{epsfig}
+\usepackage{feynmp}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{supertabular}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{type1cm}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes,arrows}
+\usepackage{rotating}%     - to rotate boxes, pictures etc.
+\usepackage{amsmath}%      - to use the AMS extended math package
+\usepackage{amssymb}%      - to obtain additional math symbols in AMS fonts
+\usepackage{amscd}%        - to obtain AMS flow chart utilities
+\usepackage{array}%        - to obtain additional tabular functionality
+\usepackage{multirow}%     - for multirow-entries in tables
+\usepackage{supertabular}% - for multi-page tables
+\usepackage{dcolumn}%      - decimal-point aligned colums in tables
+\usepackage{xspace}%       - to add empty space after commands
+\usepackage{upgreek}%      - provide upright greek letters
+\usepackage{color}%        - color support
+\usepackage{calc}%         - enhanced calculus in LaTeX macros
+\usepackage{ifthen}%       - enhance logical structures in LaTeX macros
+\usepackage{cite}%         - for multiple citations like [1-4] instead of [1,2,3,4]
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[page number]{}
+
+\include{IKthesis-def}
+\include{IKthesis-stm-tab}
+
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+\newcommand{\maxFrameImage}[1]{
+\begin{frame}[plain]
+\begin{changemargin}{-1cm}{-1cm}
+\begin{center}
+\includegraphics[width=1.0\paperwidth,height=1.0\paperheight,keepaspectratio]
+{#1}
+\end{center}
+\end{changemargin}
+\end{frame}
+}
+
+
+\def\Tiny{\fontsize{4.0pt}{4.0pt}\selectfont}
+
+\title[Production of the excited charm mesons $D_1$ and $D^*_2$ at HERA ]
+{Production of the excited charm mesons $D_1$ and $D^*_2$ at HERA }
+\subtitle[]{Thesis presentation}
+\author[Igor Kostiuk]{
+Igor Kostiuk
+}
+\date[]{\\ \today}
+
+\setbeamersize{text margin left=.3cm,text margin right=.3cm} 
+\listfiles
+\begin{document}
+
+\frame{
+\begin{center}
+\vspace{0.3cm}
+\begin{figure}
+\flushleft
+%\includegraphics[width=2.0cm]{Presentation/Figures2/uhh_logo_ed}
+\hspace{8.0cm}
+%\includegraphics[width=2.0cm]{Presentation/Figures2/DESY-Logo-cyan-RGB_mitVorschau_ger}\\
+\end{figure}
+{\LARGE Production \\}
+\vspace{0.3cm}
+Thesis presentation
+\end{center}
+\begin{center}
+\vspace{0.3cm}
+Igor Kostiuk\\
+Kyiv University
+\end{center}
+\vspace{1.0cm}
+\begin{center}
+\footnotesize  Kyiv, \\ \today
+\end{center}
+\vspace{0.4cm}
+}
+
+\frame{\frametitle{Outline}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\input{./Presentation/presentation_IKthesis-int}
+\subsection{LHC and LHCb}
+\frame{\frametitle{LHC}
+}
+\end{document}
+
+
+

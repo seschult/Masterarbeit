@@ -1,0 +1,906 @@
+
+
+\def\A{{\rm\bf A}}
+\def\B{{\rm\bf B}}
+\def\C{{\rm\bf C}}
+\def\D{{\rm\bf D}}
+\def\E{{\rm\bf E}}
+\def\G{{\rm\bf G}}
+\def\H{{\rm\bf H}}
+\def\M{{\rm\bf M}}
+\def\R{{\rm\bf R}}
+\def\r{{\rm\bf r}}
+\def\U{{\rm\bf U}}
+\def\V{{\rm\bf V}}
+\def\W{{\rm\bf W}}
+\def\d{{\rm\bf d}}
+\def\f{{\rm\bf f}}
+\def\g{{\rm\bf g_0}}
+\def\x{{\rm\bf x}}
+\def\y{{\rm\bf y}}
+\def\dy{{\rm\bf \Delta y}}
+\def\dyl{{{\rm\bf \Delta y}_l}}
+\def\z{{\rm\bf z}}
+\def\v{{\rm\bf v}}
+\def\w{{\rm\bf w}}
+\def\cov{{\rm cov}}
+\def\zero{{\rm\bf 0}}
+\def\lam{{\bf \lambda}}
+\def\chisq{{\chi^2}}
+\def\VAg{ {{\rm\bf V}_{A\,g}} }
+\def\VAl{ {{\rm\bf V}_{A\,l}} }
+\def\VDl{ {{\rm\bf V}_{D\,l}} }
+\def\VDlinv{ {{\rm\bf V}^{-1}_{D\,l}} }
+\def\Vyl{ {{\rm\bf V}_{y\,l}} }
+\def\Vylinv{ {{\rm\bf V}^{-1}_{y\,l}} }
+\def\Vyinv{ {\rm\bf V}^{-1}_y }
+\def\Valpha{ {\rm\bf V}_{\alpha} }
+\def\Valphaone{ {\rm\bf V}_{\alpha\,1} }
+\def\Valphatwo{ {\rm\bf V}_{\alpha\,2} }
+\def\Vpalphaone{ {\rm\bf V'}_{\alpha\,1} }
+\def\s{{\rm\bf s}}
+\def\S{{\rm\bf S}}
+\def\Vmeas{{\rm\bf V}_{\rm meas}}
+\def\Vmeasone{{\rm\bf V}_{\rm meas\,1}}
+\def\Vmeastwo{{\rm\bf V}_{\rm meas\,2}}
+\def\VMS{{\rm\bf V}_{\rm MS}}
+\def\ValphaMS{{\rm\bf V}_{\alpha\,\rm MS}}
+\def\Valphaenergy{{\rm\bf V}_{\alpha\,\rm energy}}
+\def\VMSone{{\rm\bf V}_{\rm MS\,1}}
+\def\Venergyone{{\rm\bf V}_{\rm energy\,1}}
+\def\dedx{dE/dx}
+\def\pperp{p_{\perp}}
+\def\sperp{s_{\perp}}
+\def\ps{\rho \sperp}
+\def\newline{\hfil\break}
+\def\Deltaphi{\Delta_{\phi}}
+\def\Deltaphimax{\Delta_{\phi}^{\rm max}}
+\def\Deltazmax{\Delta_z^{\rm max}}
+\def\rmax{r_{\rm max}}
+\def\rmin{r_{\rm min}}
+\def\xmax{x_{\rm max}}
+\def\ymax{y_{\rm max}}
+\def\upz{u_{0\beta}}
+\def\vpz{v_{0\beta}}
+\def\xpz{x_{0\beta}}
+\def\ypz{y_{0\beta}}
+\def\upb{u_{\beta}}
+\def\vpb{v_{\beta}}
+%
+\def\taucor{{\tau_{\rm cor}}}
+\def\tauold{{\tau_{\rm old}}}
+\def\dedxmin{{(dE/dx)_{\rm min}}}
+\def\demin{\Delta E_{\rm min}}
+
+
+
+\newcommand{\ZGANA}{{\sc Zgana}\xspace}
+\newcommand{\MOZART}{{\sc Mozart}\xspace}
+\newcommand{\ORANGE}{{\sc Orange}\xspace}
+\newcommand{\PHANTOM}{{\sc Phantom}\xspace}
+\newcommand{\PYTHIA}{{\sc Pythia}\xspace}
+\newcommand{\RAPGAP}{{\sc Rapgap}\xspace}
+\newcommand{\FUNNEL}{{\sc Funnel}\xspace}
+\newcommand{\ZEPHYR}{{\sc Zephyr}\xspace}
+\newcommand{\ADAMO}{{\sc Adamo}\xspace}
+
+\newcommand{\RTFIT}{{\sc Rtfit}\xspace}
+\newcommand{\KTFIT}{{\sc Ktfit}\xspace}
+\newcommand{\TLITE}{{\sc tLite}\xspace}
+
+\newcommand{\AMADEUS}{{\sc Amadeus}\xspace}
+\newcommand{\ROOT}{{\sc Root}\xspace}
+\newcommand{\GEANT}{{\sc Geant}\xspace}
+\newcommand{\ARIADNE}{{\sc Ariadne}\xspace}
+
+\newcommand{\HERAII}{{\sc Hera-II}\xspace}
+\newcommand{\HERAI}{{\sc Hera-I}\xspace}
+\newcommand{\HERA}{{\sc Hera}\xspace}
+
+\newcommand{\HERAB}{{\sc Hera-B}\xspace}
+\newcommand{\FORTRAN}{{\sc Fortran}\xspace}
+
+\newcommand{\MINUIT}{{\sc Minuit}\xspace}
+
+
+\newcommand{\PETRA}{{\sc Petra}\xspace}
+\newcommand{\HERMES}{{\sc Hermes}\xspace}
+\newcommand{\ALEPH}{{\sc Aleph}\xspace}
+
+\newcommand{\DESYII}{{Desy-II}\xspace}
+\newcommand{\DESYIII}{{Desy-III}\xspace}
+\newcommand{\DESY}{{DESY}\xspace}
+
+
+\newcommand{\LINACII}{{Linac-II}\xspace}
+\newcommand{\LINACI}{{Linac-I}\xspace}
+
+\newcommand{\ZEUS}{{\sc Zeus}\xspace}
+
+%\newcommand{\ZEUS}{\textsc{ Zeus}\xspace}
+
+\newcommand{\BABAR}{{\sc BaBar}\xspace}
+\newcommand{\CLEO}{{\sc Cleo}\xspace}
+\newcommand{\CLEOII}{{\sc Cleo-II}\xspace}
+
+\newcommand{\CDF}{{\sc CDF}\xspace}
+
+\newcommand{\EAZE}{{\sc Eaze}\xspace}
+
+\newcommand{\PAW}{{\sc Paw}\xspace}
+
+\newcommand{\TEVATRON}{{\sc Tevatron}\xspace}
+\newcommand{\LEP}{{\sc LEP}\xspace}
+\newcommand{\LHC}{{\sc LHC}\xspace}
+\newcommand{\CMS}{{\sc CMS}\xspace}
+\newcommand{\ATLAS}{{\sc Atlas}\xspace}
+\newcommand{\BELLE}{{\sc Belle}\xspace}
+\newcommand{\ARGUS}{{\sc Argus}\xspace}
+\newcommand{\DELPHI}{{\sc Delphi}\xspace}
+\newcommand{\BBCNC}{{\sc BBCNC}\xspace}
+
+\newcommand{\FOCUS}{{\sc Focus}\xspace}% \ATLAS
+\newcommand{\OPAL}{{\sc Opal}\xspace}
+
+\newcommand{\GNU}{{\sc GNU}\xspace} 
+\newcommand{\pthreads}{{\sc pthreads}\xspace} 
+
+
+\newcommand{\DStrangeOneWidth} {{$0.9$}\xspace}
+\newcommand{\DStrangeTwoMass} {{$2571.9$}\xspace}
+\newcommand{\DStrangeTwoWidth} {{$17$}\xspace}
+\newcommand{\DStrangeTwoHelicity} {{$-1$}\xspace}
+
+
+
+
+
+
+
+\newcommand{\DStrangeOneYieldKS}              {{$110\pm20$}}
+\newcommand{\DStrangeOneYieldDZeroStarK }     {{$306\pm64$}}
+\newcommand{\DStrangeTwoYieldDZeroK}          {{$132\pm194$}}
+\newcommand{\DStrangeTwoYieldDZeroStarK}      {{$65\pm125$}}
+\newcommand{\DStrangeOneMassStatSyst}         {\mbox{$2535.37\pm0.45(stat.)^{+0.18}_{-0.49}(syst.)$}\xspace}
+\newcommand{\DStrangeOneMass}                 {{$2535.37\pm0.45^{+0.18}_{-0.22}$}\xspace}
+\newcommand{\DStrangeOneMassShort}            {{$2535.37\!\pm\!0.45^{+0.18}_{-0.49}$}}
+\newcommand{\DStrangeOneHelicity}             {\mbox{$0.09\pm0.58^{+0.52}_{-0.43}$}\xspace}
+
+\newcommand{\DStrangeOneFragmentation}        {\mbox{$0.76\pm0.12^{+0.08}_{-0.04}\,\%$}\xspace}
+\newcommand{\DStrangeOneFragmentationShort}   {\mbox{$0.76\!\pm\!0.12^{+0.08}_{-0.04}$}\xspace}
+\newcommand{\DStrangeOneFragmentationStatSyst}{\mbox{$0.76\pm0.12(stat.)^{+0.08}_{-0.04}(syst.)\,\%$}\xspace}
+\newcommand{\DStrangeOneExtrapolationDStar}   {\mbox{$1.31\pm0.24^{+0.19}_{-0.16}\,\%$}\xspace}
+\newcommand{\DStrangeOneExtrapolationDStarStatSyst}     {\mbox{$1.31\pm0.24(stat.)^{+0.18}_{-0.17}(syst.)\,\%,$}\xspace}
+\newcommand{\DStrangeOneExtrapolationDZero}             {\mbox{$0.82\pm0.19^{+0.12}_{-0.04}\,\%$}\xspace}
+\newcommand{\DStrangeOneExtrapolationDZeroStatSyst}     {\mbox{$0.82\pm0.19(stat.)^{+0.12}_{-0.04}(syst.)\,\%.$}}
+
+
+%1.547311+-0.472211^{+0.000000}_{-0.000000}+-0.000000^{+0.331339}_{-0.187632}
+
+
+\newcommand{\DStrangeOneBranching}                      {\mbox{$1.5 \pm 0.5^{+0.3}_{-0.2}$}\xspace}
+\newcommand{\DStrangeOneBranchingShort}                 {\mbox{$1.5\!\pm\!0.5^{+0.3}_{-0.2}$}}
+\newcommand{\DStrangeOneBranchingStatSyst}              {\mbox{$1.5\pm0.5(stat.)^{+0.3}_{-0.2}(syst.)$}\xspace}
+\newcommand{\DSSupStatSyst}                             {\mbox{$0.26\pm 0.06(stat.)^{+0.06}_{-0.05}(syst.)$}\xspace}
+\newcommand{\DSSup}                                     {\mbox{$0.26\pm 0.06{}^{+0.06}_{-0.05}$}\xspace}
+\newcommand{\DSSupStatSystShort}                        {\mbox{$0.26\!\pm\!0.06^{+0.06}_{-0.05}$}\xspace}
+
+
+
+
+
+
+
+%Ground States %No updates
+
+\newcommand{\DStarTwoProngYield}    {{$64988 \pm 430$}\xspace}
+\newcommand{\DStarTwoProngMass}     {{$145.400 \pm 0.003\mev$}\xspace}
+\newcommand{\DStarFourProngYield}   {{$24441 \pm 310$}\xspace}
+\newcommand{\DStarFourProngMass}    {{$145.420 \pm 0.003\mev$}\xspace}
+\newcommand{\DZeroYield}            {{$145740 \pm 2944$}\xspace}
+\newcommand{\DZeroMass}             {{$1864.1 \pm 0.1\mev$}\xspace}
+\newcommand{\DChargeYield}          {{$39283 \pm 452$}\xspace}
+\newcommand{\DChargeMass}           {{$1869.1 \pm 0.1\mev$}\xspace}
+
+
+\newcommand{\KZeroYieldOne}          {{$10940\pm237$}\xspace}
+\newcommand{\KZeroYieldTwo}          {{$2602\pm134$}\xspace}
+\newcommand{\KZeroMassOne}           {{$496.7 \pm 0.1\mev$}\xspace}
+\newcommand{\KZeroMassTwo}           {{$496.8 \pm 0.2\mev$}\xspace}
+\newcommand{\KZeroResolutionAOne}           {{$5.4\pm 0.1\mev$}\xspace}
+\newcommand{\KZeroResolutionATwo}           {{$4.2\pm 0.3\mev$}\xspace}
+%BABAR States %No updates, drop
+
+\newcommand{\DTwoFiveFiveZeroYield}     {{$378 \pm 199$}\xspace}
+\newcommand{\DTwoZeroZeroZeroYield}     {{$113 \pm 224$}\xspace}
+\newcommand{\DELTACHIBABAR}             {{$3.5$\xspace}}
+\newcommand{\DELTACHIDOneHelicityThree} {{$6.5$\xspace}}
+
+%Charged spectroscopy % (ONLY MASSES UPDATED)
+
+%\newcommand{\DChargeOneYield}                {{$905 \pm  182$}\xspace}
+%\newcommand{\DChargeOneMass}                 {{$2421.8 \pm 4.4^{+3.3}_{-2.9}$}\xspace}
+
+%\newcommand{\DChargeStarTwoYieldDStarZeroPi} {{$936 \pm 160$}\xspace}
+%\newcommand{\DChargeStarTwoYieldDZeroPi}     {{$731 \pm 218$}\xspace}
+%\newcommand{\DChargeStarTwoMass}             {{$2461.3 \pm 4.1^{+4.0}_{-1.0}$}\xspace}
+
+\newcommand{\DChargeOneYield}                {{$759 \pm  183$}\xspace}
+\newcommand{\DChargeOneMass}                 {{$2421.9\pm 4.7^{+3.4}_{-1.2}$}\xspace}
+\newcommand{\DChargeOneMassStatSyst}                 {\mbox{$2421.9\pm 4.7(stat.)^{+3.4}_{-1.2}(syst.)$}\xspace}
+\newcommand{\DChargeOneMassShort}                 {{$2421.9\!\pm\!4.7^{+3.4}_{-1.2}$}}
+
+\newcommand{\DChargeStarTwoYieldDStarZeroPi} {{$634 \pm 223$}\xspace}
+\newcommand{\DChargeStarTwoYieldDZeroPi}     {{$737 \pm 164$}\xspace}
+\newcommand{\DChargeStarTwoMass}             {{$2460.6 \pm 4.4^{+3.6}_{-0.8}$}\xspace}
+\newcommand{\DChargeStarTwoMassStatSyst}             {\mbox{$2460.6 \pm 4.4(stat.)^{+3.6}_{-0.8}(syst.)$}\xspace}
+\newcommand{\DChargeStarTwoMassShort}             {{$2460.6\!\pm\!4.4^{+3.6}_{-0.8}$}}
+
+
+%Neutral spectroscopy (UPDATED)
+
+\newcommand{\DZeroOneYield}            {{$2732 \pm 285$}\xspace}
+\newcommand{\DZeroOneMass}             {\mbox{$2423.1 \pm 1.5{}^{+ 0.4}_{- 1.0}$}\xspace}
+\newcommand{\DZeroOneMassShort}             {{$2423.1\!\pm\! 1.5{}^{+ 0.4}_{- 1.0}$}}
+\newcommand{\DZeroOneMassStatSyst}     {\mbox{$2423.1 \pm 1.5(stat.){}^{+ 0.4}_{- 1.0}(syst.)$}\xspace}
+\newcommand{\DZeroOneWidth}            {\mbox{$38.8\pm 5.0{}^{+ 1.9}_{- 5.4}$}\xspace}
+\newcommand{\DZeroOneWidthShort}            {{$38.8\!\pm\!5.0{}^{+ 1.9}_{- 5.4}$}}
+\newcommand{\DZeroOneWidthStatSyst}    {\mbox{$38.8 \pm 5.0(stat.){}^{+ 1.9}_{- 5.4}(syst.)$}\xspace}
+\newcommand{\DZeroOneHelicity}         {\mbox{$7.8{}^{+6.7}_{-2.7}{}^{+4.6}_{-1.8}$}\xspace}
+\newcommand{\DZeroOneHelicityStatSyst} {\mbox{$7.8{}^{+6.7}_{-2.7}(stat.){}^{+4.6}_{-1.8}(syst.)$}\xspace}
+
+\newcommand{\DZeroStarTwoYieldDStarPi}  {{$1798 \pm 293$}\xspace}
+\newcommand{\DZeroStarTwoYieldDPlusPi}  {{$521 \pm  88$}\xspace}
+\newcommand{\DZeroStarTwoMass}          {\mbox{$2462.5 \pm 2.4{}^{+ 1.3}_{- 1.1}$}\xspace}
+\newcommand{\DZeroStarTwoMassShort}          {\mbox{$2462.5\!\pm\!2.4{}^{+ 1.3}_{- 1.1}$}}
+
+\newcommand{\DZeroStarTwoMassStatSyst}  {\mbox{$2462.5 \pm 2.4(stat.){}^{+ 1.3}_{- 1.1}(syst.)$}\xspace}
+\newcommand{\DZeroStarTwoWidth}         {\mbox{$46.6 \pm 8.1{}^{+ 5.9}_{- 3.8}$}\xspace}
+\newcommand{\DZeroStarTwoWidthShort}         {{$46.6\!\pm\!8.1{}^{+ 5.9}_{- 3.8}$}}
+
+\newcommand{\DZeroStarTwoWidthStatSyst} {\mbox{$46.6 \pm 8.1(stat.){}^{+ 5.9}_{- 3.8}(syst.)$}\xspace}
+\newcommand{\DZeroStarTwoHelicity}      {\mbox{$-1.16 \pm 0.35$}\xspace}
+
+\newcommand{\DTwoFourZeroZeroRatio}     {{$1.1 \pm 1.1$}\xspace}
+\newcommand{\DTwoFourThreeZeroRatio}    {{$1.0$ fixed }\xspace}
+\newcommand{\FeeddownRatio}             {{$0.3\pm 0.4$ }\xspace}
+
+%Branching neutral(UPDATED)
+
+\newcommand{\DZeroOneFragmentation}                      {\mbox{$2.9\pm0.5{}^{+0.5}_{-0.5}\,\%$}\xspace}
+\newcommand{\DZeroOneFragmentationShort}                      {\mbox{$2.9\!\pm\!0.5{}^{+0.5}_{-0.5}$}}
+\newcommand{\DZeroOneFragmentationStatSyst}              {\mbox{$2.9\pm0.5(stat.){}^{+0.5}_{-0.5}(syst.)\,\%$}\xspace}
+\newcommand{\DZeroOneExtrapolationDStar}                 {\mbox{$8.5\pm1.4{}^{+1.2}_{-1.6}\,\%$}\xspace}
+\newcommand{\DZeroOneExtrapolationDStarStatSyst}         {\mbox{$8.5\pm1.4(stat.){}^{+1.2}_{-1.6}(syst.)\,\%$}\xspace}
+\newcommand{\DZeroStarTwoFragmentation}                  {\mbox{$3.9\pm0.9{}^{+0.8}_{-0.6}\,\%$}\xspace}
+\newcommand{\DZeroStarTwoFragmentationShort}                  {\mbox{$3.9\!\pm\!0.9{}^{+0.8}_{-0.6}$}}
+
+\newcommand{\DZeroStarTwoFragmentationStatSyst}          {\mbox{$3.9\pm0.9(stat.){}^{+0.8}_{-0.6}(syst.)\,\%$}\xspace}
+\newcommand{\DZeroStarTwoExtrapolationDStar}             {\mbox{$4.7\pm1.3{}^{+1.2}_{-0.8}\,\%$}\xspace}
+\newcommand{\DZeroStarTwoExtrapolationDStarStatSyst}     {\mbox{$4.7\pm1.3(stat.){}^{+1.2}_{-0.8}(syst.)\,\%,$}\xspace}
+\newcommand{\DZeroStarTwoExtrapolationDPlus}             {\mbox{$6.7\pm2.4{}^{+1.5}_{-1.1}\,\%$}\xspace}
+\newcommand{\DZeroStarTwoExtrapolationDPlusStatSyst}     {\mbox{$6.7\pm2.4(stat.){}^{+1.5}_{-1.1}(syst.)\,\%$}\xspace}
+\newcommand{\DZeroStarTwoBranching}                      {\mbox{$1.4 \pm 0.3{}^{+0.3}_{-0.3}$}\xspace}
+\newcommand{\DZeroStarTwoBranchingShort}                      {\mbox{$1.4\!\pm\!0.3{}^{+0.3}_{-0.3}$}}
+\newcommand{\DZeroStarTwoBranchingStatSyst}              {\mbox{$1.4 \pm 0.3(stat.){\pm 0.3}(syst.)$}\xspace}
+\newcommand{\DExcitedNeutralFragmentationSum}            {\mbox{$6.8\pm1.0{}^{+0.9}_{-0.8}\,\%$}\xspace}
+\newcommand{\DExcitedNeutralFragmentationSumShort}            {\mbox{$6.8\!\pm\!1.0{}^{+0.9}_{-0.8}$}}
+\newcommand{\DExcitedNeutralFragmentationSumStatSyst}    {\mbox{$6.8\pm1.0(stat.){}^{+0.9}_{-0.8}(syst.)\,\%$}\xspace}
+\newcommand{\DExcitedNeutralFragmentationRatio}          {\mbox{$0.8\pm0.2\pm0.2$}\xspace}
+\newcommand{\DExcitedNeutralFragmentationRatioShort}          {\mbox{$0.8\!\pm\!0.2\!\pm\!0.2$}}
+\newcommand{\DExcitedNeutralFragmentationRatioStatSyst}  {\mbox{$0.8\pm0.2(stat.)\pm0.2(syst.)$}\xspace}
+
+
+
+%Branching charged (UPDATED)
+
+\newcommand{\fcdoneplus}     {\mbox{$f(c \rightarrow D_1^+)$}}
+\newcommand{\fcdtwoplus}     {\mbox{$f(c \rightarrow D_2^{\ast +})$}}
+
+\newcommand{\fcdsone}     {\mbox{$f(c \rightarrow D_{s1}^+)$}}
+
+%\newcommand{\DPlusOneFragmentation}                      {\mbox{$4.9\pm1.7{}^{+1.7}_{-0.4}\,\%$}\xspace}
+%\newcommand{\DPlusOneFragmentationStatSyst}              {\mbox{$4.9\pm1.7(stat.){}^{+1.7}_{-0.4}(syst.)\,\%$}\xspace}
+%\newcommand{\DPlusOneExtrapolationDZeroStar}             {\mbox{$5.8\pm2.0{}^{+2.0}_{-0.5}\,\%$}\xspace}
+%\newcommand{\DPlusOneExtrapolationDZeroStarStatSyst}     {\mbox{$5.8\pm2.0(stat.){}^{+2.0}_{-0.5}(syst.)\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoFragmentation}                  {\mbox{$3.8\pm0.9{}^{+0.6}_{-0.2}\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoFragmentationStatSyst}          {\mbox{$3.8\pm0.9(stat.){}^{+0.6}_{-0.2}(syst.)\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoExtrapolationDZero}             {\mbox{$2.3\pm0.5{}^{+0.3}_{-0.15}\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoExtrapolationDZeroStatSyst}     {\mbox{$2.3\pm0.5(stat.){}^{+0.3}_{-0.15}(syst.)\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoExtrapolationDZeroStar}         {\mbox{$2.2\pm0.9{}^{+0.6}_{-0.3}\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoExtrapolationDZeroStarStatSyst} {\mbox{$2.2\pm0.9(stat.){}^{+0.6}_{-0.3}(syst.)\,\%$}\xspace}
+%\newcommand{\DPlusStarTwoBranching}                      {\mbox{$1.1 \pm 0.4{}^{+0.2}_{-0.2}$}\xspace}
+%\newcommand{\DPlusStarTwoBranchingStatSyst}              {\mbox{$1.1 \pm 0.4(stat.){}^{+0.2}_{-0.2}(syst.)$}\xspace}
+%\newcommand{\DExcitedChargedFragmentationSum}            {\mbox{$8.7\pm1.9{}^{+1.8}_{-0.5}\,\%$}\xspace}
+%\newcommand{\DExcitedChargedFragmentationSumStatSyst}    {\mbox{$8.7\pm1.9(stat.){}^{+1.8}_{-0.5}(syst.)\,\%$}\xspace}
+%\newcommand{\DExcitedChargedFragmentationRatio}          {\mbox{$1.3\pm0.6{}^{+0.5}_{-0.1}$}\xspace}
+%\newcommand{\DExcitedChargedFragmentationRatioStatSyst}  {\mbox{$1.3\pm0.6(stat.){}^{+0.5}_{-0.1}(syst.)$}\xspace}
+
+
+\newcommand{\DPlusStarTwoBranching}                      {\mbox{$1.1 \pm 0.4{}^{+0.3}_{-0.2}$}\xspace}
+\newcommand{\DPlusStarTwoBranchingShort}                      {\mbox{$1.1\! \pm\! 0.4{}^{+0.3}_{-0.2}$}}
+\newcommand{\DPlusStarTwoBranchingStatSyst}              {\mbox{$1.1 \pm 0.4(stat.){}^{+0.3}_{-0.2}(syst.)$}\xspace}
+%1.093930+-0.444949^{+0.000000}_{-0.000000}+-0.000000^{+0.260660}_{-0.209478}
+%5.22429116541622718e-01  6.06125380532116731e-01 3.93564874307223755e-01  5.75297610199652643e-01 4.69341750280718173e-01
+%0.52^{+0.14}_{-0.13}(stat.)^{+0.05}_{-0.05}(syst.)
+\newcommand{\DPlusStarTwoBranchingBABARStyle}                      {\mbox{$0.52^{+0.08}_{-0.13}\pm0.05$}\xspace}
+\newcommand{\DPlusStarTwoBranchingBABARStyleStatSyst}              {\mbox{$0.52^{+0.08}_{-0.13}(stat.)\pm0.05(syst.)$}\xspace}
+
+\newcommand{\DPlusOneFragmentation}                      {\mbox{$4.6\pm1.8{}^{+2.0}_{-0.3}\,\%$}\xspace}
+\newcommand{\DPlusOneFragmentationShort}                      {\mbox{$4.6\!\pm\!1.8{}^{+2.0}_{-0.3}$}}
+\newcommand{\DPlusOneFragmentationStatSyst}              {\mbox{$4.6\pm1.8(stat.){}^{+2.0}_{-0.3}(syst.)\,\%$}\xspace}
+\newcommand{\DPlusStarTwoFragmentation}                  {\mbox{$3.2\pm0.8{}^{+0.5}_{-0.2}\,\%$}\xspace}
+\newcommand{\DPlusStarTwoFragmentationShort}             {\mbox{$3.2\!\pm\!0.8{}^{+0.5}_{-0.2}$}}
+\newcommand{\DPlusStarTwoFragmentationStatSyst}          {\mbox{$3.2\pm0.8(stat.){}^{+0.5}_{-0.2}(syst.)\,\%$}\xspace}
+
+
+\newcommand{\DPlusOneExtrapolationDZeroStar}             {\mbox{$5.4\pm2.1{}^{+2.3}_{-0.3}\,\%$}\xspace}
+\newcommand{\DPlusOneExtrapolationDZeroStarStatSyst}     {\mbox{$5.4\pm2.1(stat.){}^{+2.3}_{-0.3}(syst.)\,\%$}\xspace}
+\newcommand{\DPlusStarTwoExtrapolationDZeroStar}         {\mbox{$1.8\pm0.9{}^{+0.5}_{-0.3}\,\%$}\xspace}
+\newcommand{\DPlusStarTwoExtrapolationDZeroStarShort}         {\mbox{$1.8\!\pm\!0.9{}^{+0.5}_{-0.3}$}}
+\newcommand{\DPlusStarTwoExtrapolationDZeroStarStatSyst} {\mbox{$1.8\pm0.9(stat.){}^{+0.5}_{-0.3}(syst.)\,\%$}\xspace}
+\newcommand{\DPlusStarTwoExtrapolationDZero}             {\mbox{$2.0\pm0.5{}^{+0.4}_{-0.2}\,\%$}\xspace}
+\newcommand{\DPlusStarTwoExtrapolationDZeroShort}             {\mbox{$2.0\!\pm\!0.5{}^{+0.4}_{-0.2}$}}
+\newcommand{\DPlusStarTwoExtrapolationDZeroStatSyst}     {\mbox{$2.0\pm0.5(stat.){}^{+0.4}_{-0.2}(syst.)\,\%$}\xspace}
+
+
+\newcommand{\DExcitedChargedFragmentationSum}            {\mbox{$7.8\pm2.0{}^{+2.0}_{-0.4}\,\%$}\xspace}
+\newcommand{\DExcitedChargedFragmentationSumShort}            {\mbox{$7.8\!\pm\!2.0{}^{+2.0}_{-0.4}$}}
+
+\newcommand{\DExcitedChargedFragmentationSumStatSyst}    {\mbox{$7.8\pm2.0(stat.){}^{+2.0}_{-0.4}(syst.)\,\%$}\xspace}
+\newcommand{\DExcitedChargedFragmentationRatio}          {\mbox{$1.4\pm0.7{}^{+0.7}_{-0.1}$}\xspace}
+\newcommand{\DExcitedChargedFragmentationRatioShort}          {\mbox{$1.4\!\pm\!0.7{}^{+0.7}_{-0.1}$}}
+
+\newcommand{\DExcitedChargedFragmentationRatioStatSyst}  {\mbox{$1.4\pm0.7(stat.){}^{+0.7}_{-0.1}(syst.)$}\xspace}
+
+
+
+
+
+\newcommand{\coll}        {Collaboration}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+\newcommand{\GeVs}      {\mbox{${\,\rm GeV}^2$}}
+%\newcommand{\GeV}       {\mbox{${\,\rm GeV}$}}
+\newcommand{\MeV}       {\mbox{${\,\rm MeV}$}}
+%
+\newcommand{\sqs}       {\mbox{$\sqrt{s}$}}
+\newcommand{\qsq}       {\mbox{${Q^2}$}}
+%
+\newcommand{\sig}       {\mbox{$\sigma$}}
+\newcommand{\sigb}      {\mbox{$\sigma\cdot B$}}
+%
+\newcommand{\gcc}       {\mbox{$\Gamma_{c\bar c}$}}
+\newcommand{\gha}       {\mbox{$\Gamma_{had}$}}
+\newcommand{\gch}       {\mbox{$\frac{\Gamma_{c\bar c}}{\Gamma_{had}}$}}
+\newcommand{\gchfb}     {\mbox{$\gch \cdot f(c\ra D,\Lambda) \cdot B$}}
+%
+\newcommand{\ga}        {\mbox{$\gamma$}}
+\newcommand{\zn}        {\mbox{$\rm{Z}^0$}}
+%
+\newcommand{\gp}        {\mbox{$\gamma p$}}
+%
+\newcommand{\gaa}        {\mbox{$\gamma^{\ast}$}}
+%
+\newcommand{\gs}        {\mbox{$\gamma_s$}}
+%
+\newcommand{\Pom}       {\mbox{I$\!$P}}
+%
+\newcommand{\lum}{\mbox{$\cal L$}}
+%
+\newcommand{\bran}{\mbox{$\cal B$}}
+%
+\newcommand{\fr}{\mbox{$\cal F$}}
+%
+\newcommand{\rat}{\mbox{$\cal R$}}
+%
+\newcommand{\acc}{\mbox{$\cal A$}}
+%
+\newcommand{\ccb}        {\mbox{$c\bar{c}$}}
+\newcommand{\bbb}        {\mbox{$b\bar{b}$}}
+%
+\newcommand{\ds}         {{D^{\ast}}}
+\newcommand{\dsp}        {{D^{\ast +}}}
+\newcommand{\dspm}       {\mbox{$D^{\ast \pm}$}}
+%
+\newcommand{\dss}        {\mbox{$D_s$}}
+\newcommand{\dssp}       {\mbox{$D_s^+$}}
+\newcommand{\dssn}       {\mbox{$D_s^-$}}
+\newcommand{\dsspm}      {\mbox{$D_s^{\pm}$}}
+%
+\newcommand{\dsss}       {\mbox{$D_s^{\ast}$}}
+\newcommand{\dsssp}      {\mbox{$D_s^{\ast +}$}}
+\newcommand{\dsssn}      {\mbox{$D_s^{\ast -}$}}
+\newcommand{\dssspm}     {\mbox{$D_s^{\ast \pm}$}}
+%
+\newcommand{\dz}         {{D^{0}}}
+%
+\newcommand{\dzs}        {{D^{\ast 0}}}
+%
+\newcommand{\dssz}       {\mbox{$D^{\ast \ast 0}$}}
+%
+\newcommand{\dsprp}       {\mbox{$D^{\ast \prime +}$}}
+\newcommand{\dspr}       {\mbox{$D^{\ast \prime \pm}$}}
+\newcommand{\fcdpr}      {\mbox{$f(c \rightarrow D^{\ast \prime +})$}}
+%
+\newcommand{\dc}         {{D^+}}
+\newcommand{\dcpm}       {\mbox{$D^{\pm}$}}
+%
+\newcommand{\lc}         {\mbox{$\Lambda_c$}}
+\newcommand{\lcp}        {\mbox{$\Lambda_c^+$}}
+\newcommand{\lcpm}       {\mbox{$\Lambda_c^\pm$}}
+%
+\newcommand{\xic}        {\mbox{$\Xi_c$}}
+\newcommand{\omc}        {\mbox{$\Omega_c$}}
+%
+\newcommand{\dsone}      {{D_{s 1}^{+}}}
+%
+\newcommand{\dstwo}      {{D_{s 2}^{*+}}}
+\newcommand{\dsonepm}    {\mbox{$D_{s 1}^{\pm}$}}
+%
+\newcommand{\done}       {{D_1^{0}}}
+\newcommand{\dtwo}       {{D_2^{\ast 0}}}
+%
+\newcommand{\dcone}       {{D_1^{+}}}
+\newcommand{\dctwo}       {{D_2^{\ast +}}}
+\newcommand{\dex}       {{D^{**}}}
+\newcommand{\pz}       {{\pi^{0}}}
+\newcommand{\pp}       {{\pi^{+}}}
+\newcommand{\pn}       {{\pi^{-}}}
+%
+\newcommand{\fcsone}     {\mbox{$f(c \rightarrow D_{s 1}^+)$}}
+%
+\newcommand{\fcdone}     {\mbox{$f(c \rightarrow D_1^0)$}}
+\newcommand{\fcdtwo}     {\mbox{$f(c \rightarrow D_2^{\ast 0})$}}
+
+\newcommand{\fcdcone}     {\mbox{$f(c \rightarrow D_1^+)$}}
+\newcommand{\fcdctwo}     {\mbox{$f(c \rightarrow D_2^{\ast +})$}}
+%\newcommand{\fcdsone}     {\mbox{$f(c \rightarrow D_{s1}^+)$}}
+
+%
+\newcommand{\fcdzun}     {\mbox{$f(c \rightarrow D^0_{\rm untag})$}}
+%
+\newcommand{\fcdz}       {\mbox{$f(c \rightarrow D^0)$}}
+\newcommand{\fcdc}       {\mbox{$f(c \rightarrow D^+)$}}
+\newcommand{\fcdss}      {\mbox{$f(c \rightarrow D_s^+)$}}
+\newcommand{\fclc}       {\mbox{$f(c \rightarrow \Lambda_c^+)$}}
+\newcommand{\fcds}       {\mbox{$f(c \rightarrow D^{\ast +})$}}
+%
+\newcommand{\fcdl}       {\mbox{$f(c \rightarrow D,\Lambda)$}}
+%
+\newcommand{\fcte}       {\mbox{$f(\bar{c} \rightarrow e^-)$}}
+%
+\newcommand{\br}         {\mbox{${\cal B}_{D^{\ast +}\rightarrow D^0 \pi^+}$}}
+\newcommand{\BranNeutral}  {\mbox{$\frac{\bran_{D_2^{*0} \rightarrow D^+ \pi^-}}{\bran_{D_2^{*0} \rightarrow D^{*+} \pi^-}}$}\xspace}
+\newcommand{\BranCharged}  {\mbox{$\frac{\bran_{D_2^{*+} \rightarrow D^0 \pi^+}}{\bran_{D_2^{*+} \rightarrow D^{*0} \pi^+}}$}\xspace}
+\newcommand{\BranStrange}  {\mbox{$\frac{\bran_{D_{s1}^{+} \rightarrow D^{*+} K^0_S}}{\bran_{D_{s1}^{+} \rightarrow D^{*0} K^+}}$}\xspace}
+
+\newcommand{\BranNeutralLOW}  {\mbox{$\bran_{D_2^{*0} \rightarrow D^+ \pi^-}/\bran_{D_2^{*0} \rightarrow D^{*+} \pi^-}$}\xspace}
+\newcommand{\BranChargedLOW}  {\mbox{$\bran_{D_2^{*+} \rightarrow D^0 \pi^+}/\bran_{D_2^{*+} \rightarrow D^{*0} \pi^+}$}\xspace}
+\newcommand{\BranStrangeLOW}  {\mbox{$\bran_{D_{s1}^{+} \rightarrow D^{*+} K^0_S}/\bran_{D_{s1}^{+} \rightarrow D^{*0} K^+}$}\xspace}
+
+%
+\def\dskpi{ {\dsp}~\rightarrow~\dz~\pi^{+}_{s}%
+        \rightarrow~(K^{-}~\pi^{+})~\pi^{+}_{s} }
+%
+\def\dskspipi{ {\dsp}~\rightarrow~\dz~\pi^{+}_{s}%
+        \rightarrow~(K^{0}_s~\pi^{+}\pi^{-})~\pi^{+}_{s} }
+%
+\def\dsk3pi{ {\dsp}~\rightarrow~\dz~\pi^{+}_{s}%
+        \rightarrow~(K^{-}~\pi^{+}~\pi^{+}~\pi^{-})~\pi^{+}_{s} }
+%
+\def\dssphipi{ {\dssp}~\rightarrow~\phi~\pi^{+}%
+        \rightarrow~(K^{-}~K^{+})~\pi^{+} }
+%
+\def\dzkpi{ {\dz}~\rightarrow~K^{-}~\pi^{+} }
+%
+\def\dpkpi{ {\dz}~\rightarrow~K^{-}~\pi^{+} }
+%
+\def\dckpipi{ {\dc}~\rightarrow~K^{-}~\pi^{+}~\pi^{+} }
+%
+\def\lcpkpi{ {\lcp}~\rightarrow~p~K^{-}~\pi^{+} }
+%
+%
+\newcommand{\pt}       {\mbox{$P_{\perp}$}}
+%
+\newcommand{\ptds}       {\mbox{$P_{\perp}^{\ds}$}}
+%
+\newcommand{\ptdss}       {\mbox{$P_{\perp}^{\dss}$}}
+%
+\def\eten{ E_\perp^{\theta > 10^\circ}}
+%
+\def\et10t{ E_T^{\theta > 10^\circ}}
+%
+\def\etw10{ E_T^{\theta > 10}}
+%
+\def\ETJT{E_T^{\rm jet}}
+%
+\def\ETAJT{\eta^{\rm jet}}
+%
+\def\PHIJT{\phi^{\rm jet}}
+%
+\def\ptr{p_T^{\rm rel}}
+%
+
+
+%
+%pomeron in text
+\newcommand {\pom} {I\!\!P}
+%pomeron as subscript
+\newcommand {\pomsub} {{\scriptscriptstyle \pom}}
+\newcommand {\reg} {I\!\!R}
+\newcommand {\regsub} {{\scriptscriptstyle \reg}}
+\newcommand {\ppp} {\pom\pom\pom}
+\newcommand {\ppr} {\pom\pom\reg}
+\newcommand {\xpom} {x_{\pomsub}}
+\newcommand {\zpom} {z_{\pomsub}}
+\newcommand {\apom} {\alpha_{\pomsub}}
+\newcommand {\areg} {\alpha_{\regsub}}
+%
+\newcommand {\as} {\alpha_s}
+%
+%
+\newcommand {\qqb} {q\bar{q}}
+%
+\newcommand {\xgo} {\mbox{$x_{\gamma}^{\rm{OBS}}$}}
+%
+%
+\newcommand{\tpm}        {\mbox{$\,\pm\,$}}
+%
+\newcommand{\ra}         {\mbox{$\rightarrow$}}
+%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+
+
+\newcommand{\ZcoosysAA}{%
+The ZEUS coordinate system is a right-handed Cartesian system, with the $Z$
+axis pointing in the proton beam direction, referred to as the ``forward
+direction'', and the $X$ axis pointing left towards the centre of HERA.
+The coordinate origin is at the nominal interaction point.\xspace}
+\newcommand{\ZcoosysAE}{%
+The ZEUS coordinate system is a right-handed Cartesian system, with the $Z$
+axis pointing in the proton beam direction, referred to as the ``forward
+direction'', and the $X$ axis pointing left towards the centre of HERA.
+The coordinate origin is at the nominal interaction point.\xspace}
+\newcommand{\ZcoosysBA}{%
+The ZEUS coordinate system is a right-handed Cartesian system, with the $Z$ 
+axis pointing in the nominal proton beam direction, referred to as the ``forward
+direction'', and the $X$ axis pointing left towards the centre of HERA.
+The coordinate origin is at the centre of the CTD.\xspace}
+\newcommand{\ZcoosysBE}{%
+The ZEUS coordinate system is a right-handed Cartesian system, with the $Z$ 
+axis pointing in the nominal proton beam direction, referred to as the ``forward
+direction'', and the $X$ axis pointing left towards the centre of HERA.
+The coordinate origin is at the centre of the CTD.\xspace}
+\newcommand{\ZpsrapA}{%
+The pseudorapidity is defined as $\eta=-\ln\left(\tan\frac{\theta}{2}\right)$,
+where the polar angle, $\theta$, is measured with respect to the
+$Z$ axis.\xspace}
+\newcommand{\ZpsrapB}{%
+The pseudorapidity is defined as $\eta=-\ln\left(\tan\frac{\theta}{2}\right)$, 
+where the polar angle, $\theta$, is measured with respect to the
+$Z$ axis. The azimuthal angle, $\phi$, is
+measured with respect to the $X$ axis.\xspace}
+\newcommand{\ZcoosysfnAA}{\footnote{\ZcoosysAA}}
+\newcommand{\ZcoosysfnAE}{\footnote{\ZcoosysBE}}
+\newcommand{\ZcoosysfnBA}{\footnote{\ZcoosysBA}}
+\newcommand{\ZcoosysfnBE}{\footnote{\ZcoosysBE}}
+\newcommand{\ZcoosysfnAAeta}{\footnote{\ZcoosysAA\ZpsrapA}}
+\newcommand{\ZcoosysfnAEeta}{\footnote{\ZcoosysBE\ZpsrapA}}
+\newcommand{\ZcoosysfnAAetaphi}{\footnote{\ZcoosysAA\ZpsrapB}}
+\newcommand{\ZcoosysfnAEetaphi}{\footnote{\ZcoosysBE\ZpsrapB}}
+\newcommand{\ZcoosysfnBAeta}{\footnote{\ZcoosysBA\ZpsrapA}}
+\newcommand{\ZcoosysfnBEeta}{\footnote{\ZcoosysBE\ZpsrapA}}
+\newcommand{\ZcoosysfnBAetaphi}{\footnote{\ZcoosysBA\ZpsrapB}}
+\newcommand{\ZcoosysfnBEetaphi}{\footnote{\ZcoosysBE\ZpsrapB}}
+%------------------------------------------------------------------------------
+%       -> introductory sentence for detector description
+%------------------------------------------------------------------------------
+\newcommand{\Zdetdesc}{%
+A detailed description of the ZEUS detector can be found 
+elsewhere~\cite{zeus:1993:bluebook}. A brief outline of the 
+components that are most relevant for this analysis is given
+below.\xspace}
+%------------------------------------------------------------------------------
+%       -> CTD description (coordinate system footnote is given as argument)
+%------------------------------------------------------------------------------
+\newcommand{\Zctddesc}[1]{%
+Charged particles were tracked in the central tracking detector (CTD)~\citeCTD,
+which operated in a magnetic field of \unit[1.43]{\tesla} provided by a thin 
+superconducting coil. The CTD consisted of 72~cylindrical drift chamber 
+layers, organised in nine superlayers covering the polar-angle#1 region 
+\mbox{$15\degree < \theta < 164\degree$}. The transverse-momentum resolution for
+full-length tracks is $\sigma(p_T)/p_T=0.0058p_T\oplus0.0065\oplus0.0014/p_T$,
+with $p_T$ in $\GeV$.}
+%------------------------------------------------------------------------------
+%       -> CTD/MVD description (coordinate system footnote is given as argument)
+%------------------------------------------------------------------------------
+\newcommand{\Zctdmvddesc}[1]{%
+In the kinematic range of the analysis, charged particles were tracked
+in the central tracking detector (CTD)~\citeCTD and the microvertex
+detector (MVD)~\citeMVD. These components operated in a magnetic
+field of \unit[1.43]{\tesla} provided by a thin superconducting solenoid. The
+CTD consisted of 72~cylindrical drift-chamber layers, organised in nine
+superlayers covering the polar-angle#1 region
+\mbox{$15\degree < \theta< 164\degree$}.
+%
+The MVD silicon tracker consisted of a barrel (BMVD) and a forward
+(FMVD) section. The BMVD contained three layers and provided
+polar-angle coverage for tracks from $30\degree$ to
+$150\degree$. The four-layer FMVD extended the polar-angle coverage in
+the forward region to $7\degree$. After alignment, the single-hit
+resolution of the MVD was \unit[24]{\micron}. The transverse distance of closest
+approach (${\rm DCA}$) to the nominal vertex in $X$--$Y$ was measured to have
+a resolution, averaged over the azimuthal angle, of \unit[$(46 \oplus 122 /
+p_{T})$]{\micron}, with $p_{T}$ in \GeV.  For CTD-MVD tracks that pass
+through all nine CTD superlayers, the momentum resolution was
+$\sigma(p_{T})/p_{T} = 0.0029 p_{T} \oplus 0.0081 \oplus
+0.0012/p_{T}$, with $p_{T}$ in \GeV.}
+%------------------------------------------------------------------------------
+%       -> CTD/MVD/STT description (coordinate system footnote is given as argument)
+%------------------------------------------------------------------------------
+\newcommand{\Zctdmvdsttdesc}[1]{%
+In the kinematic range of the analysis, charged particles were tracked
+in the central tracking detector (CTD)~\citeCTD, the microvertex
+detector (MVD)~\citeMVD and the STT~\citeSTT. The CTD and the MVD
+operated in a magnetic field of \unit[1.43]{\tesla} provided by a thin
+superconducting solenoid. The CTD drift chamber covered the
+polar-angle#1 region $15\degree < \theta < 164\degree$. The MVD
+silicon tracker consisted of a barrel (BMVD) and a forward (FMVD)
+section. The BMVD provided polar angle coverage for tracks with three
+measurements from $30\degree$ to $150\degree$. The FMVD extended the
+polar-angle coverage in the forward region to $7\degree$. The STT
+covered the polar-angle region $5\degree <\theta < 25\degree$.}
+%------------------------------------------------------------------------------
+%       -> CTD/MVD/STT description (coordinate system footnote is given as argument)
+%------------------------------------------------------------------------------
+\newcommand{\Zsttdesc}[1]{%
+The STT consisted of 48 sectors of two different sizes. Each sector
+contained 192 (small sector) or 264 (large sector) straws of diameter
+\unit[7.5]{\mm} arranged into 3 layers. The sectors were trapezoidal in shape
+and each subtended an azimuthal angle of $60\degree$ -- 6 sectors
+formed a so-called superlayer. A particle passing through the complete
+detector traversed 8 superlayers, which were rotated around the beam
+direction at angles of $30\degree$ or $15\degree$ to each other. The STT
+covered the polar-angle region $5\degree < \theta < 23\degree$.
+}
+%------------------------------------------------------------------------------
+%       -> CAL description
+%------------------------------------------------------------------------------
+\newcommand{\Zcaldesc}{%
+The high-resolution uranium--scintillator calorimeter (CAL)~\citeCAL
+consisted of three parts: the forward (FCAL), the barrel (BCAL) and
+the rear (RCAL) calorimeters. Each part was subdivided transversely
+into towers and longitudinally into one electromagnetic section (EMC)
+and either one (in RCAL) or two (in BCAL and FCAL) hadronic sections
+(HAC). The smallest subdivision of the calorimeter was called a cell.
+The CAL energy resolutions, as measured under test-beam conditions,
+were $\sigma(E)/E=0.18/\sqrt{E}$ for electrons and
+$\sigma(E)/E=0.35/\sqrt{E}$ for hadrons, with $E$ in \GeV.}
+%------------------------------------------------------------------------------
+%       -> HES description
+%------------------------------------------------------------------------------
+\newcommand{\Zhesdesc}{%
+The position of electrons scattered at small angles to the
+electron-beam directions was determined with the help of RHES\citeHES,
+which consisted of a layer of approximately $10\,000$ (\unit[$2.96\times
+3.32$]{$\cm^2$}) silicon-pad detectors inserted in the RCAL at a
+depth of 3.3 radiation lengths.}
+%------------------------------------------------------------------------------
+%       -> MUON description
+%------------------------------------------------------------------------------
+\newcommand{\Zmuondesc}{%
+The muon system consisted of rear, barrel (R/BMUON) and forward
+(FMUON) tracking detectors. The B/RMUON consisted of limited--streamer
+(LS) tube chambers placed behind the BCAL (RCAL), inside and outside a
+magnetized iron yoke surrounding the CAL. The barrel and rear muon
+chambers cover polar angles from $34\degree$ to $135\degree$ and from
+$135\degree$ to $171\degree$, respectively. The FMUON consisted of six
+trigger planes of LS tubes and four planes of drift chambers covering
+the angular region from $5\degree$ to $32\degree$. The muon system
+exploited the magnetic field of the iron yoke and, in the forward
+direction, of two iron toroids magnetized to $\approx\unit[1.6]{\tesla}$
+to provide an independent measurement of the muon momentum.}
+%------------------------------------------------------------------------------
+%       -> BAC description
+%------------------------------------------------------------------------------
+\newcommand{\Zbacdesc}{%
+The iron yoke surrounding the CAL was instrumented with proportional
+drift chambers to form the Backing Calorimeter (BAC)~\citeBAC.  The
+BAC consisted of 5142 aluminium chambers inserted into the gaps
+between \unit[7.3]{\cm} thick iron plates (10, 9 and 7 layers in forecap,
+barrel and rearcap, respectively) serving as calorimeter absorber.
+The chambers were typically \unit[5]{\met} long and had a wire spacing of
+\unit[1.5]{\cm}. The anode wires were covered by \unit[50]{\cm} long cathode
+pads. The BAC was equipped with energy
+readout and position sensitive readout for muon tracking.  The former
+was based on 1692 pad towers (\unit[$50 \times 50$]{$\cm^2$}), providing an
+energy resolution of $\sim$\unit[100]{\%}$/\sqrt E$, with $E$ in \GeV. The position information
+from the wires allowed the reconstruction of muon trajectories in two
+dimensions ($XY$ in barrel and $YZ$ in endcaps) with spatial accuracy
+of a few \mm.}
+%------------------------------------------------------------------------------
+%       -> LUMI description (The actual lumi uncertainty in percent is given as the argument) 
+%------------------------------------------------------------------------------
+\newcommand{\Zlumidesc}{%
+The luminosity was measured using the Bethe-Heitler reaction
+$ep\,\rightarrow\, e\gamma p$ by a luminosity detector which
+consisted of independent lead--scintillator calorimeter\citePCAL and
+magnetic spectrometer\citeSPECTRO systems.}
+% The fractional
+%  systematic uncertainty on the measured luminosity was #1.}
+\newcommand{\ZlumidescA}[1]{%
+The luminosity was measured using the Bethe-Heitler reaction
+$ep\,\rightarrow\, e\gamma p$ by a luminosity detector which consisted
+of independent lead-scintillator calorimeter\citePCAL and a magnetic
+spectrometer\citeSPECTRO systems. The fractional systematic
+uncertainty on the measured luminosity was \unit[#1]{\%}.}
+%------------------------------------------------------------------------------
+%       -> 6mT description
+%------------------------------------------------------------------------------
+\newcommand{\ZSixmTdesc}{%
+Scattered electrons emerging from $eP$ interactions at very small
+angles were detected in a small tungsten--scintillator calorimeter
+located approximately \unit[6]{\met} from the interaction point in the rear
+direction, referred to as the ``6m-tagger''~\citeSixmT. For
+electrons in the energy range $4.1 \le E_e \le 7.4$ the acceptance is 
+very close to one with very high purity.}
+%------------------------------------------------------------------------------
+%       -> Standard Acknowledgements
+%------------------------------------------------------------------------------
+\newcommand{\Zacknowledge}{%
+We appreciate the contributions to the construction and maintenance of
+the ZEUS detector of many people who are not listed as authors. The
+HERA machine group and the DESY computing staff are especially
+acknowledged for their success in providing excellent operation of the
+collider and the data-analysis environment. We thank the DESY
+directorate for their strong support and encouragement.}
+%------------------------------------------------------------------------------
+%       -> physics units (eV and multiples)
+%------------------------------------------------------------------------------
+\newcommand{\eVdist}{\kern-0.06667em}
+\newcommand{\Ev}{{\,\text{e}\eVdist\text{V\/}}}
+\newcommand{\ev}{{\,\text{e}\eVdist\text{V\/}}}
+
+\newcommand{\Kev}{{\,\text{ke}\eVdist\text{V\/}}}
+\newcommand{\kev}{{\,\text{ke}\eVdist\text{V\/}}}
+
+
+\newcommand{\Mev}{{\,\text{Me}\eVdist\text{V\/}}}
+\newcommand{\mev}{{\,\text{Me}\eVdist\text{V\/}}}
+
+\newcommand{\Gev}{{\,\text{Ge}\eVdist\text{V\/}}}
+\newcommand{\gev}{{\,\text{Ge}\eVdist\text{V\/}}}
+
+\newcommand{\Tev}{{\,\text{Te}\eVdist\text{V\/}}}
+\newcommand{\tev}{{\,\text{Te}\eVdist\text{V\/}}}
+%------------------------------------------------------------------------------
+%       -> various other units
+%------------------------------------------------------------------------------
+\newcommand{\mb}{\,\text{mb}}
+\newcommand{\mub}{\,\upmu\text{b}}
+\newcommand{\nb}{\,\text{nb}}
+\newcommand{\pb}{\,\text{pb}}
+\newcommand{\fb}{\,\text{fb}}
+\newcommand{\mubi}{\,\upmu\text{b}^{-1}}
+\newcommand{\mbi}{\,\text{mb}^{-1}}
+\newcommand{\nbi}{\,\text{nb}^{-1}}
+\newcommand{\pbi}{\,\text{pb}^{-1}}
+\newcommand{\fbi}{\,\text{fb}^{-1}}
+\newcommand{\met}{\,\text{m}\xspace}
+\newcommand{\nm}{\,\text{nm}\xspace}
+%\newcommand{\mum}{{\mbox{\rm\,\mu m}\xspace}}
+\newcommand{\mm}{\,\text{mm}\xspace}
+\newcommand{\cm}{\,\text{cm}\xspace}
+\newcommand{\cmtwo}{\,\text{\ensuremath{cm^2}}\xspace}
+\newcommand{\mmtwo}{\,\text{\ensuremath{mm^2}}\xspace}
+\newcommand{\km}{\,\text{km}}
+\newcommand{\Amp}{\,\text{A}}
+\newcommand{\nA}{\,\text{nA}}
+\newcommand{\muA}{\,\upmu\text{A}}
+\newcommand{\mA}{\,\text{mA}}
+\newcommand{\kA}{\,\text{kA}}
+\newcommand{\Hz}{\,\text{Hz}\xspace}
+\newcommand{\kHz}{\,\text{kHz}\xspace}
+\newcommand{\MHz}{\,\text{MHz}\xspace}
+\newcommand{\GHz}{\,\text{GHz}\xspace}
+\newcommand{\ppm}{\,\text{ppm}}
+\newcommand{\ppb}{\,\text{ppb}}
+\newcommand{\scd}{\,\text{s}}
+%\newcommand{\ps}{\,\text{ps}}
+\newcommand{\ns}{\,\text{ns}\xspace}
+\newcommand{\mus}{\,\upmu\text{s}}
+\newcommand{\ms}{\,\text{ms}}
+\newcommand{\rad}{\,\text{rad}}
+\newcommand{\murad}{\,\upmu\text{rad}}
+\newcommand{\mrad}{\,\text{mrad}}
+\newcommand{\gra}{\,\text{g}}
+\newcommand{\pg}{\,\text{pg}}
+\newcommand{\nang}{\,\text{ng}}
+\newcommand{\mug}{\,\upmu\text{g}}
+\newcommand{\mg}{\,\text{mg}}
+\newcommand{\kg}{\,\text{kg}}
+\newcommand{\Tesla}{\,\text{T}\xspace}
+\newcommand{\Kelvin}{\,\text{K}\xspace}
+%------------------------------------------------------------------------------
+% Units used in hepunits
+%------------------------------------------------------------------------------
+\newcommand{\degree}{{\ensuremath{^{\circ}}}}
+\newcommand{\tesla}{\ensuremath{\,\text{T}}}
+\newcommand{\micron}{\ensuremath{\,\upmu\text{m}}}
+\newcommand{\mum}{\ensuremath{\,\mu\text{m}}\xspace}
+\newcommand{\GeV}{{\text{Ge}\eVdist\text{V\/}}}
+
+
+%\newcommand{\coll}{Collaboration}
+\newcommand{\etal}{et. al}
+\mathchardef\mhyphen="2D
+%\newcommand{\textdegree}{^{{}_o}}
+
+
+\newcommand{\commentO}{{\bf Comment by Olaf}}
+\newcommand{\commentU}{{\bf Comment by Uri}}
+
+\newif\ifheraonedetectors
+\newif\ifsmproblems
+\newif\ifheraonecombination
+\newif\ifmcstandalone
+\mcstandalonetrue
+
+
+%%%%%%%%%%%%%%%%%%%%%%%EFFICIENCY
+
+\newcommand{\Efficiency}{\mbox{$0.946\pm0.027$}\xspace}
+\newcommand{\EfficiencyLong}{\mbox{$0.946\pm0.024\pm0.011$}\xspace}
+
+\newcommand{\RDATANINEEIGHT}{\mbox{$1.94\pm0.10$}\xspace}
+\newcommand{\RPDG}                {\mbox{$2.08\pm0.05$}\xspace}
+\newcommand{\RMC}                {\mbox{$2.1188$}\xspace}
+\newcommand{\NDONEDATA}                {\mbox{$3066\pm87$}\xspace}
+%\newcommand{\NDTWODATA}                {\mbox{$2000\pm100$}\xspace}
+\newcommand{\NDONEMC}                {\mbox{$10917\pm127$}\xspace}
+%\newcommand{\NDTWOMC}                {\mbox{$2000\pm100$}\xspace}
+\newcommand{\EFFDATARATIO}                {\mbox{$0.626\pm0.030$}\xspace}
+\newcommand{\EFFMCRATIO}                {\mbox{$0.712\pm0.013$}\xspace}
+%0.945913  0.024278  0.011369
+%0.945913  0.026808
+%1091797E+05  0.127
+%0.7131662E+00  0.13
+\newcommand{\SemileptonicDecays}                {\mbox{$1.5\%$}\xspace}
+
+
+
+
+
+\def\PointA{0.5,1.9}
+
+\makeatletter
+\let\orig@pgfplots@foreach@plot@coord@NEXT\pgfplots@foreach@plot@coord@NEXT
+\def\pgfplots@foreach@plot@coord@NEXT{%
+    \expandafter\orig@pgfplots@foreach@plot@coord@NEXT\expandafter
+}
+\makeatother
+
+
+

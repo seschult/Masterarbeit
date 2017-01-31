@@ -20,6 +20,8 @@
  * MA 02110-1301, USA.
  */
 #ifdef __MAKECINT__
-#pragma link C++ class mtop_fit;
+#pragma link C++ class mtop_fit+;
+//#pragma link C++ class TH1F;
+//#pragma link C++ class TF1;
 #endif
 

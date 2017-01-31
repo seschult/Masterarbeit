@@ -1,5 +1,6 @@
 #include "ZROOT.h"
 #include "mtop_fit.h"
+#include "ZBestNumber.h"
 
 
 
@@ -38,16 +39,29 @@ int main(int argc, char* argv[]){
 	TFile* F= new TFile("1.root","recreate");
 	
 	//mtop_fit p(A->Argv(1));
-	mtop_fit p(argv[1]);
+	mtop_fit* p= new mtop_fit(argv[1]);
 
-	p.top_fit();
-	p.mw_fit();
-	p.rbq_fit();
-
+	p->top_fit();
+	p->mw_fit();
+	p->rbq_fit();
+p->fA=10;
 	
 	F->cd();
-	p.Write("FFF");
+	p->Write("FFF");
+	ZBestNumber *Q= new ZBestNumber(2.0);
+	Q->Write("QQQ");
 	F->Close();
+
+
+TFile* F2= new TFile("1.root","read");
+ZBestNumber *Z=(ZBestNumber*)(F2->Get("QQQ"));
+Z->Print();
+printf("%f\n",Z->fV);
+mtop_fit* q=(mtop_fit*)(F2->Get("FFF"));
+q->Print();
+if (q) if (q->c1) { puts("OK"); printf("%f\n",q->fA);}
+
+
 	//A->Run();
 	return 0;
 	}

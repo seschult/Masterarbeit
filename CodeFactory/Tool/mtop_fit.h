@@ -19,10 +19,10 @@ class mtop_fit: public TObject
 	 //constructor
 	
 	//Gauss
-
+int fA;//
 	TH1F *h1; //
 	TH1F *h2;//
-	TH1F *h3;
+	TH1F *h3;//
 	TFile *file;//
 	
 	TF1 *f00;//
@@ -35,14 +35,14 @@ class mtop_fit: public TObject
 	TF1 *f27;//
 	
 	
-	TF1 *ftop;//!
-	TF1 *fmw;//!
-	TF1 *frbq;//!
+	TF1 *ftop;//
+	TF1 *fmw;//
+	TF1 *frbq;//
 
 //std::map<std::string,TF1*>    fFunctions;
-	TCanvas *c1;
-	TCanvas *c2;
-	TCanvas *c3;
+	TCanvas *c1;//
+	TCanvas *c2;//
+	TCanvas *c3;//
 	    ClassDef(mtop_fit,0)
 	
 	

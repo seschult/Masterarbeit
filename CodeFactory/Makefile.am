@@ -88,7 +88,7 @@ Background1_SOURCES= Tool/Background_1.cxx
 #######################################################################
 Fit_Class3_SOURCES= Tool/Fit_Class3.cxx
 Fit_Class3_LIBS= $(LIBS)
-Fit_Class3_LDADD=libmtoplib.la
+Fit_Class3_LDADD=libmtoplib.la libzbestlib.la
 #######################################################################
 
 

@@ -593,13 +593,20 @@ myarea = rect.area(); */
 
 int main(int argc, char* argv[]){
 	TApplication* A =new TApplication("ssss",&argc, argv);
-
+	
+	TFile* F= new TFile("1.root","recreate");
+	
 	mtop_fit p(A->Argv(1));
 
 	p.top_fit();
 	p.mw_fit();
 	p.rbq_fit();
 
+	
+	
+	F->cd();
+	p.Write("FFF");
+	F->Close();
 	
 	A->Run();
 	return 0;

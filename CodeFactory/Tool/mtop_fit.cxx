@@ -52,6 +52,32 @@ ClassImp(mtop_fit)
 
 mtop_fit :: mtop_fit (){
 
+
+	h1=0; //
+	h2=0;//
+	h3=0;//
+	file=0;//
+	
+	f00=0;//
+	f01=0;//
+	f02=0;//
+	f13=0;//
+	f14=0;//
+	f25=0;//
+	f26=0;//
+	f27=0;//
+	
+	
+	ftop=0;//
+	fmw=0;//
+	frbq=0;//
+
+//std::map<std::string,TF1*>    fFunctions=0;
+	c1=0;//
+	c2=0;//
+	c3=0;//
+
+
 }
 
 mtop_fit :: mtop_fit (const char *File){

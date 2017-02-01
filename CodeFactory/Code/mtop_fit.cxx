@@ -7,6 +7,10 @@
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////
+//Fit Functions
+////////////////////////////////////////////////////////////////////////
+
 
 //Gauss
 Double_t signal(Double_t *x, Double_t *par) {
@@ -43,11 +47,17 @@ Double_t fit_rbq(Double_t *x,  Double_t *par) {
 return signal(x,par) + signal(x,&par[3]) + landau(x,&par[6]);
 }
 
-
+////////////////////////////////////////////////////////////////////////
+//Class def
+////////////////////////////////////////////////////////////////////////
 
 
 
 ClassImp(mtop_fit)
+
+////////////////////////////////////////////////////////////////////////
+//Default constructor
+////////////////////////////////////////////////////////////////////////
 
 
 mtop_fit :: mtop_fit (){
@@ -79,6 +89,10 @@ mtop_fit :: mtop_fit (){
 
 
 }
+
+/////////////////////////////////////////////////////////////////////////
+//Constructor
+////////////////////////////////////////////////////////////////////////
 
 mtop_fit :: mtop_fit (const char *File){
 	
@@ -143,7 +157,9 @@ mtop_fit :: mtop_fit (const char *File){
 	
 }
 	
-
+////////////////////////////////////////////////////////////////////////
+//Fit top Masse
+////////////////////////////////////////////////////////////////////////
 
 void mtop_fit :: top_fit(){ 
 	
@@ -172,10 +188,14 @@ void mtop_fit :: top_fit(){
 
 	//Get fit parameters 
 	double p[9];
+	
+	npar_mtop = 9;
  
 	for(int i = 0; i < 9; i++){
 	 
 		p[i] = ftop->GetParameter(i);
+		par_mtop[i] = p[i];
+		err_mtop[i] = ftop->GetParError(i);
 		};
  
 	//Draw functions
@@ -285,6 +305,12 @@ void mtop_fit :: top_fit(){
 }
 
 
+
+
+////////////////////////////////////////////////////////////////////////
+//Fit mw
+////////////////////////////////////////////////////////////////////////
+
 void mtop_fit :: mw_fit(){
 	double with = 600;
 	double hight = 700;
@@ -309,10 +335,13 @@ void mtop_fit :: mw_fit(){
 	
 	//Get fit parameters 
 	double p[6];
+	npar_mw = 6;
  
 	for(int i = 0; i < 6; i++){
 	 
 		p[i] = fmw->GetParameter(i);
+		par_mw[i] = p[i];
+		err_mw[i] = fmw->GetParError(i);
 		};
  
 	//Draw functions
@@ -415,6 +444,10 @@ void mtop_fit :: mw_fit(){
  
  
 }
+
+////////////////////////////////////////////////////////////////////////
+//Fit rbq
+////////////////////////////////////////////////////////////////////////
 	
 void mtop_fit :: rbq_fit(){ 
 	double with = 600;
@@ -442,10 +475,15 @@ void mtop_fit :: rbq_fit(){
 
 	//Get fit parameters 
 	double p[9];
+	
+	npar_rbq = 9;
  
 	for(int i = 0; i < 9; i++){
 	 
 		p[i] = frbq->GetParameter(i);
+		par_rbq[i] = p[i];
+		err_rbq[i] = frbq->GetParError(i);
+		
 		};
  
 	//Draw functions

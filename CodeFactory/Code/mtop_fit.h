@@ -10,6 +10,24 @@ class mtop_fit: public TObject
 	    
 	{
 	public: 
+	
+	
+	////////////////////////////////////////////////////////////////////
+	//For Save
+	double par_mtop[20];
+	double err_mtop[20];
+	int npar_mtop;
+	
+	double par_mw[20];
+	double err_mw[20];
+	int npar_mw;
+	
+	double par_rbq[20];
+	double err_rbq[20];
+	int npar_rbq;
+	////////////////////////////////////////////////////////////////////
+	
+	
 	mtop_fit(); //constructor
 	void top_fit(); //constructor
 	void mw_fit(); //constructor
@@ -18,8 +36,8 @@ class mtop_fit: public TObject
 	mtop_fit(const char *File); //constructor
 	 //constructor
 	
-	//Gauss
-int fA;//
+
+	int fA;//
 	TH1F *h1; //
 	TH1F *h2;//
 	TH1F *h3;//
@@ -39,11 +57,14 @@ int fA;//
 	TF1 *fmw;//
 	TF1 *frbq;//
 
-//std::map<std::string,TF1*>    fFunctions;
+
 	TCanvas *c1;//
 	TCanvas *c2;//
 	TCanvas *c3;//
-	    ClassDef(mtop_fit,0)
+	
+	
+	
+	ClassDef(mtop_fit,0)
 	
 	
 };

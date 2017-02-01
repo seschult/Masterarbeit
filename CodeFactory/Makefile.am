@@ -27,15 +27,15 @@ libzbestlib_la_SOURCES = src/ZBestNumber.cxx
 
 libzbestlib_la_SOURCES+=gen/zbestlibDict.cxx 
 
-
-libmtoplib_la_SOURCES = Tool/mtop_fit.cxx
+########################################################################
+libmtoplib_la_SOURCES = Code/mtop_fit.cxx
 
 libmtoplib_la_SOURCES+=gen/mtopDict.cxx 
-
+########################################################################
 
 
 # -Bsp compile file with header
-gen/mtopDict.cxx:  config.h  Tool/mtop_fit.h    src/mtopLinkDef.h 
+gen/mtopDict.cxx:  config.h  Code/mtop_fit.h    src/mtopLinkDef.h 
 		rootcint -f  $@   -c  $(AM_CPPFLAGS)  -p $^   
 
 
@@ -58,8 +58,7 @@ libzbestlib_la_SOURCES+= src/zbestlibLinkDef.h
 libmtoplib_la_LDFLAGS = -release $(EXAMPLE_API_VERSION)
 
 mtoplib_includedir = $(includedir)/$(PACKAGE)
-mtoplib_include_HEADERS =\
-Code/mtop_fit.h\
+mtoplib_include_HEADERS =\Code/mtop_fit.h\
 src/ZROOT.h
 
 
@@ -86,9 +85,9 @@ Background1_SOURCES= Code/Background_1.cxx
 
 
 #######################################################################
-Fit_Class3_SOURCES= Tool/Fit_Class3.cxx
+Fit_Class3_SOURCES= Code/Fit_Class3.cxx
 Fit_Class3_LIBS= $(LIBS)
-Fit_Class3_LDADD=libmtoplib.la libzbestlib.la
+Fit_Class3_LDADD=libmtoplib.la
 #######################################################################
 
 

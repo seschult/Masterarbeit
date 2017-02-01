@@ -59,7 +59,7 @@ libmtoplib_la_LDFLAGS = -release $(EXAMPLE_API_VERSION)
 
 mtoplib_includedir = $(includedir)/$(PACKAGE)
 mtoplib_include_HEADERS =\
-Tool/mtop_fit.h\
+Code/mtop_fit.h\
 src/ZROOT.h
 
 
@@ -78,11 +78,11 @@ test_LIBS= $(LIBS)
 test_LDADD=libzbestlib.la
 
 
-Fit_Class_SOURCES= Tool/Fit_Class.cxx  
+Fit_Class_SOURCES= Code/Fit_Class.cxx  
 
-Fit_Class2_SOURCES= Tool/Fit_Class2.cxx
+Fit_Class2_SOURCES= Code/Fit_Class2.cxx
 
-Background1_SOURCES= Tool/Background_1.cxx
+Background1_SOURCES= Code/Background_1.cxx
 
 
 #######################################################################

@@ -62,6 +62,8 @@ typedef long double zdouble;
 #include "TFile.h"
 #include "TLatex.h"
 #include "TStyle.h"
+#include "TChain.h"
+#include "TGraphErrors.h"
 typedef TMatrixTSym<double> ZBestMatrixTSym;
 typedef TMatrixT<double>    ZBestMatrixT;
 typedef TVectorT<double>    ZBestVectorT;

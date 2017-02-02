@@ -66,7 +66,7 @@ libmtoplib_la_SOURCES+= src/mtopLinkDef.h
 #######################################################################
 
 
-bin_PROGRAMS = test Fit_Class Fit_Class2 Fit_Class3 Background1
+bin_PROGRAMS = test Fit_Class Fit_Class2 Fit_Class3 Background1 Par
 
 
 test_CPPFLAGS=$(AM_CPPFLAGS)
@@ -82,6 +82,8 @@ Fit_Class_SOURCES= Code/Fit_Class.cxx
 Fit_Class2_SOURCES= Code/Fit_Class2.cxx
 
 Background1_SOURCES= Code/Background_1.cxx
+
+Par_SOURCES= Code/Fit_Par_Mass.cxx
 
 
 #######################################################################

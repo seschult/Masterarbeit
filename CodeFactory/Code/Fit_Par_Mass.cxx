@@ -3,7 +3,8 @@
   
   //Tapplication wie FitClass3
   
-int main(){
+int main(int argc, char* argv[]){
+	TApplication* A =new TApplication("ssss",&argc, argv);
 ////////////////////////////////////////////////////////////////////////
 //Get Entries
 ////////////////////////////////////////////////////////////////////////  
@@ -52,21 +53,79 @@ int main(){
  
  
  
-   fChain->GetEntry(0)
+   fChain->GetEntry(0);
 
 ////////////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////////////
 
-TGraph ABC
-TGraph errors
-//apl option draw
-for(int n = 0; n < fChain->GetEntriesFast(); ++n) {
-    fChain->GetEntry(n);
+int n = fChain->GetEntriesFast();
+
+
+
+//n =nummber of entries
+
+//mtop
+Double_t x[n+10], mtopp0[n+10];
+
+Double_t mtop[20][20];
+Double_t mtoperr[20][20];
+
+
+
+
+
+
+Double_t mtoperr1[n+10], massy[n+10];  // x=mass y= Parameter
+
+x[0] = 172;//Fix me
+x[1] = 173;
+x[2] = 174;
+x[3] = 175;
+x[4] = 176;
+x[5] = 177;
     
-    ABC -> SetPoint(N, masse, Parameterxy)
-    }
-   // then do something with various vector[i]'s
+
+
+
+//apl option draw
+for(int i = 0; i < fChain->GetEntriesFast(); ++i) {
+	
+		fChain->GetEntry(i);
+		
+		
+		for(int j = 0; j < 9; ++j){
+			
+			mtop[i][j] = fit_mtoppar[j];
+			mtoperr[i][j] = fit_mtoperr[j]
+			
+			};	
+		
+		
+		
+    };
+    
+    
+    
+    
+   TGraphErrors *gr[20];
+ 
+   
+   for(int j = 0; j < 9; ++j){
+	   
+   gr[j] = new TGraphErrors(n,x,mtop[j],0,mtoperr[j]);
+   
+	};
+
+	TCanvas *c[20];
+   for(int j = 0; j < 9; ++j){
+   c[j] = new TCanvas(n,mtop,200,10,700,500);
+   gr[j]->Draw("AC*");
+   };
+
+
+
+A->Run();
 
 
 return 0;

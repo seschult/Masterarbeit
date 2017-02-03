@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
    
    
 	TChain * fChain = new TChain("t1","");
-    fChain->Add("~/Errors.root/t1");
+    fChain->Add(A->Argv(1));
       
    
 
@@ -78,12 +78,12 @@ Double_t mtoperr[20][20];
 
 Double_t mtoperr1[n+10], massy[n+10];  // x=mass y= Parameter
 
-x[0] = 172;//Fix me
-x[1] = 173;
-x[2] = 174;
+x[0] = 170;//Fix me
+x[1] = 171;
+x[2] = 173;
 x[3] = 175;
-x[4] = 176;
-x[5] = 177;
+x[4] = 177;
+
     
 
 
@@ -97,7 +97,7 @@ for(int i = 0; i < fChain->GetEntriesFast(); ++i) {
 		for(int j = 0; j < 9; ++j){
 			
 			mtop[i][j] = fit_mtoppar[j];
-			mtoperr[i][j] = fit_mtoperr[j]
+			mtoperr[i][j] = fit_mtoperr[j];
 			
 			};	
 		
@@ -119,7 +119,7 @@ for(int i = 0; i < fChain->GetEntriesFast(); ++i) {
 
 	TCanvas *c[20];
    for(int j = 0; j < 9; ++j){
-   c[j] = new TCanvas(n,mtop,200,10,700,500);
+   c[j] = new TCanvas(Form("%i",j),Form("%i",j),200,10,700,500);
    gr[j]->Draw("AC*");
    };
 

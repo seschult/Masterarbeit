@@ -2174,3 +2174,71 @@
       <bcf:constraint type="mandatory">
         <bcf:field>author</bcf:field>
         <bcf:field>title</bcf:field>
+        <bcf:field>type</bcf:field>
+        <bcf:field>institution</bcf:field>
+      </bcf:constraint>
+    </bcf:constraints>
+    <bcf:constraints>
+      <bcf:entrytype>unpublished</bcf:entrytype>
+      <bcf:constraint type="mandatory">
+        <bcf:field>author</bcf:field>
+        <bcf:field>title</bcf:field>
+      </bcf:constraint>
+    </bcf:constraints>
+    <bcf:constraints>
+      <bcf:constraint type="data" datatype="isbn">
+        <bcf:field>isbn</bcf:field>
+      </bcf:constraint>
+      <bcf:constraint type="data" datatype="issn">
+        <bcf:field>issn</bcf:field>
+      </bcf:constraint>
+      <bcf:constraint type="data" datatype="ismn">
+        <bcf:field>ismn</bcf:field>
+      </bcf:constraint>
+      <bcf:constraint type="data" datatype="date">
+        <bcf:field>date</bcf:field>
+        <bcf:field>eventdate</bcf:field>
+        <bcf:field>origdate</bcf:field>
+        <bcf:field>urldate</bcf:field>
+      </bcf:constraint>
+      <bcf:constraint type="data" datatype="pattern" pattern="(?:sf|sm|sn|pf|pm|pn|pp)">
+        <bcf:field>gender</bcf:field>
+      </bcf:constraint>
+    </bcf:constraints>
+  </bcf:datamodel>
+  <!-- CITATION DATA -->
+  <!-- SECTION 0 -->
+  <bcf:bibdata section="0">
+    <bcf:datasource type="file" datatype="bibtex">thesis_refs.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex">thesis_refs.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="0">
+    <bcf:citekey order="1">kopka04</bcf:citekey>
+    <bcf:citekey order="2">goossens04</bcf:citekey>
+    <bcf:citekey order="3">pdg2010</bcf:citekey>
+    <bcf:citekey order="4">thesis-guide</bcf:citekey>
+    <bcf:citekey order="5">pdg2010</bcf:citekey>
+    <bcf:citekey order="5">Aad:2010ey</bcf:citekey>
+    <bcf:citekey order="6">Halzen:1984mc</bcf:citekey>
+    <bcf:citekey order="7">tlodd:2012</bcf:citekey>
+    <bcf:citekey order="8">mergelmeyer:2011</bcf:citekey>
+    <bcf:citekey order="9">lhc:vol1</bcf:citekey>
+    <bcf:citekey order="10">ATLAS-CONF-2011-008</bcf:citekey>
+    <bcf:citekey order="11">atlas:perf:2009</bcf:citekey>
+    <bcf:citekey order="12">thesis-guide</bcf:citekey>
+    <bcf:citekey order="13">glashow1961partial</bcf:citekey>
+    <bcf:citekey order="13">glashow1970weak</bcf:citekey>
+    <bcf:citekey order="13">gross1973asymptotically</bcf:citekey>
+    <bcf:citekey order="13">politzer1973reliable</bcf:citekey>
+    <bcf:citekey order="13">politzer1974asymptotic</bcf:citekey>
+    <bcf:citekey order="13">salam1964electromagnetic</bcf:citekey>
+    <bcf:citekey order="13">weinberg1967model</bcf:citekey>
+  </bcf:section>
+  <bcf:sortlist section="0" name="none" type="entry" sortscheme="none">
+  <bcf:sorting>
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sorting>
+  </bcf:sortlist>
+</bcf:controlfile>

@@ -1,0 +1,12 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {UKenglish}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}The Standard Model of Partical Physics}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Fundamental Particals, Fields and Forces}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}QCD}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Elektroweak inteaction theory and Higgs Mechanism}{6}{section.2.3}
+\contentsline {chapter}{\nonumberline Bibliography}{7}{chapter*.6}
+\contentsline {chapter}{\numberline {A}Useful information}{9}{appendix.A}
+\contentsline {chapter}{\nonumberline List of Figures}{11}{appendix*.7}
+\contentsline {chapter}{\nonumberline List of Tables}{13}{appendix*.8}

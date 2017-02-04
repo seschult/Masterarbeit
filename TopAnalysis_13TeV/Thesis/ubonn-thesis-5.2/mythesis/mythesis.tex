@@ -38,13 +38,32 @@
 % Glossary package
 % \usepackage[acronym,toc,nosuper]{glossaries}
 % TikZ packages and libraries
-%\usepackage{tikz}
-% \usepackage{tikz-3dplot}
-% \usepackage{pgfplots}
-% \usetikzlibrary{positioning,shapes,arrows}
-% \usetikzlibrary{decorations.pathmorphing}
-% \usetikzlibrary{decorations.markings}
+\usepackage{tikz}
+ \usepackage{tikz-3dplot}
+ \usepackage{pgfplots}
+ \usetikzlibrary{positioning,shapes,arrows}
+ \usetikzlibrary{decorations.pathmorphing}
+ \usetikzlibrary{decorations.markings}
 \usepackage{thesis_defs}
+%\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.pathreplacing}
+\usepackage{etoolbox}
+\usepackage{verbatim}
+%%%>
+
+\tikzset{%
+	brace/.style = { decorate, decoration={brace, amplitude=5pt} },
+	mbrace/.style = { decorate, decoration={brace, amplitude=5pt, mirror} },
+	label/.style = { black, midway, scale=0.5, align=center },
+	toplabel/.style = { label, above=.5em, anchor=south },
+	leftlabel/.style = { label,rotate=-90,left=.5em,anchor=north },   
+	bottomlabel/.style = { label, below=.5em, anchor=north },
+	force/.style = { rotate=-90,scale=0.4 },
+	round/.style = { rounded corners=2mm },
+	legend/.style = { right,scale=0.4 },
+	nosep/.style = { inner sep=0pt },
+	generation/.style = { anchor=base }
+}
 
 %------------------------------------------------------------------------------
 % Instead of colouring  links, cites, table of contents etc.
@@ -152,6 +171,10 @@
 %    \backgroundsetup{contents=DRAFT, color=blue!30}
  % }
 %}
+
+
+
+
 
 %------------------------------------------------------------------------------
 \begin{document}

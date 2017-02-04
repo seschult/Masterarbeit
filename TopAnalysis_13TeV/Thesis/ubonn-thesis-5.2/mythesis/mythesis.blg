@@ -1,28 +1,28 @@
-[0] Config.pm:340> INFO - This is Biber 2.4
-[1] Config.pm:343> INFO - Logfile is 'mythesis.blg'
-[73] biber:287> INFO - === So Jan 29, 2017, 14:27:11
-[182] Biber.pm:348> INFO - Reading 'mythesis.bcf'
-[342] Biber.pm:742> INFO - Found 12 citekeys in bib section 0
-[349] Biber.pm:3151> INFO - Processing section 0
-[383] Biber.pm:3308> INFO - Looking for bibtex format file 'thesis_refs.bib' for section 0
-[395] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
-[402] bibtex.pm:974> INFO - Found BibTeX data source 'thesis_refs.bib'
-[403] Utils.pm:147> WARN - Duplicate entry key: 'politzer1973reliable' in file 'thesis_refs.bib', skipping ...
-[413] Utils.pm:147> WARN - I didn't find a database entry for 'kopka04' (section 0)
-[413] Utils.pm:147> WARN - I didn't find a database entry for 'goossens04' (section 0)
-[413] Utils.pm:147> WARN - I didn't find a database entry for 'pdg2010' (section 0)
-[413] Utils.pm:147> WARN - I didn't find a database entry for 'thesis-guide' (section 0)
-[413] Utils.pm:147> WARN - I didn't find a database entry for 'Aad:2010ey' (section 0)
-[413] Utils.pm:147> WARN - I didn't find a database entry for 'Halzen:1984mc' (section 0)
-[414] Utils.pm:147> WARN - I didn't find a database entry for 'tlodd:2012' (section 0)
-[414] Utils.pm:147> WARN - I didn't find a database entry for 'mergelmeyer:2011' (section 0)
-[414] Utils.pm:147> WARN - I didn't find a database entry for 'lhc:vol1' (section 0)
-[414] Utils.pm:147> WARN - I didn't find a database entry for 'ATLAS-CONF-2011-008' (section 0)
-[414] Utils.pm:147> WARN - I didn't find a database entry for 'atlas:perf:2009' (section 0)
-[433] UCollate.pm:65> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[433] UCollate.pm:65> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[433] Biber.pm:3028> INFO - Sorting list 'none/global' of type 'entry' with scheme 'none' and locale 'en-UK'
-[433] Biber.pm:3032> INFO - No sort tailoring available for locale 'en-UK'
-[435] bbl.pm:519> INFO - Writing 'mythesis.bbl' with encoding 'UTF-8'
-[441] bbl.pm:615> INFO - Output to mythesis.bbl
-[441] Biber.pm:109> INFO - WARNINGS: 12
+[0] Config.pm:324> INFO - This is Biber 2.1
+[0] Config.pm:327> INFO - Logfile is 'mythesis.blg'
+[53] biber-darwin:276> INFO - === Sat Feb  4, 2017, 18:41:20
+[53] Biber.pm:333> INFO - Reading 'mythesis.bcf'
+[185] Biber.pm:645> INFO - Found 18 citekeys in bib section 0
+[217] Biber.pm:2977> INFO - Processing section 0
+[239] Biber.pm:3115> INFO - Looking for bibtex format file 'thesis_refs.bib' for section 0
+[241] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[242] bibtex.pm:895> INFO - Found BibTeX data source 'thesis_refs.bib'
+[244] Utils.pm:146> WARN - Duplicate entry key: 'politzer1973reliable' in file 'thesis_refs.bib', skipping ...
+[253] Utils.pm:146> WARN - I didn't find a database entry for 'kopka04' (section 0)
+[253] Utils.pm:146> WARN - I didn't find a database entry for 'goossens04' (section 0)
+[253] Utils.pm:146> WARN - I didn't find a database entry for 'pdg2010' (section 0)
+[253] Utils.pm:146> WARN - I didn't find a database entry for 'thesis-guide' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'Aad:2010ey' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'Halzen:1984mc' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'tlodd:2012' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'mergelmeyer:2011' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'lhc:vol1' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'ATLAS-CONF-2011-008' (section 0)
+[254] Utils.pm:146> WARN - I didn't find a database entry for 'atlas:perf:2009' (section 0)
+[330] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[330] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[330] Biber.pm:2854> INFO - Sorting list 'none' of type 'entry' with scheme 'none' and locale 'en-UK'
+[330] Biber.pm:2858> INFO - No sort tailoring available for locale 'en-UK'
+[338] bbl.pm:505> INFO - Writing 'mythesis.bbl' with encoding 'UTF-8'
+[339] bbl.pm:596> INFO - Output to mythesis.bbl
+[340] Biber.pm:106> INFO - WARNINGS: 12

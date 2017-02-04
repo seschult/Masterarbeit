@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.6 $
+% $ biblatex bbl format version 2.5 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,14 +18,97 @@
 
 
 \refsection{0}
-  \sortlist[entry]{none/global}
+  \sortlist{none}{none}
+    \entry{glashow1961partial}{article}{}
+      \name{author}{1}{}{%
+        {{hash=da71b32f653a7c620ad27f397a3290af}{Glashow}{G\bibinitperiod}{Sheldon\bibnamedelima L}{S\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{da71b32f653a7c620ad27f397a3290af}
+      \strng{fullhash}{da71b32f653a7c620ad27f397a3290af}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nuclear Physics}
+      \field{number}{4}
+      \field{title}{Partial-symmetries of weak interactions}
+      \field{volume}{22}
+      \field{year}{1961}
+      \field{pages}{579\bibrangedash 588}
+      \range{pages}{10}
+    \endentry
+    \entry{glashow1970weak}{article}{}
+      \name{author}{3}{}{%
+        {{hash=da71b32f653a7c620ad27f397a3290af}{Glashow}{G\bibinitperiod}{Sheldon\bibnamedelima L}{S\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=0a0e1374193051a33bdd22cb5b6217ab}{Iliopoulos}{I\bibinitperiod}{Jean}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=e18f3edc31a80df50afc0a6588603cf4}{Maiani}{M\bibinitperiod}{Luciano}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{04637ab8bdf8363b3be9358069048857}
+      \strng{fullhash}{04637ab8bdf8363b3be9358069048857}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review D}
+      \field{number}{7}
+      \field{title}{Weak interactions with lepton-hadron symmetry}
+      \field{volume}{2}
+      \field{year}{1970}
+      \field{pages}{1285}
+      \range{pages}{1}
+    \endentry
+    \entry{gross1973asymptotically}{article}{}
+      \name{author}{2}{}{%
+        {{hash=792f784269ee8958bf86afb2f8dc7a47}{Gross}{G\bibinitperiod}{David\bibnamedelima J}{D\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=0d6e6d48c2586ae1ddc23435ca002c1f}{Wilczek}{W\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{8883a095548d11c79f270471db74e740}
+      \strng{fullhash}{8883a095548d11c79f270471db74e740}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review D}
+      \field{number}{10}
+      \field{title}{Asymptotically free gauge theories. I}
+      \field{volume}{8}
+      \field{year}{1973}
+      \field{pages}{3633}
+      \range{pages}{1}
+    \endentry
+    \entry{politzer1973reliable}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a9f072b558512424251d7d5ce6037662}{Politzer}{P\bibinitperiod}{H\bibnamedelima David}{H\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{a9f072b558512424251d7d5ce6037662}
+      \strng{fullhash}{a9f072b558512424251d7d5ce6037662}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review Letters}
+      \field{number}{26}
+      \field{title}{Reliable perturbative results for strong interactions?}
+      \field{volume}{30}
+      \field{year}{1973}
+      \field{pages}{1346}
+      \range{pages}{1}
+    \endentry
     \entry{politzer1974asymptotic}{article}{}
       \name{author}{1}{}{%
-        {{hash=a9f072b558512424251d7d5ce6037662}{%
-           family={Politzer},
-           family_i={P\bibinitperiod},
-           given={H\bibnamedelima David},
-           given_i={H\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=a9f072b558512424251d7d5ce6037662}{Politzer}{P\bibinitperiod}{H\bibnamedelima David}{H\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
@@ -44,18 +127,61 @@
       \field{pages}{129\bibrangedash 180}
       \range{pages}{52}
     \endentry
+    \entry{salam1964electromagnetic}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5196fd7e08485dbc6a7dd05adc133fdf}{Salam}{S\bibinitperiod}{Abdus}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=f701c560aa21bdb7daf0fcb021c421ab}{Ward}{W\bibinitperiod}{John\bibnamedelima Clive}{J\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{fb338ed5df353f3f413a56a6bcc5b473}
+      \strng{fullhash}{fb338ed5df353f3f413a56a6bcc5b473}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physics Letters}
+      \field{number}{2}
+      \field{title}{Electromagnetic and weak interactions}
+      \field{volume}{13}
+      \field{year}{1964}
+      \field{pages}{168\bibrangedash 171}
+      \range{pages}{4}
+    \endentry
+    \entry{weinberg1967model}{article}{}
+      \name{author}{1}{}{%
+        {{hash=15e144c72b0b9d10db00ddc6d37a19e6}{Weinberg}{W\bibinitperiod}{Steven}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{15e144c72b0b9d10db00ddc6d37a19e6}
+      \strng{fullhash}{15e144c72b0b9d10db00ddc6d37a19e6}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical review letters}
+      \field{number}{21}
+      \field{title}{A model of leptons}
+      \field{volume}{19}
+      \field{year}{1967}
+      \field{pages}{1264}
+      \range{pages}{1}
+    \endentry
   \endsortlist
   \missing{Halzen:1984mc}
-  \missing{Aad:2010ey}
-  \missing{lhc:vol1}
   \missing{tlodd:2012}
-  \missing{thesis-guide}
-  \missing{atlas:perf:2009}
   \missing{goossens04}
-  \missing{pdg2010}
-  \missing{ATLAS-CONF-2011-008}
+  \missing{lhc:vol1}
   \missing{kopka04}
+  \missing{Aad:2010ey}
+  \missing{ATLAS-CONF-2011-008}
+  \missing{atlas:perf:2009}
   \missing{mergelmeyer:2011}
+  \missing{thesis-guide}
+  \missing{pdg2010}
 \endrefsection
 \endinput
 

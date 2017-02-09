@@ -118,19 +118,24 @@ mtop_fit :: mtop_fit (const char *File){
 	
 	
 	 
-	ftop->SetParameters(10, 170, 0.5, 400, 175, 8, 400, 120 ,9);
+	//ftop->SetParameters(10, 170, 0.5, 400, 175, 8, 400, 120 ,9);
+	ftop->SetParameters(1318, 167, -1.05, 4340, 182, 1.27, 54200, 142 ,9.56);
 	ftop->SetParLimits(3,0.0,1000000);
 	ftop->SetParLimits(6,0.0,1000000);
     ftop->SetParLimits(7,100.0,1000000);
 	  
 	fmw->SetParameters(10, 80, 1, 10, 82, 10); 
+	fmw->SetParameters(1742, 78, 6.8, 1616, 79, 19); 
 	
 	
-	frbq->SetParameters(10, 1, 2, 10, 2, 1, 10, 2 ,1);
+	
+	//frbq->SetParameters(10, 1, 2, 10, 2, 1, 10, 2 ,1);
+	frbq->SetParameters(600, 1.5, 0.7, 1000, 1, 0.5, 4525, 0.95 ,0.3);
+	
 	//fit->SetParameters(10, 1, 1, 1, 2, 1, 10, 2 ,15);
-	//frbq->SetParLimits(0,0.0,1000000);
-    //frbq->SetParLimits(3,0.0,1000000);
-    //frbq->SetParLimits(6,0.0,1000000);
+	frbq->SetParLimits(0,0.0,1000000);
+    frbq->SetParLimits(3,0.0,1000000);
+    frbq->SetParLimits(6,0.0,1000000);
 	
 	
 	//f0->SetParameters(10, 150, 2, 400, 170, 8, 100, 50 ,100);
@@ -450,6 +455,11 @@ void mtop_fit :: rbq_fit(){
 	
 	//Fit of the histogram   
 	h3->Fit("frbq","I","",0.3,3);
+	h3->Fit("frbq","I","",0.3,3);
+	h3->Fit("frbq","I","",0.3,3);
+	h3->Fit("frbq","I","",0.3,3);
+	h3->Fit("frbq","I","",0.3,3);
+	
 	h3->Draw();
 	
 
@@ -606,7 +616,7 @@ int main(int argc, char* argv[]){
 	
 	
 	
-	TFile *fend = new TFile(A->Argv(2),"RECREATE");
+	/*TFile *fend = new TFile(A->Argv(2),"RECREATE");
 	TTree *t1 = new TTree("t1","Data");
 	
 
@@ -638,6 +648,9 @@ int main(int argc, char* argv[]){
 	//F->cd();
 	//p.Write("FFF");
 	//F->Close();
+	*/
+	
+	
 	
 	A->Run();
 	return 0;

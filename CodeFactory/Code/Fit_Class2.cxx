@@ -266,12 +266,16 @@ void mtop_fit :: top_fit(){
    pad2->cd();   
        // pad2 becomes the current pad
        
+ 
+     
        
 	//Calculate the diffrence between Fitfunction and Histogramm h1
 	
 	double bin_tot = h1 -> GetSize();  
     double start = h1->GetXaxis()->GetBinCenter(0);
     double end = h1->GetXaxis()->GetBinCenter(bin_tot);
+    double err;
+    double div;
     
     
 	TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
@@ -291,12 +295,32 @@ void mtop_fit :: top_fit(){
     
 		if(sub > -100){
 			htop->SetBinContent(bin, sub);
+			err = htop->GetBinError(bin);
+			div = sub/err;
+			htop->SetBinContent(bin, div);
+			
+			
 			}else continue;
 		
 		};
-		htop->Draw();
+		
 	
+	int nbins = htop -> GetNbinsX();
+
+	float lower_edge  = htop -> GetBinLowEdge(1);
+	float bin_width   = htop -> GetBinWidth(1);
+	float number_bins = htop -> GetNbinsX();
+	float upper_edge = htop -> GetBinLowEdge(number_bins) + htop->GetBinWidth(number_bins);
+       
+       
+       
+	TF1 *norm1 = new TF1("fa1","1", lower_edge, upper_edge);
+	norm1 -> SetLineColor(kRed);
+	norm1 -> SetLineStyle(1);
+	norm1 -> SetLineWidth(2);
+	norm1->Draw();
 	
+	htop->Draw("Same");
 	
 	
 	
@@ -408,7 +432,8 @@ void mtop_fit :: mw_fit(){
 	double bin_tot = h2 -> GetSize();  
     double start = h2->GetXaxis()->GetBinCenter(0);
     double end = h2->GetXaxis()->GetBinCenter(bin_tot);
-    
+    double div;
+    double err;
     
 	TH1F *hw = new TH1F("hw", "dif", bin_tot, 40, 120);
 	hw->GetXaxis()->SetLabelFont(63);
@@ -426,12 +451,33 @@ void mtop_fit :: mw_fit(){
     
 		if(sub > -100){
 			hw->SetBinContent(bin, sub);
+			err = hw->GetBinError(bin);
+			div = sub/err;
+			hw->SetBinContent(bin, div);
 			}else continue;
 		
 		};
-		hw->Draw();
 	
- 
+	
+ 	int nbins = hw -> GetNbinsX();
+
+	float lower_edge  = hw -> GetBinLowEdge(1);
+	float bin_width   = hw -> GetBinWidth(1);
+	float number_bins = hw -> GetNbinsX();
+	float upper_edge = hw -> GetBinLowEdge(number_bins) + hw->GetBinWidth(number_bins);
+       
+       
+       
+	TF1 *norm1 = new TF1("fa1","1", lower_edge, upper_edge);
+	norm1 -> SetLineColor(kRed);
+	norm1 -> SetLineStyle(1);
+	norm1 -> SetLineWidth(2);
+	norm1->Draw();
+	
+	hw->Draw("Same");
+	
+	
+	
  
 }
 	
@@ -547,7 +593,8 @@ void mtop_fit :: rbq_fit(){
 	double bin_tot = h3 -> GetSize();  
     double start = h3->GetXaxis()->GetBinCenter(0);
     double end = h3->GetXaxis()->GetBinCenter(bin_tot);
-    
+    double err;
+    double div;
     
 	TH1F *hrbq = new TH1F("hw", "dif", bin_tot, 0, 3);
 	hrbq->GetXaxis()->SetLabelFont(63);
@@ -565,11 +612,35 @@ void mtop_fit :: rbq_fit(){
     
 		if(sub > -100 && dif !=0){
 			hrbq->SetBinContent(bin, sub);
+			err = hrbq->GetBinError(bin);
+			div = sub/err;
+			hrbq->SetBinContent(bin, div);
+			
 			}else continue;
 		
 		};
-		hrbq->Draw();
- 
+
+		
+		
+ 	int nbins = hrbq -> GetNbinsX();
+
+	float lower_edge  = hrbq -> GetBinLowEdge(1);
+	float bin_width   = hrbq -> GetBinWidth(1);
+	float number_bins = hrbq -> GetNbinsX();
+	float upper_edge = hrbq -> GetBinLowEdge(number_bins) + hrbq->GetBinWidth(number_bins);
+       
+       
+       
+	TF1 *norm1 = new TF1("fa1","1", lower_edge, upper_edge);
+	norm1 -> SetLineColor(kRed);
+	norm1 -> SetLineStyle(1);
+	norm1 -> SetLineWidth(2);
+	norm1->Draw();
+	
+	hrbq->Draw("Same");
+	
+	
+	
 }	
 	
 	

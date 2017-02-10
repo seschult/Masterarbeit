@@ -5,21 +5,15 @@
 
 
 
-
-
-int main(int argc, char* argv[]){
-	TApplication* A =new TApplication("ssss",&argc, argv);
-
-
-
-
-   
-   
+int in_out(const char*   in, const char* out)
+{
+	
+	
 	Char_t Label[300];
    	
 	////////////////////////////////////////////////////////////////////
 	//mtop_fit p(A->Argv(1));
-	mtop_fit* p= new mtop_fit(A->Argv(1));
+	mtop_fit* p= new mtop_fit(in);
 
 	p->top_fit();
 	
@@ -30,7 +24,7 @@ int main(int argc, char* argv[]){
 
 
 	////////////////////////////////////////////////////////////////////
-	TFile *fend = new TFile(A->Argv(2),"RECREATE");
+	TFile *fend = new TFile(out,"RECREATE");
 	TTree *t1 = new TTree("t1","Data");
 	
 
@@ -56,7 +50,63 @@ int main(int argc, char* argv[]){
 
 	////////////////////////////////////////////////////////////////////	
 	
+	
+	
+	
+	
+	
+}	
+
+
+
+
+
+
+int main(int argc, char* argv[]){
+	TApplication* A =new TApplication("ssss",&argc, argv);
+
+
+
+	std::vector<std::string> OUT;
+	std::vector<std::string> IN;
+	const char *ext=".root";
+
+   TSystemDirectory dir(A->Argv(1), A->Argv(1));
+   TList *files = dir.GetListOfFiles();
+   
+   if (files) {
+      TSystemFile *file;
+      TString fname;
+      TIter next(files);
+	  TH1F *h1;
+   
+      while ((file=(TSystemFile*)next())) {
+         fname = file->GetName();
+       
+         
+     
+         if (!file->IsDirectory() && fname.EndsWith(ext)) {
+           IN.push_back(std::string(A->Argv(1))+"/"+gSystem->BaseName(fname));
+           OUT.push_back(std::string(A->Argv(2))+"/out"+gSystem->BaseName(fname));
+            
+
+         }
+	 }
+}
+
+
+
+
+
+
+
+
+for (int i=0;i<IN.size();i++) in_out(IN[i].c_str(),OUT[i].c_str());
+   
+   
+	
 
 	A->Run();
 	return 0;
 	}
+

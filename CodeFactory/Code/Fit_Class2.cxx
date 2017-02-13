@@ -95,14 +95,14 @@ class mtop_fit{
 
 
 mtop_fit :: mtop_fit (const char *File){
-	
+	std::cout<<"constructor ok1";
 	//Top 
 	f00 = new TF1("f5",signal,125,210,3);
 	f01 = new TF1("f1",landau,125,210,3);
 	f02 = new TF1("f2",landau_n,125,210,3);
     ftop = new TF1("ftop",fit_mtop,125,210,9);
 	  
-	 
+	 std::cout<<"constructor 2";
 	//MW 
     f13 = new TF1("f3",signal,56,110,3);
     f14 = new TF1("f4",signal,56,110,3);
@@ -144,11 +144,12 @@ mtop_fit :: mtop_fit (const char *File){
     puts(File);
 	// Open file and histogram   
 	file = new TFile(File,"r");
-  
+	cout << File;
 	h1 = (TH1F*)file->Get("hist_klf_mtop_window");
+	cout << h1 -> Integral();
 	h2 = (TH1F*)file->Get("hist_klf_window_Whad_m");
 	h3 = (TH1F*)file->Get("hist_klf_window_Rbq_reco");
-	
+	std::cout<<"constructor ok3";
 	/*double with = 2000;
 	double hight = 500;
 	c1 = new TCanvas("c","c", with, hight);
@@ -165,29 +166,30 @@ mtop_fit :: mtop_fit (const char *File){
 
 
 void mtop_fit :: top_fit(){ 
-	
+	std::cout<<"constructor 1";
 	//c1->cd(1);
 	double with = 600;
 	double hight = 700;
 	c1 = new TCanvas("c1","c1", with, hight);
 	gStyle->SetOptStat(0);
-	
+	std::cout<<"constructor 2";
 	TPad *pad1 = new TPad("pad1", "pad1", 0, 0.32, 1, 1.0);
 	pad1->SetBottomMargin(5); // Upper and lower plot are joined
     pad1->SetGridx();         // Vertical grid
     pad1->Draw();             // Draw the upper pad: pad1
     pad1->cd();               // pad1 becomes the current pad
-	
+	std::cout<<"constructor 31";
 	h1->GetXaxis()->SetLabelFont(63);
 	h1->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
 	h1->GetYaxis()->SetLabelFont(63);
 	h1->GetYaxis()->SetLabelSize(14);
-	
+	std::cout<<"constructor Set";
 	//Fit of the histogram   
 	h1->Fit("ftop","RI","",130,210);
+	std::cout<<"constructor FIt";
 	h1->Draw();
 	
-	
+	std::cout<<"constructor 32";
 
 	//Get fit parameters 
 	double p[9];
@@ -196,7 +198,7 @@ void mtop_fit :: top_fit(){
 	 
 		p[i] = ftop->GetParameter(i);
 		};
- 
+ std::cout<<"constructor 33";
 	//Draw functions
 	f00->SetParameters(p[0],p[1],p[2]);
 	f00->SetLineColor(3);
@@ -214,7 +216,18 @@ void mtop_fit :: top_fit(){
 	double chi2_0 = ftop->GetChisquare();
 	double NDF_0 = ftop->GetNDF();
 	double Prob = ftop->GetProb();
-
+	double COM = chi2_0/NDF_0;
+	
+	std::stringstream oss_COM;
+	oss_COM   << setprecision(3) << COM;
+	
+	TLatex l04;
+	l04.SetTextAlign(9);
+	l04.SetTextSize(0.038);
+	l04.SetNDC();
+	l04.DrawLatex(0.15, 0.73, ("COM: " + oss_COM.str()).c_str());
+	
+std::cout<<"constructor 34";
 	//Output chi2/NDF/Prob
 	////////////////////////////////////////////////////////////////////
 	std::stringstream oss_Sep;
@@ -224,7 +237,7 @@ void mtop_fit :: top_fit(){
 	l00.SetTextAlign(9);
 	l00.SetTextSize(0.038);
 	l00.SetNDC();
-	l00.DrawLatex(0.1, 0.92, ("chi^2: " + oss_Sep.str()).c_str());
+	l00.DrawLatex(0.15, 0.76, ("chi^2: " + oss_Sep.str()).c_str());
 	
 	
 	std::stringstream oss_NDF_0;
@@ -234,7 +247,7 @@ void mtop_fit :: top_fit(){
 	l01.SetTextAlign(9);
 	l01.SetTextSize(0.038);
 	l01.SetNDC();
-	l01.DrawLatex(0.1, 0.95, ("NDF: " + oss_NDF_0.str()).c_str());
+	l01.DrawLatex(0.15, 0.79, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
@@ -243,10 +256,10 @@ void mtop_fit :: top_fit(){
 	l03.SetTextAlign(9);
 	l03.SetTextSize(0.038);
 	l03.SetNDC();
-	l03.DrawLatex(0.1, 0.88, ("Prob: " + oss_Prob.str()).c_str());
+	l03.DrawLatex(0.15, 0.82, ("Prob: " + oss_Prob.str()).c_str());
 	////////////////////////////////////////////////////////////////////
 	
-	    
+	    std::cout<<"constructor 35";
    TLegend *leg = new TLegend(0.6,0.7,0.78,0.9);
    //leg->SetHeader("The Legend Title","C"); // option "C" allows to center the header
    leg->AddEntry(h1,"Data","lep");
@@ -256,33 +269,38 @@ void mtop_fit :: top_fit(){
    leg->AddEntry(f02,"Landau_n","l");
    leg->Draw();
    
-	
+	std::cout<<"constructor 36";
    c1->cd(); 
    TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->SetGridx(); // vertical grid
    pad2->Draw();
-   pad2->cd();   
+   pad2->cd(); 
+  // pad2->SetRange(-10,10);  
        // pad2 becomes the current pad
        
  
      
        
 	//Calculate the diffrence between Fitfunction and Histogramm h1
-	
+	std::cout<<"constructor 37";
 	double bin_tot = h1 -> GetSize();  
     double start = h1->GetXaxis()->GetBinCenter(0);
     double end = h1->GetXaxis()->GetBinCenter(bin_tot);
     double err;
     double div;
     
-    
+    std::cout<<"constructor 38";
 	TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
-	htop->GetXaxis()->SetLabelFont(63);
-	htop->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
-	htop->GetYaxis()->SetLabelFont(63);
-	htop->GetYaxis()->SetLabelSize(14);
+	//htop->GetXaxis()->SetLabelFont(53);
+	//htop->GetXaxis()->SetLabelSize(40); // labels will be 14 pixels
+	//htop->GetYaxis()->SetLabelFont(1);
+	//htop->GetYaxis()->SetLabelSize(1);
+	htop->GetYaxis()->SetRange(-100,100);
+	//htop->SetMinimum(-10);
+	//htop->SetMaximum(20);
+	
 	
 	//TF1 *func = h1->GetFunction("ftop");
 	 
@@ -304,7 +322,7 @@ void mtop_fit :: top_fit(){
 		
 		};
 		
-	
+	std::cout<<"constructor 39";
 	int nbins = htop -> GetNbinsX();
 
 	float lower_edge  = htop -> GetBinLowEdge(1);
@@ -312,14 +330,14 @@ void mtop_fit :: top_fit(){
 	float number_bins = htop -> GetNbinsX();
 	float upper_edge = htop -> GetBinLowEdge(number_bins) + htop->GetBinWidth(number_bins);
        
+       std::cout<<"constructor 40";
        
-       
-	TF1 *norm1 = new TF1("fa1","1", lower_edge, upper_edge);
+	TF1 *norm1 = new TF1("fa1","0", lower_edge, upper_edge);
 	norm1 -> SetLineColor(kRed);
 	norm1 -> SetLineStyle(1);
 	norm1 -> SetLineWidth(2);
 	norm1->Draw();
-	
+	std::cout<<"constructor 41";
 	htop->Draw("Same");
 	
 	
@@ -654,9 +672,7 @@ void mtop_fit :: rbq_fit(){
 	
 	/*
 	 * n order to avoid that, a class can include a special function called its constructor, which is automatically called whenever a new object of this class is created, allowing the class to initialize member variables or allocate storage.
-
 This constructor function is declared just like a regular member function, but with a name that matches the class name and without any return type; not even void.
-
 The Rectangle class above can easily be improved by implementing a constructor:
 	 * 
 	 * */
@@ -677,11 +693,14 @@ int main(int argc, char* argv[]){
 	
 	//TFile* F= new TFile("1.root","recreate");
 	
+	
+	
+	std::cout<<"Main start";
 	mtop_fit p(A->Argv(1));
-
+	std::cout<<"constructor ok";
 	p.top_fit();
-	p.mw_fit();
-	p.rbq_fit();
+	//p.mw_fit();
+	//p.rbq_fit();
 
 	
 	
@@ -690,7 +709,6 @@ int main(int argc, char* argv[]){
 	/*TFile *fend = new TFile(A->Argv(2),"RECREATE");
 	TTree *t1 = new TTree("t1","Data");
 	
-
 	t1->Branch("Label",Label,"label/C");
 	
 	t1->Branch("fit_mtop_npar",&p->npar_mtop,"fit_mtop_npar/I");
@@ -710,10 +728,6 @@ int main(int argc, char* argv[]){
 	t1->Fill();   
 	fend->Write();
 	fend->Close();
-
-
-
-
 	
 	
 	//F->cd();
@@ -725,4 +739,4 @@ int main(int argc, char* argv[]){
 	
 	A->Run();
 	return 0;
-	}
+}

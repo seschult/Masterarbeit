@@ -215,6 +215,16 @@ void mtop_fit :: top_fit(){
 	double chi2_0 = ftop->GetChisquare();
 	double NDF_0 = ftop->GetNDF();
 	double Prob = ftop->GetProb();
+	double COM = chi2_0/NDF_0;
+	
+	std::stringstream oss_COM;
+	oss_COM   << setprecision(3) << COM;
+	
+	TLatex l04;
+	l04.SetTextAlign(9);
+	l04.SetTextSize(0.038);
+	l04.SetNDC();
+	l04.DrawLatex(0.1, 1.00, ("COM: " + oss_COM.str()).c_str());
 
 	//Output chi2/NDF/Prob
 	////////////////////////////////////////////////////////////////////
@@ -358,6 +368,16 @@ void mtop_fit :: mw_fit(){
 	double chi2_1 = fmw->GetChisquare();
 	double NDF_1 = fmw->GetNDF();
 	double Prob = fmw->GetProb();
+	double COM_1 = chi2_1/NDF_1;
+	
+	std::stringstream oss_COM_1;
+	oss_COM_1 << setprecision(3) << COM_1;
+	
+	TLatex l14;
+	l14.SetTextAlign(9);
+	l14.SetTextSize(0.038);
+	l14.SetNDC();
+	l14.DrawLatex(0.1, 1.00, ("COM: " + oss_COM_1.str()).c_str());
 	
 	std::stringstream oss_Sep1;
 	oss_Sep1   << setprecision(3) << chi2_1;
@@ -504,6 +524,16 @@ void mtop_fit :: rbq_fit(){
 	double chi2_2 = frbq->GetChisquare();
 	double NDF_2 = frbq->GetNDF();
 	double Prob = frbq->GetProb();
+	double COM_2 = chi2_2/NDF_2;
+	
+	std::stringstream oss_COM_2;
+	oss_COM_2 << setprecision(3) << COM_2;
+	
+	TLatex l24;
+	l24.SetTextAlign(9);
+	l24.SetTextSize(0.038);
+	l24.SetNDC();
+	l24.DrawLatex(0.1, 1.00, ("COM: " + oss_COM_2.str()).c_str());
 	
 	std::stringstream oss_Sep2;
 	oss_Sep2   << setprecision(3) << chi2_2;

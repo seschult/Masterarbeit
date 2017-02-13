@@ -340,7 +340,9 @@ std::cout<<"constructor 34";
 	std::cout<<"constructor 41";
 	htop->Draw("Same");
 	
-	c1->Print(("~/"+ File + ".png").c_str());
+	//string Name = file->GetName();
+	
+	//c1->Print(("~/"+ Name + ".png").c_str());
 	
  
 }

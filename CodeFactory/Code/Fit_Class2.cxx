@@ -138,7 +138,6 @@ mtop_fit :: mtop_fit (const char *File){
     frbq->SetParLimits(6,0.0,1000000);
 	
 	
-	//f0->SetParameters(10, 150, 2, 400, 170, 8, 100, 50 ,100);
     
     
     puts(File);
@@ -149,7 +148,7 @@ mtop_fit :: mtop_fit (const char *File){
 	cout << h1 -> Integral();
 	h2 = (TH1F*)file->Get("hist_klf_window_Whad_m");
 	h3 = (TH1F*)file->Get("hist_klf_window_Rbq_reco");
-	std::cout<<"constructor ok3";
+
 	/*double with = 2000;
 	double hight = 500;
 	c1 = new TCanvas("c","c", with, hight);
@@ -166,30 +165,44 @@ mtop_fit :: mtop_fit (const char *File){
 
 
 void mtop_fit :: top_fit(){ 
-	std::cout<<"constructor 1";
-	//c1->cd(1);
-	double with = 600;
-	double hight = 700;
+	
+	
+	double with = 950;
+	double hight = 900;
 	c1 = new TCanvas("c1","c1", with, hight);
 	gStyle->SetOptStat(0);
-	std::cout<<"constructor 2";
+	gStyle->SetOptTitle(0);
+	
+	
 	TPad *pad1 = new TPad("pad1", "pad1", 0, 0.32, 1, 1.0);
-	pad1->SetBottomMargin(5); // Upper and lower plot are joined
+	pad1->SetBottomMargin(1); // Upper and lower plot are joined
     pad1->SetGridx();         // Vertical grid
     pad1->Draw();             // Draw the upper pad: pad1
     pad1->cd();               // pad1 becomes the current pad
-	std::cout<<"constructor 31";
-	h1->GetXaxis()->SetLabelFont(63);
-	h1->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
-	h1->GetYaxis()->SetLabelFont(63);
-	h1->GetYaxis()->SetLabelSize(14);
-	std::cout<<"constructor Set";
-	//Fit of the histogram   
-	h1->Fit("ftop","RI","",130,210);
-	std::cout<<"constructor FIt";
-	h1->Draw();
 	
-	std::cout<<"constructor 32";
+
+	h1->GetXaxis()->SetLabelFont(63);
+	h1->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
+	h1->GetXaxis()->SetTitleSize(0.035);
+    h1->GetXaxis()->SetTitleOffset(1.11);
+    h1->GetXaxis()->SetTitleFont(42);
+	h1->GetXaxis()->SetTitle("m_{top}[GeV]"); // labels will be 14 pixels
+	h1->GetYaxis()->SetLabelFont(63);
+	h1->GetYaxis()->SetLabelSize(20);
+	h1->GetYaxis()->SetRangeUser(-120,1930);
+	h1->GetYaxis()->SetTitle("Entries");
+	
+	//Fit of the histogram
+	ftop->SetFillColor(19);
+	ftop->SetFillStyle(0);
+	ftop->SetLineColor(2);
+    ftop->SetLineWidth(3);   
+    h1->SetLineWidth(3);   
+	h1->Fit("ftop","RI","",130,210);
+	h1->Draw();
+		
+	h1->GetXaxis()->SetRangeUser(124,214);
+	
 
 	//Get fit parameters 
 	double p[9];
@@ -198,19 +211,26 @@ void mtop_fit :: top_fit(){
 	 
 		p[i] = ftop->GetParameter(i);
 		};
- std::cout<<"constructor 33";
+ 
+ 
+ 
 	//Draw functions
 	f00->SetParameters(p[0],p[1],p[2]);
 	f00->SetLineColor(3);
+	f00->SetFillStyle(0); 
+	f00->SetLineWidth(3);   
 	f00->Draw("SAME");
  
 	f01->SetParameters(p[3],p[4],p[5]);
 	f01->SetLineColor(7);
+	f01->SetFillStyle(0); 
+	f01->SetLineWidth(3);  
 	f01->Draw("SAME");
   
-
 	f02->SetParameters(p[6],p[7],p[8]);
 	f02->SetLineColor(9);
+	f02->SetFillStyle(0); 
+	f02->SetLineWidth(3);  
 	f02->Draw("SAME");
 	
 	double chi2_0 = ftop->GetChisquare();
@@ -218,26 +238,18 @@ void mtop_fit :: top_fit(){
 	double Prob = ftop->GetProb();
 	double COM = chi2_0/NDF_0;
 	
-	std::stringstream oss_COM;
-	oss_COM   << setprecision(3) << COM;
 	
-	TLatex l04;
-	l04.SetTextAlign(9);
-	l04.SetTextSize(0.038);
-	l04.SetNDC();
-	l04.DrawLatex(0.15, 0.73, ("COM: " + oss_COM.str()).c_str());
 	
-std::cout<<"constructor 34";
 	//Output chi2/NDF/Prob
 	////////////////////////////////////////////////////////////////////
 	std::stringstream oss_Sep;
 	oss_Sep   << setprecision(3) << chi2_0;
-	
 	TLatex l00;
 	l00.SetTextAlign(9);
 	l00.SetTextSize(0.038);
+	l00.SetLineWidth(2);
 	l00.SetNDC();
-	l00.DrawLatex(0.15, 0.76, ("chi^2: " + oss_Sep.str()).c_str());
+	l00.DrawLatex(0.1458774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
 	
 	std::stringstream oss_NDF_0;
@@ -246,8 +258,9 @@ std::cout<<"constructor 34";
 	TLatex l01;
 	l01.SetTextAlign(9);
 	l01.SetTextSize(0.038);
+	l01.SetLineWidth(2);
 	l01.SetNDC();
-	l01.DrawLatex(0.15, 0.79, ("NDF: " + oss_NDF_0.str()).c_str());
+	l01.DrawLatex(.1458774,0.7811448, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
@@ -255,13 +268,23 @@ std::cout<<"constructor 34";
 	TLatex l03;
 	l03.SetTextAlign(9);
 	l03.SetTextSize(0.038);
+	l03.SetLineWidth(2);
 	l03.SetNDC();
-	l03.DrawLatex(0.15, 0.82, ("Prob: " + oss_Prob.str()).c_str());
+	l03.DrawLatex(0.1469345,0.8299663, ("Prob: " + oss_Prob.str()).c_str());
+	
+	
+	
+	std::stringstream oss_COM;
+	oss_COM   << setprecision(3) << COM;
+	TLatex l04;
+	l04.SetTextAlign(9);
+	l04.SetTextSize(0.038);
+	l04.SetLineWidth(2);
+	l04.SetNDC();
+	l04.DrawLatex(0.1458774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
 	////////////////////////////////////////////////////////////////////
 	
-	    std::cout<<"constructor 35";
    TLegend *leg = new TLegend(0.6,0.7,0.78,0.9);
-   //leg->SetHeader("The Legend Title","C"); // option "C" allows to center the header
    leg->AddEntry(h1,"Data","lep");
    leg->AddEntry(ftop,"Fit","l");
    leg->AddEntry(f00,"Gauss","l");
@@ -269,17 +292,16 @@ std::cout<<"constructor 34";
    leg->AddEntry(f02,"Landau_n","l");
    leg->Draw();
    
-	std::cout<<"constructor 36";
+
    c1->cd(); 
    TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
+   pad2->Range(0,0,0,0.0);
    pad2->SetGridx(); // vertical grid
    pad2->Draw();
    pad2->cd(); 
-  // pad2->SetRange(-10,10);  
-       // pad2 becomes the current pad
-       
+ 
  
      
        
@@ -291,18 +313,42 @@ std::cout<<"constructor 34";
     double err;
     double div;
     
+    
     std::cout<<"constructor 38";
 	TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
-	//htop->GetXaxis()->SetLabelFont(53);
-	//htop->GetXaxis()->SetLabelSize(40); // labels will be 14 pixels
-	//htop->GetYaxis()->SetLabelFont(1);
-	//htop->GetYaxis()->SetLabelSize(1);
-	htop->GetYaxis()->SetRange(-100,100);
-	//htop->SetMinimum(-10);
-	//htop->SetMaximum(20);
+
+	  htop->GetXaxis()->SetRangeUser(124,214);
+      htop->GetXaxis()->SetLabelFont(42);
+      htop->GetXaxis()->SetLabelSize(0.08);
+      
+      
+     
+      htop->GetXaxis()->SetTitle("m_{top}[GeV]");
+      htop->GetXaxis()->SetTitleSize(0.08);
+      htop->GetXaxis()->SetTitleOffset(1.18);
+      htop->GetXaxis()->SetTitleFont(42);
+ 
+ 
+
+      htop->GetYaxis()->SetLabelFont(42);
+      htop->GetYaxis()->SetLabelSize(0.08);
+      htop->GetYaxis()->SetTitleSize(0.035);
+      htop->GetYaxis()->SetTitleFont(42);
+      htop->GetYaxis()->SetRangeUser(-2.9,2.9);	
+      
+      htop->GetYaxis()->SetTitleSize(0.08);
+	  htop->GetYaxis()->SetTitleOffset(0.29);
+	  htop->GetYaxis()->SetTitleFont(42);
+      
+      htop->GetYaxis()->SetTitle("(Data-Fit)/Error[#sigma]");
+      htop->SetLineWidth(3);  
+      
 	
 	
-	//TF1 *func = h1->GetFunction("ftop");
+	
+	
+	
+	
 	 
  	for (int bin=2; bin<=bin_tot;bin++) {
 		
@@ -313,7 +359,7 @@ std::cout<<"constructor 34";
     
 		if(sub > -100){
 			htop->SetBinContent(bin, sub);
-			err = htop->GetBinError(bin);
+			err = h1->GetBinError(bin);
 			div = sub/err;
 			htop->SetBinContent(bin, div);
 			
@@ -322,30 +368,61 @@ std::cout<<"constructor 34";
 		
 		};
 		
-	std::cout<<"constructor 39";
+	
 	int nbins = htop -> GetNbinsX();
 
 	float lower_edge  = htop -> GetBinLowEdge(1);
 	float bin_width   = htop -> GetBinWidth(1);
 	float number_bins = htop -> GetNbinsX();
 	float upper_edge = htop -> GetBinLowEdge(number_bins) + htop->GetBinWidth(number_bins);
-       
-       std::cout<<"constructor 40";
+
+	htop->Draw();
        
 	TF1 *norm1 = new TF1("fa1","0", lower_edge, upper_edge);
 	norm1 -> SetLineColor(kRed);
 	norm1 -> SetLineStyle(1);
 	norm1 -> SetLineWidth(2);
-	norm1->Draw();
-	std::cout<<"constructor 41";
-	htop->Draw("Same");
-	
-	//string Name = file->GetName();
-	
-	//c1->Print(("~/"+ Name + ".png").c_str());
-	
- 
+	norm1->Draw("SAME");
+
+
+	string Name = file->GetName();
+	std::cout<<Name;
+	c1->SaveAs(Form("%s%s%s","~/",Name.c_str(), ".png" ));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void mtop_fit :: mw_fit(){

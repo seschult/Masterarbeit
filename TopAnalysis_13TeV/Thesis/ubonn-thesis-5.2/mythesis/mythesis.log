@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.18)  13 FEB 2017 22:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.18)  14 FEB 2017 23:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2753,18 +2753,24 @@ File: ts1txr.fd 2000/12/15 v3.1
 
 (./Standard_Modell.tex
 Chapter 2.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 8.54997pt on input line 16.
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
+LaTeX Warning: Citation 'schael2006aleph' on page 3 undefined on input line 16.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--27
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
 
  []
 
@@ -2781,7 +2787,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 ψ
+l.39 ψ
         → ψ exp(−iα j(x) f j). (2.1)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2794,7 +2800,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 ψ → ψ
+l.39 ψ → ψ
                exp(−iα j(x) f j). (2.1)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2807,7 +2813,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 ψ → ψ exp(−
+l.39 ψ → ψ exp(−
                       iα j(x) f j). (2.1)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2820,14 +2826,14 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 ψ → ψ exp(−iα
+l.39 ψ → ψ exp(−iα
                           j(x) f j). (2.1)
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 (./SM_pic.tex) [4] (./Platz.tex
-<"Pics/Stupid People everywhere".jpeg, id=120, 558.085pt x 304.13625pt>
+<"Pics/Stupid People everywhere".jpeg, id=122, 558.085pt x 304.13625pt>
 File: "Pics/Stupid People everywhere".jpeg Graphic file (type jpg)
 
 <use "Pics/Stupid People everywhere".jpeg>
@@ -2910,18 +2916,26 @@ Package rerunfilecheck Info: File `mythesis.out' has not changed.
 (rerunfilecheck)             Checksum: 41D8D7095868239A15245D84A86DC4AC;534.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                mythesis
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'mythesis.run.xml'.
 \openout1 = `mythesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54561 strings out of 493089
- 1206387 string characters out of 6134842
- 1847356 words of memory out of 5000000
- 56921 multiletter control sequences out of 15000+600000
- 74157 words of font info for 208 fonts, out of 8000000 for 9000
+ 54629 strings out of 493089
+ 1207168 string characters out of 6134842
+ 1848372 words of memory out of 5000000
+ 56950 multiletter control sequences out of 15000+600000
+ 82728 words of font info for 244 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,11n,93p,10420b,1589s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -2935,10 +2949,10 @@ helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/u
 tmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loca
 l/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mythesis.pdf (19 pages, 151462 bytes).
+Output written on mythesis.pdf (19 pages, 152306 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 51386 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 64186 words of extra memory for PDF output out of 74296 (max. 10000000)
 

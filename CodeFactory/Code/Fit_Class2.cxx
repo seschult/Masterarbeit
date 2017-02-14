@@ -148,18 +148,7 @@ mtop_fit :: mtop_fit (const char *File){
 	cout << h1 -> Integral();
 	h2 = (TH1F*)file->Get("hist_klf_window_Whad_m");
 	h3 = (TH1F*)file->Get("hist_klf_window_Rbq_reco");
-
-	/*double with = 2000;
-	double hight = 500;
-	c1 = new TCanvas("c","c", with, hight);
-	c1->Divide(3,2);
-	gStyle->SetOptStat(0); //New
-	*/
-	
-	//fFunctions["mtop_f0"]=new TF1("mtop_f0",signal,0,400,3);
-	//fFunctions["mtop_f0fsfssfs"]=new TF1("mtop_f0ff",signal,0,400,3);
-		
-	
+			
 }
 	
 
@@ -180,7 +169,7 @@ void mtop_fit :: top_fit(){
     pad1->Draw();             // Draw the upper pad: pad1
     pad1->cd();               // pad1 becomes the current pad
 	
-
+	
 	h1->GetXaxis()->SetLabelFont(63);
 	h1->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
 	h1->GetXaxis()->SetTitleSize(0.035);
@@ -199,9 +188,13 @@ void mtop_fit :: top_fit(){
     ftop->SetLineWidth(3);   
     h1->SetLineWidth(3);   
 	h1->Fit("ftop","RI","",130,210);
-	h1->Draw();
-		
+	
 	h1->GetXaxis()->SetRangeUser(124,214);
+	h1->Draw();
+	
+	
+		
+	
 	
 
 	//Get fit parameters 
@@ -284,7 +277,14 @@ void mtop_fit :: top_fit(){
 	l04.DrawLatex(0.1458774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
 	////////////////////////////////////////////////////////////////////
 	
-   TLegend *leg = new TLegend(0.6,0.7,0.78,0.9);
+   //TLegend *leg = new TLegend(0.6,0.7,0.78,0.9);
+   TLegend *leg = new TLegend(0.7078059,0.6690754,0.8987342,0.8986966,NULL,"brNDC");
+   leg->SetBorderSize(1);
+   leg->SetLineColor(1);
+   leg->SetLineStyle(1);
+   leg->SetLineWidth(1);
+   leg->SetFillColor(0);
+   leg->SetFillStyle(1001);
    leg->AddEntry(h1,"Data","lep");
    leg->AddEntry(ftop,"Fit","l");
    leg->AddEntry(f00,"Gauss","l");
@@ -381,13 +381,13 @@ void mtop_fit :: top_fit(){
 	TF1 *norm1 = new TF1("fa1","0", lower_edge, upper_edge);
 	norm1 -> SetLineColor(kRed);
 	norm1 -> SetLineStyle(1);
-	norm1 -> SetLineWidth(2);
+	norm1 -> SetLineWidth(3);
 	norm1->Draw("SAME");
 
 
-	string Name = file->GetName();
+	string Name = "massetop";
 	std::cout<<Name;
-	c1->SaveAs(Form("%s%s%s","~/",Name.c_str(), ".png" ));
+	c1->Print(Form("%s%s%s","~/",Name.c_str(), ".png" ));
 }
 
 
@@ -426,25 +426,44 @@ void mtop_fit :: top_fit(){
 
 
 void mtop_fit :: mw_fit(){
-	double with = 600;
-	double hight = 700;
+	double with = 950;
+	double hight = 900;
 	c2 = new TCanvas("c2","c2", with, hight);
 	gStyle->SetOptStat(0);
-	//c1->cd(2);
-	TPad *pad1 = new TPad("pad1", "pad1", 0, 0.3, 1, 1.0);
-	pad1->SetBottomMargin(2); // Upper and lower plot are joined
+	gStyle->SetOptTitle(0);
+	
+
+	TPad *pad1 = new TPad("pad1", "pad1", 0, 0.32, 1, 1.0);
+	pad1->SetBottomMargin(1); // Upper and lower plot are joined
     pad1->SetGridx();         // Vertical grid
     pad1->Draw();             // Draw the upper pad: pad1
     pad1->cd();               // pad1 becomes the current pad
 	
-	
+		
 	h2->GetXaxis()->SetLabelFont(63);
-	h2->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
+	h2->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
+	h2->GetXaxis()->SetTitleSize(0.035);
+    h2->GetXaxis()->SetTitleOffset(1.11);
+    h2->GetXaxis()->SetTitleFont(42);
+	h2->GetXaxis()->SetTitle("m_{w}[GeV]"); // labels will be 14 pixels
 	h2->GetYaxis()->SetLabelFont(63);
-	h2->GetYaxis()->SetLabelSize(14);
+	h2->GetYaxis()->SetLabelSize(20);
+	h2->GetYaxis()->SetRangeUser(-120,4030);
+	h2->GetYaxis()->SetTitle("Entries");
 	
-	//Fit of the histogram   
+	
+	//Fit of the histogram
+	
+	fmw->SetFillColor(19);
+	fmw->SetFillStyle(0);
+	fmw->SetLineColor(2);
+    fmw->SetLineWidth(3);   
+    h2->SetLineWidth(3);
+	
+	   
 	h2->Fit("fmw","","",56,110);
+	
+	h2->GetXaxis()->SetRangeUser(54,115);
 	h2->Draw();
 	
 	//Get fit parameters 
@@ -458,46 +477,71 @@ void mtop_fit :: mw_fit(){
 	//Draw functions
 	f13->SetParameters(p[0],p[1],p[2]);
 	f13->SetLineColor(3);
+	f13->SetFillStyle(0); 
+	f13->SetLineWidth(3);
 	f13->Draw("SAME");
  
 	f14->SetParameters(p[3],p[4],p[5]);
 	f14->SetLineColor(7);
+	f14->SetFillStyle(0); 
+	f14->SetLineWidth(3);
 	f14->Draw("SAME");
 
 
 	////////////////////////////////////////////////////////////////////
-	double chi2_1 = fmw->GetChisquare();
-	double NDF_1 = fmw->GetNDF();
+	
+	
+
+	double chi2_0 = fmw->GetChisquare();
+	double NDF_0 = fmw->GetNDF();
 	double Prob = fmw->GetProb();
-	
-	std::stringstream oss_Sep1;
-	oss_Sep1   << setprecision(3) << chi2_1;
-	
-	TLatex l10;
-	l10.SetTextAlign(9);
-	l10.SetTextSize(0.038);
-	l10.SetNDC();
-	l10.DrawLatex(0.1, 0.92, ("chi^2: " + oss_Sep1.str()).c_str());
+	double COM = chi2_0/NDF_0;
 	
 	
-	std::stringstream oss_NDF1;
-	oss_NDF1 << setprecision(3) << NDF_1;
 	
-	TLatex l11;
-	l11.SetTextAlign(9);
-	l11.SetTextSize(0.038);
-	l11.SetNDC();
-	l11.DrawLatex(0.1, 0.95, ("NDF: " + oss_NDF1.str()).c_str());
+	//Output chi2/NDF/Prob
+	////////////////////////////////////////////////////////////////////
+	std::stringstream oss_Sep;
+	oss_Sep   << setprecision(3) << chi2_0;
+	TLatex l00;
+	l00.SetTextAlign(9);
+	l00.SetTextSize(0.038);
+	l00.SetLineWidth(2);
+	l00.SetNDC();
+	l00.DrawLatex(0.1458774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
+	
+	std::stringstream oss_NDF_0;
+	oss_NDF_0 << setprecision(3) << NDF_0;
+	
+	TLatex l01;
+	l01.SetTextAlign(9);
+	l01.SetTextSize(0.038);
+	l01.SetLineWidth(2);
+	l01.SetNDC();
+	l01.DrawLatex(.1458774,0.7811448, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
 	
-	TLatex l12;
-	l12.SetTextAlign(9);
-	l12.SetTextSize(0.038);
-	l12.SetNDC();
-	l12.DrawLatex(0.1, 0.88, ("Prob: " + oss_Prob.str()).c_str());
+	TLatex l03;
+	l03.SetTextAlign(9);
+	l03.SetTextSize(0.038);
+	l03.SetLineWidth(2);
+	l03.SetNDC();
+	l03.DrawLatex(0.1469345,0.8299663, ("Prob: " + oss_Prob.str()).c_str());
+	
+	
+	
+	std::stringstream oss_COM;
+	oss_COM   << setprecision(3) << COM;
+	TLatex l04;
+	l04.SetTextAlign(9);
+	l04.SetTextSize(0.038);
+	l04.SetLineWidth(2);
+	l04.SetNDC();
+	l04.DrawLatex(0.1458774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	////////////////////////////////////////////////////////////////////
 	
 	
 	////////////////////////////////////////////////////////////////////
@@ -505,8 +549,15 @@ void mtop_fit :: mw_fit(){
 	
 	
  
-	TLegend* leg = new TLegend(0.6,0.7,0.78,0.9);
+	//TLegend* leg = new TLegend(0.6,0.7,0.78,0.9);
    //leg->SetHeader("The Legend Title","C"); // option "C" allows to center the header
+   TLegend *leg = new TLegend(0.7078059,0.6690754,0.8987342,0.8986966,NULL,"brNDC");
+   leg->SetBorderSize(1);
+   leg->SetLineColor(1);
+   leg->SetLineStyle(1);
+   leg->SetLineWidth(1);
+   leg->SetFillColor(0);
+   leg->SetFillStyle(1001);
    leg->AddEntry(h2,"Data","lep");
    leg->AddEntry(fmw,"Fit","l");
    leg->AddEntry(f13,"Gauss","l");
@@ -514,7 +565,7 @@ void mtop_fit :: mw_fit(){
   
    leg->Draw();
 	
-	c2->cd(); 
+   c2->cd(); 
    TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
@@ -548,7 +599,7 @@ void mtop_fit :: mw_fit(){
     
 		if(sub > -100){
 			hw->SetBinContent(bin, sub);
-			err = hw->GetBinError(bin);
+			err = h2->GetBinError(bin);
 			div = sub/err;
 			hw->SetBinContent(bin, div);
 			}else continue;
@@ -565,108 +616,199 @@ void mtop_fit :: mw_fit(){
        
        
        
-	TF1 *norm1 = new TF1("fa1","1", lower_edge, upper_edge);
+	
+	
+	
+	
+	  hw->GetXaxis()->SetRangeUser(54,115);
+      hw->GetXaxis()->SetLabelFont(42);
+      hw->GetXaxis()->SetLabelSize(0.08);
+      
+      
+     
+      hw->GetXaxis()->SetTitle("m_{w}[GeV]");
+      hw->GetXaxis()->SetTitleSize(0.08);
+      hw->GetXaxis()->SetTitleOffset(1.18);
+      hw->GetXaxis()->SetTitleFont(42);
+ 
+ 
+
+      hw->GetYaxis()->SetLabelFont(42);
+      hw->GetYaxis()->SetLabelSize(0.08);
+      hw->GetYaxis()->SetTitleSize(0.035);
+      hw->GetYaxis()->SetTitleFont(42);
+      hw->GetYaxis()->SetRangeUser(-3.4,3.4);	
+      
+      hw->GetYaxis()->SetTitleSize(0.08);
+	  hw->GetYaxis()->SetTitleOffset(0.29);
+	  hw->GetYaxis()->SetTitleFont(42);
+      
+      hw->GetYaxis()->SetTitle("(Data-Fit)/Error[#sigma]");
+      hw->SetLineWidth(3);  
+	
+	
+	
+	hw->Draw();
+	
+	TF1 *norm1 = new TF1("fa1","0", lower_edge, upper_edge);
 	norm1 -> SetLineColor(kRed);
 	norm1 -> SetLineStyle(1);
-	norm1 -> SetLineWidth(2);
-	norm1->Draw();
-	
-	hw->Draw("Same");
-	
-	
+	norm1 -> SetLineWidth(3);
+	norm1->Draw("SAME");
 	
  
+  string Name = "massew";
+	std::cout<<Name;
+	c2->Print(Form("%s%s%s","~/",Name.c_str(), ".png" ));
+ 
+ 
 }
-	
+
+
+
+
+
+
+
+
 void mtop_fit :: rbq_fit(){ 
-	double with = 600;
-	double hight = 700;
+	
+	double with = 950;
+	double hight = 900;
 	c3 = new TCanvas("c3","c3", with, hight);
 	gStyle->SetOptStat(0);
-	//c1->cd(3);
-	TPad *pad1 = new TPad("pad1", "pad1", 0, 0.3, 1, 1.0);
-	pad1->SetBottomMargin(2); // Upper and lower plot are joined
+	gStyle->SetOptTitle(0);
+	
+
+	TPad *pad1 = new TPad("pad1", "pad1", 0, 0.32, 1, 1.0);
+	pad1->SetBottomMargin(1); // Upper and lower plot are joined
     pad1->SetGridx();         // Vertical grid
     pad1->Draw();             // Draw the upper pad: pad1
     pad1->cd();               // pad1 becomes the current pad
 	
-	
-    h3->GetXaxis()->SetLabelFont(63);
-	h3->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
+		
+	h3->GetXaxis()->SetLabelFont(63);
+	h3->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
+	h3->GetXaxis()->SetTitleSize(0.035);
+    h3->GetXaxis()->SetTitleOffset(1.11);
+    h3->GetXaxis()->SetTitleFont(42);
+	h3->GetXaxis()->SetTitle("R_{bq}"); // labels will be 14 pixels
 	h3->GetYaxis()->SetLabelFont(63);
-	h3->GetYaxis()->SetLabelSize(14);
+	h3->GetYaxis()->SetLabelSize(20);
+	h3->GetYaxis()->SetRangeUser(-120,4030);
+	h3->GetYaxis()->SetTitle("Entries");
+	
+	
+	//Fit of the histogram
+	
+	frbq->SetFillColor(19);
+	frbq->SetFillStyle(0);
+	frbq->SetLineColor(2);
+    frbq->SetLineWidth(3);   
+    h3->SetLineWidth(3);
+	
+	h3->GetXaxis()->SetRangeUser(0.1,4);  
 	
 	//Fit of the histogram   
 	h3->Fit("frbq","I","",0.3,3);
-	h3->Fit("frbq","I","",0.3,3);
-	h3->Fit("frbq","I","",0.3,3);
-	h3->Fit("frbq","I","",0.3,3);
-	h3->Fit("frbq","I","",0.3,3);
-	
 	h3->Draw();
 	
 
 
 	//Get fit parameters 
 	double p[9];
+	
+	//npar_rbq = 9;
  
 	for(int i = 0; i < 9; i++){
 	 
 		p[i] = frbq->GetParameter(i);
+		//par_rbq[i] = p[i];
+		//err_rbq[i] = frbq->GetParError(i);
+		
 		};
  
 	//Draw functions
 	f25->SetParameters(p[0],p[1],p[2]);
 	f25->SetLineColor(3);
+	f25->SetLineWidth(3);
 	f25->Draw("SAME");
  
 	f26->SetParameters(p[3],p[4],p[5]);
 	f26->SetLineColor(7);
+	f26->SetLineWidth(3);
 	f26->Draw("SAME");
   
 
 	f27->SetParameters(p[6],p[7],p[8]);
 	f27->SetLineColor(9);
+	f27->SetLineWidth(3);
 	f27->Draw("SAME");
 	
 	//////////////////////////////////////////////////////////////////////
-	double chi2_2 = frbq->GetChisquare();
-	double NDF_2 = frbq->GetNDF();
-	double Prob = frbq->GetProb();
 	
-	std::stringstream oss_Sep2;
-	oss_Sep2   << setprecision(3) << chi2_2;
-	
-	TLatex l20;
-	l20.SetTextAlign(9);
-	l20.SetTextSize(0.038);
-	l20.SetNDC();
-	l20.DrawLatex(0.1, 0.92, ("chi^2: " + oss_Sep2.str()).c_str());
+
+	double chi2_0 = fmw->GetChisquare();
+	double NDF_0 = fmw->GetNDF();
+	double Prob = fmw->GetProb();
+	double COM = chi2_0/NDF_0;
 	
 	
-	std::stringstream oss_NDF2;
-	oss_NDF2 << setprecision(3) << NDF_2;
 	
-	TLatex l21;
-	l21.SetTextAlign(9);
-	l21.SetTextSize(0.038);
-	l21.SetNDC();
-	l21.DrawLatex(0.1, 0.95, ("NDF: " + oss_NDF2.str()).c_str());
+	//Output chi2/NDF/Prob
+	////////////////////////////////////////////////////////////////////
+	std::stringstream oss_Sep;
+	oss_Sep   << setprecision(3) << chi2_0;
+	TLatex l00;
+	l00.SetTextAlign(9);
+	l00.SetTextSize(0.038);
+	l00.SetLineWidth(2);
+	l00.SetNDC();
+	l00.DrawLatex(0.1458774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
+	
+	std::stringstream oss_NDF_0;
+	oss_NDF_0 << setprecision(3) << NDF_0;
+	
+	TLatex l01;
+	l01.SetTextAlign(9);
+	l01.SetTextSize(0.038);
+	l01.SetLineWidth(2);
+	l01.SetNDC();
+	l01.DrawLatex(.1458774,0.7811448, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
 	
-	TLatex l22;
-	l22.SetTextAlign(9);
-	l22.SetTextSize(0.038);
-	l22.SetNDC();
-	l22.DrawLatex(0.1, 0.88, ("Prob: " + oss_Prob.str()).c_str());
+	TLatex l03;
+	l03.SetTextAlign(9);
+	l03.SetTextSize(0.038);
+	l03.SetLineWidth(2);
+	l03.SetNDC();
+	l03.DrawLatex(0.1469345,0.8299663, ("Prob: " + oss_Prob.str()).c_str());
+	
+	
+	
+	std::stringstream oss_COM;
+	oss_COM   << setprecision(3) << COM;
+	TLatex l04;
+	l04.SetTextAlign(9);
+	l04.SetTextSize(0.038);
+	l04.SetLineWidth(2);
+	l04.SetNDC();
+	l04.DrawLatex(0.1458774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	////////////////////////////////////////////////////////////////////
 	
 	//////////////////////////////////////////////////////////////////////
  
-	TLegend* leg = new TLegend(0.6,0.7,0.78,0.9);
-   //leg->SetHeader("The Legend Title","C"); // option "C" allows to center the header
+    //leg->SetHeader("The Legend Title","C"); // option "C" allows to center the header
+   TLegend *leg = new TLegend(0.7078059,0.6690754,0.8987342,0.8986966,NULL,"brNDC");
+   leg->SetBorderSize(1);
+   leg->SetLineColor(1);
+   leg->SetLineStyle(1);
+   leg->SetLineWidth(1);
+   leg->SetFillColor(0);
+   leg->SetFillStyle(1001);
    leg->AddEntry(h3,"Data","lep");
    leg->AddEntry(frbq,"Fit","l");
    leg->AddEntry(f25,"Gauss","l");
@@ -675,7 +817,7 @@ void mtop_fit :: rbq_fit(){
    leg->Draw();
  
  
- 	c3->cd(); 
+   c3->cd(); 
    TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
@@ -693,12 +835,14 @@ void mtop_fit :: rbq_fit(){
     double err;
     double div;
     
+	
 	TH1F *hrbq = new TH1F("hw", "dif", bin_tot, 0, 3);
 	hrbq->GetXaxis()->SetLabelFont(63);
 	hrbq->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
 	hrbq->GetYaxis()->SetLabelFont(63);
+	hrbq->GetYaxis()->SetLabelSize(14);
 	
-	  hrbq->SetTitle("Dif Data-Fit");
+	
  
  	for (int bin=2; bin<=bin_tot;bin++) {
 		
@@ -709,16 +853,17 @@ void mtop_fit :: rbq_fit(){
     
 		if(sub > -100 && dif !=0){
 			hrbq->SetBinContent(bin, sub);
-			err = hrbq->GetBinError(bin);
+			err = h3->GetBinError(bin);
 			div = sub/err;
 			hrbq->SetBinContent(bin, div);
-			
 			}else continue;
 		
 		};
-
 		
 		
+		
+		
+	
  	int nbins = hrbq -> GetNbinsX();
 
 	float lower_edge  = hrbq -> GetBinLowEdge(1);
@@ -728,17 +873,59 @@ void mtop_fit :: rbq_fit(){
        
        
        
-	TF1 *norm1 = new TF1("fa1","1", lower_edge, upper_edge);
+	
+	
+	
+	
+	  hrbq->GetXaxis()->SetRangeUser(0.1,4);
+      hrbq->GetXaxis()->SetLabelFont(42);
+      hrbq->GetXaxis()->SetLabelSize(0.08);
+      
+      
+     
+      hrbq->GetXaxis()->SetTitle("Rbq");
+      hrbq->GetXaxis()->SetTitleSize(0.08);
+      hrbq->GetXaxis()->SetTitleOffset(1.18);
+      hrbq->GetXaxis()->SetTitleFont(42);
+ 
+ 
+
+      hrbq->GetYaxis()->SetLabelFont(42);
+      hrbq->GetYaxis()->SetLabelSize(0.08);
+      hrbq->GetYaxis()->SetTitleSize(0.035);
+      hrbq->GetYaxis()->SetTitleFont(42);
+      hrbq->GetYaxis()->SetRangeUser(-5.4,5.4);	
+      
+      hrbq->GetYaxis()->SetTitleSize(0.08);
+	  hrbq->GetYaxis()->SetTitleOffset(0.29);
+	  hrbq->GetYaxis()->SetTitleFont(42);
+      
+      hrbq->GetYaxis()->SetTitle("(Data-Fit)/Error[#sigma]");
+      hrbq->SetLineWidth(3);  
+		
+	  hrbq->Draw();
+ 
+ 
+ 	TF1 *norm1 = new TF1("fa1","0", lower_edge, upper_edge);
 	norm1 -> SetLineColor(kRed);
 	norm1 -> SetLineStyle(1);
-	norm1 -> SetLineWidth(2);
-	norm1->Draw();
+	norm1 -> SetLineWidth(3);
+	norm1->Draw("SAME");
 	
-	hrbq->Draw("Same");
-	
-	
-	
+ 
+	string Name = file->GetName();
+	//std::cout<<Name;
+	c3>Print(Form("%s%s%s","~/",Name.c_str(), ".png" ));
+ 
 }	
+
+
+
+
+
+
+	
+
 	
 	
 	
@@ -746,24 +933,6 @@ void mtop_fit :: rbq_fit(){
 
 	
 	
-	
-	
-	
-	/*
-	 * n order to avoid that, a class can include a special function called its constructor, which is automatically called whenever a new object of this class is created, allowing the class to initialize member variables or allocate storage.
-This constructor function is declared just like a regular member function, but with a name that matches the class name and without any return type; not even void.
-The Rectangle class above can easily be improved by implementing a constructor:
-	 * 
-	 * */
-	
-	
-	
-	
-	 //obj of class like int a
-	/*After declaraiton of the class, any of the public members of object rect can be accessed s if they were a normal function 
-	 * .between object ame and member name: rect.set_values();
-myarea = rect.area(); */
-
 
 
 
@@ -778,41 +947,9 @@ int main(int argc, char* argv[]){
 	mtop_fit p(A->Argv(1));
 	std::cout<<"constructor ok";
 	p.top_fit();
-	//p.mw_fit();
-	//p.rbq_fit();
+	p.mw_fit();
+	p.rbq_fit();
 
-	
-	
-	
-	
-	/*TFile *fend = new TFile(A->Argv(2),"RECREATE");
-	TTree *t1 = new TTree("t1","Data");
-	
-	t1->Branch("Label",Label,"label/C");
-	
-	t1->Branch("fit_mtop_npar",&p->npar_mtop,"fit_mtop_npar/I");
-	t1->Branch("fit_mtoppar",&p->par_mtop,"fit_mtoppar[fit_mtop_npar]/D");
-	t1->Branch("fit_mtoperr",&p->err_mtop,"fit_mtoperr[fit_mtop_npar]/D");
-	
-	t1->Branch("fit_mW_npar",&p->npar_mw,"fit_mW_npar/I");
-	t1->Branch("fit_mWpar",&p->par_mw,"fit_mWpar[fit_mW_npar]/D");
-	t1->Branch("fit_mWerr",&p->err_mw,"fit_mWerr[fit_mW_npar]/D");
-	
-	t1->Branch("fit_rbq_npar",&p->npar_rbq,"fit_rbq_npar/I");
-	t1->Branch("fit_rbq",&p->par_rbq,"fit_rbqpar[fit_rbq_npar]/D");
-	t1->Branch("fit_rbqerr",&p->err_rbq,"fit_rbqerr[fit_rbq_npar]/D");
-	
-	//Nation[0]='';
-	//sprintf(&(Nation[0]),"%s",A->Argv(1));
-	t1->Fill();   
-	fend->Write();
-	fend->Close();
-	
-	
-	//F->cd();
-	//p.Write("FFF");
-	//F->Close();
-	*/
 	
 	
 	

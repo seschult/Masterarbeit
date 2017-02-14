@@ -915,7 +915,7 @@ void mtop_fit :: rbq_fit(){
  
 	string Name = file->GetName();
 	//std::cout<<Name;
-	c3>Print(Form("%s%s%s","~/",Name.c_str(), ".png" ));
+	c3->Print(Form("%s%s%s","~/",Name.c_str(), ".png" ));
  
 }	
 

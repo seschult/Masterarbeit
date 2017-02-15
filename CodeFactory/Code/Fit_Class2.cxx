@@ -124,7 +124,7 @@ mtop_fit :: mtop_fit (const char *File){
 	ftop->SetParLimits(6,0.0,1000000);
     ftop->SetParLimits(7,100.0,1000000);
 	  
-	fmw->SetParameters(10, 80, 1, 10, 82, 10); 
+	 
 	fmw->SetParameters(1742, 78, 6.8, 1616, 79, 19); 
 	
 	
@@ -145,7 +145,6 @@ mtop_fit :: mtop_fit (const char *File){
 	file = new TFile(File,"r");
 	cout << File;
 	h1 = (TH1F*)file->Get("hist_klf_mtop_window");
-	cout << h1 -> Integral();
 	h2 = (TH1F*)file->Get("hist_klf_window_Whad_m");
 	h3 = (TH1F*)file->Get("hist_klf_window_Rbq_reco");
 			
@@ -242,7 +241,7 @@ void mtop_fit :: top_fit(){
 	l00.SetTextSize(0.038);
 	l00.SetLineWidth(2);
 	l00.SetNDC();
-	l00.DrawLatex(0.1458774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
+	l00.DrawLatex(0.1358774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
 	
 	std::stringstream oss_NDF_0;

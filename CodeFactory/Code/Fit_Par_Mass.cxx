@@ -79,8 +79,8 @@ Double_t mtoperr[20][20];
 Double_t mtoperr1[n+10], massy[n+10];  // x=mass y= Parameter
 
 x[0] = 170;//Fix me
-x[1] = 171;
-x[2] = 173;
+x[1] = 171.5;
+x[2] = 173.5;
 x[3] = 175;
 x[4] = 177;
 

@@ -52,7 +52,7 @@
                                                   
    \begin{beamercolorbox}[wd=\paperwidth,ht=2.55ex,dp=1ex,dp=1ex]{date in head/foot}                                                          
                   
- \hspace{1ex} \scriptsize{\insertframenumber / \insertpresentationendpage \hspace{2.99cm}  -- Top quark production at hadron colliders --  \hspace{2.01cm} Andrea Knue }     
+ \hspace{1ex} \scriptsize{\insertframenumber / \insertpresentationendpage \hspace{2.99cm}  -- Top quark mass @ 13TeV --  \hspace{2.01cm} Sebastian Schulte }     
 % \hspace{1ex} \scriptsize{\insertframenumber / 3 \hspace{3.85cm}  -- Status report: reprocessing --  \hspace{2.61cm} Andrea Knue}
 
  \end{beamercolorbox}}
@@ -72,10 +72,11 @@
 \setbeamercovered{dynamic}
 
 \begin{document}
-\title[]{W+jets estimate for diff. xsec}
+\title[]{Measurement of the Top Quark Mass in 
+	the\\ $t\={t}\rightarrow$ lepton+jets channel \\form $\sqrt{s}=13$TeV ATLAS data}
 \vspace{2cm}
 
-\author{{{\bf Andrea~Knue}}}
+\author{{{\bf Sebastian~Schulte}, Andrea~Knue, Stefan Kluth, Richard Nisius}}
 %\date{Fourth Annual LHCP Conference \\ -- Lund, 13th-18th June 2016 --}
 
 \frame{
@@ -83,16 +84,24 @@
 \titlepage
 \end{textblock}
 \vspace{-1.05cm}
-\begin{textblock}{8}(0.25, 9.0)
+\begin{textblock}{8}(-1.25, 9.0)
 \begin{figure}
 \centering
-\subfigure{\includegraphics[width=1.65in]{Logo/MPP_logo_schwarz.eps}}
+\subfigure{\includegraphics[width=0.9in]{Logo/Tum.jpg}}
 \end{figure}
 \end{textblock}
-\begin{textblock}{8}(7.50, 8.4)
+
+\begin{textblock}{8}(4.0, 8.9)
+	\begin{figure}
+		\centering
+		\subfigure{\includegraphics[width=1.85in]{Logo/MPPGr.png}}
+	\end{figure}
+\end{textblock}
+
+\begin{textblock}{8}(9.5, 9.0)
 \begin{figure}
 \centering
-\subfigure{\includegraphics[width=1.0in]{Logo/ATLASLogo.eps}}
+\subfigure{\includegraphics[width=0.9in]{Logo/ATLAS.png}}
 \end{figure}
 \end{textblock}
 }
@@ -102,12 +111,151 @@
 
 
 \frame{
-\frametitle{Blabla}
-
+\frametitle{Why Measuring the Top-Quark mass?}
 
 }
 
+\frame{
+	\frametitle{How the Data is taken?}
+	
+}
+\frame{
+	\frametitle{How is the Top-Qark mass measured?}
+	\begin{textblock}{18}(0.5, 2.8)	
+	\bfseries{Measurement is based on a 3D-Template method:}
+	\end{textblock}
+\begin{textblock}{18}(0.5, 4.0)	
+	\begin{itemize}
+		\item Variable 1: $m_{top}^{reco}$ from reconstructed Events 
+		\item Variable 2: $m_{W}^{reco}$ from chosen jet permutation, sensitive to JSF
+		\item Variable 2: $R_{bq}^{reco}$ from chosen jet permutation, sensitive to bJSF
+	
+  \end{itemize}
+	\end{textblock}
+	
+	
+	\begin{textblock}{5}(2.5, 7.5)		
+		
+	
+	
+		$R_{bq} ^{reco,1b}= \frac{  p_{T}^{b_{tag}}    }{(p_{T}^{W_{jet1}} + p_{T}^{W_{jet2}})/2  } $
+	
+	\end{textblock}
+	
+		\begin{textblock}{5}(8.5, 7.5)		
+			
+			$R_{bq} ^{reco,2b}= \frac{  p_{T}^{b_{had}} + p_{T}^{b_{lep}}     }{p_{T}^{W_{jet1}} + p_{T}^{W_{jet2}}  } $
+		\end{textblock}
+		
+	
+	
+	
+	
+	
+	
+	\begin{textblock}{9}(3.5, 9.5)	
+		\begin{block}{Determination of $m_{top}:$}
+			\begin{itemize}
+				\item Need fully reconstruction of $t\={t}$-finale state
+				\item Template parametrisation of the 3 variables
+				\item Unbinned likelihood fit is performed
+			\end{itemize}
+		
+		\end{block}
+		\end{textblock}	
+	}
+	
 
+
+
+
+\section{Event selection}
+\frame{
+	\frametitle{Objectdefinition}
+	
+}
+\frame{
+	\frametitle{Pre-selection}
+		
+	\begin{itemize}
+	
+			
+	
+		\item At least one good primary vertex with five associated tracks
+		
+		\item Exactly one isolated high $ p_T$ lepton
+		
+	\item At least 4 central jets with high$ p_T$ 
+	
+	\item 1 or 2 b-tagged jets 
+		
+	\item Cuts on   $E^{miss}_T$ ,  $m_T^W$  or  $E^{miss}_T$  + $m_T^W$             
+		
+		\item W+jets normalization and HF fraction estimated from data
+		
+	\item	Multijet background obtained from data in control region
+	
+
+	\end{itemize}
+	
+	
+}
+\frame{
+	\frametitle{Event yields after preselection}
+	
+}
+
+
+\frame{
+	\frametitle{Data/MC agreement}
+	
+	
+}
+
+
+
+\section{Status 13TeV}
+\frame{
+	\frametitle{Status 13TeV}
+	
+}
+\frame{
+	\frametitle{Event reconstruction}
+	
+}
+\frame{
+	\frametitle{Reconstruciton with KLFitter}
+	
+}
+\frame{
+	\frametitle{Data/MC agreement KLFitter}
+	
+}
+
+\frame{
+	\frametitle{Template parametrisation}
+	
+}
+\frame{
+	\frametitle{Workflow for Optimization studies}
+	
+}
+
+\frame{
+	\frametitle{In the following}
+	
+}
+\frame{
+	\frametitle{Previous results}
+	
+}
+	
+	\frame{
+		\frametitle{Summery Conclusion}
+		
+	}
+	
+	
 
 
 

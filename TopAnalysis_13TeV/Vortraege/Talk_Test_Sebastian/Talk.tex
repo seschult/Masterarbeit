@@ -13,7 +13,7 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{path}
 %\usepackage{feynmp}
-
+\usepackage{underscore}
 \newcommand{\ttbar}{$t\bar{t}$}
 \newcommand{\ttbargamma}{$t\bar{t}\gamma\,$}
 \newcommand{\invfb}{fb$^{-1}$}
@@ -76,7 +76,7 @@
 	the\\ $t\={t}\rightarrow$ lepton+jets channel \\form $\sqrt{s}=13$TeV ATLAS data}
 \vspace{2cm}
 
-\author{{{\bf Sebastian~Schulte}, Andrea~Knue, Stefan Kluth, Richard Nisius}}
+\author{{{\bf Sebastian~Schulte}, Andrea~Knue, StefanKluth, Richard Nisius}}
 %\date{Fourth Annual LHCP Conference \\ -- Lund, 13th-18th June 2016 --}
 
 \frame{
@@ -84,21 +84,21 @@
 \titlepage
 \end{textblock}
 \vspace{-1.05cm}
-\begin{textblock}{8}(-1.25, 9.0)
+\begin{textblock}{6}(-0.55, 9.0)
 \begin{figure}
 \centering
 \subfigure{\includegraphics[width=0.9in]{Logo/Tum.jpg}}
 \end{figure}
 \end{textblock}
 
-\begin{textblock}{8}(4.0, 8.9)
+\begin{textblock}{7.5}(4.0, 8.9)
 	\begin{figure}
 		\centering
 		\subfigure{\includegraphics[width=1.85in]{Logo/MPPGr.png}}
 	\end{figure}
 \end{textblock}
 
-\begin{textblock}{8}(9.5, 9.0)
+\begin{textblock}{6}(10.5, 9.0)
 \begin{figure}
 \centering
 \subfigure{\includegraphics[width=0.9in]{Logo/ATLAS.png}}
@@ -170,10 +170,75 @@
 
 
 \section{Event selection}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-	\frametitle{Objectdefinition}
+	\frametitle{\bfseries{Object definition for 2016 data}}
+	
+		\begin{textblock}{7}(0.5, 2.5)	
+			\begin{block}{\bfseries{Electrons}}
+				\begin{itemize}
+					\item $E_T > $28 GeV, $\mid \eta  \mid< $2.47
+					\item Gradient isolation, TightLH
+					\item HLT_e26_lhtight_nod0_ivarloos,
+					HLT_e60_lhmedium_nod0, 
+					HLT_e140_lhloose_nod0
+				\end{itemize}
+				
+			\end{block}	
+	
+			\end{textblock}	
+	
+		\begin{textblock}{7}(0.5, 8.5)	
+		\begin{block}{\bfseries{Small-R jets}}
+			\begin{itemize}
+				\item antiKt R = 0.4, EM-Jets
+				\item JVT $>$0.59 for $p_T <$ 60GeV and $\mid \eta  \mid< $2.4
+				\item b-tagging: MV2_c10, 77\% WP
+			\end{itemize}
+			
+		\end{block}	
+		
+	\end{textblock}	
+	
+	
+	
+	
+			\begin{textblock}{7}(8.5, 2.5)	
+		\begin{block}{\bfseries{Muons}}
+			\begin{itemize}
+				\item $E_T > $28 GeV, $\eta < $2.47
+				\item Medium, Gradient isolation
+				\item HLT_mu26_ivarmedium,
+				 HLT_mu50
+				 \space
+				 \space
+			\end{itemize}
+			
+		\end{block}	
+		
+	
+	\end{textblock}	
+	
+		\begin{textblock}{7}(8.5, 8.5)	
+		\begin{block}{\bfseries{MET/MTW}}
+			\begin{itemize}
+			\item $E_T^{miss} >$ 20GeV
+			\item $E_T^{miss} + m_T^{W}>$ 60GeV
+			\end{itemize}
+			
+		\end{block}	
+		
+	\end{textblock}	
+	
+		\begin{textblock}{17}(1.5,14.5)	
+			\bfseries{AnalysisTop-02-04-27}, with 25 fb-1 for 2016 data
+			\href{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopMassNtuplesRun2}{\beamergotobutton{Top Mass Ntuple production}}
+    	\end{textblock}
 	
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \frame{
 	\frametitle{Pre-selection}
 		
@@ -182,26 +247,52 @@
 			
 	
 		\item At least one good primary vertex with five associated tracks
-		
+		\vspace{0.2cm}
 		\item Exactly one isolated high $ p_T$ lepton
-		
+			\vspace{0.2cm}
 	\item At least 4 central jets with high$ p_T$ 
-	
+		\vspace{0.2cm}
 	\item 1 or 2 b-tagged jets 
-		
+			\vspace{0.2cm}
 	\item Cuts on   $E^{miss}_T$ ,  $m_T^W$  or  $E^{miss}_T$  + $m_T^W$             
-		
+			\vspace{0.2cm}
 		\item W+jets normalization and HF fraction estimated from data
-		
+			\vspace{0.2cm}
 	\item	Multijet background obtained from data in control region
 	
 
 	\end{itemize}
 	
+
+
 	
 }
+
+\section{Data/MC agreement 13 TeV}
+
 \frame{
 	\frametitle{Event yields after preselection}
+	
+	\begin{textblock}{18}(1.5, 2.5)	
+		
+\end{textblock}	
+	
+\begin{textblock}{18}(1.5, 9.5)	
+	\begin{itemize}
+		\item Background contamination dominated by W + Jets
+		\vspace{0.2cm}
+		\item Mass dependence of single-top $\Rightarrow $ include in signal
+		\vspace{0.2cm}
+		\item Reduction of background via cuts on 2 b-tagged jets
+		\vspace{0.2}
+		\item \bfseries{Good data/MC agreement }
+		 
+	\end{itemize}
+	
+	
+	
+\end{textblock}
+	
 	
 }
 
@@ -209,31 +300,139 @@
 \frame{
 	\frametitle{Data/MC agreement}
 	
-	
+	\begin{textblock}{18}(0.5,10.5)	
+		\begin{itemize}
+	\item	good Data/MC agreement for jet multiplicities and Missing $E_T$ 
+		\vspace{0.2cm}
+	\item	see larger discrepancies for higher  b-tag multiplicities
+		\vspace{0.2cm}
+		\item when we cut on at least two b-tagged jets, the Data/MC agreement 
+		gets worse
+		\end{itemize}
+		
+		
+		
+	\end{textblock}
 }
 
 
 
-\section{Status 13TeV}
+
 \frame{
-	\frametitle{Status 13TeV}
-	
+	\frametitle{Data/MC agreement}
+		
+		
+		\begin{textblock}{18}(0.5,10.5)	
+		\begin{itemize}
+         \item Multijet estimate: preliminary estimate from 2015 data from Nedaa 
+        scaled to 2016 luminosity 
+		\vspace{0.2cm}
+		\item Therefore see discrepancy at low electron $p_T$
+		
+	\end{itemize}
+
+\end{textblock}
 }
 \frame{
-	\frametitle{Event reconstruction}
+	\frametitle{Data/MC agreement}
+	\begin{textblock}{18}(0.5,10.5)
+	\begin{itemize}
+		\item Used four jets for KLFitter: priority for b-tagged jets
+	\vspace{0.2}
+\item	Do not use b-tag veto mode, but working point
 	
+	
+
+	
+
+\end{itemize}
+\end{textblock}
 }
+
+
 \frame{
-	\frametitle{Reconstruciton with KLFitter}
-	
+	\frametitle{Data/MC agreement}
+	\begin{textblock}{18}(0.5,10.5)
+		\begin{itemize}
+		
+			
+			\item Variables used for likelihood fit
+			\vspace{0.2cm}
+			\item	Did not store information to calculate MW_reco, will be shown in the next presentation
+			
+			
+		\end{itemize}
+	\end{textblock}
 }
+
+
+\section{Event reconstruction}
+
 \frame{
-	\frametitle{Data/MC agreement KLFitter}
+	\frametitle{$t\={t}$-final state}
+
+	\begin{textblock}{10}(0.5,2.5)
+%	\begin{alertblock}
+	\begin{itemize}
+		
 	
+	\item 4 jet event $\Rightarrow$ 24 possible jet-parton assignments
+	\vspace{0.2cm}
+	\item 12 permutations left since light jets from W are  indistinguishable
+	\vspace{0.2cm}
+	\item Kinematic liklihood fit with KLFitter\\
+	\vspace{0.2cm}
+	$\Rightarrow$ Chose best  permutations for calculation 
+
+
+	\end{itemize}
+%\end{alertblock}
+    \end{textblock}
 }
+
+\frame{
+	\frametitle{Reconstruction with KLFitter}
+	\begin{textblock}{10}(0.5,2.5)
+	\begin{itemize}
+		\item KLFitter input: charged lepton, missing $E_T$ and at least four jets\\
+		\vspace{0.2cm}
+		$\Rightarrow$ one or two b-tagged jets + untagged jets with highest $p_T$
+		\vspace{0.2cm}
+		\item Definition of kinematic Likelihood:\\
+		\begin{itemize}
+			\item Transfer functions ($W$) for Detector response
+			\item{Breit-Wigner distributions ($BW$)}
+			\item different options to use b-tagging information 
+		\end{itemize}
+		
+		
+	\end{itemize}
+	
+	
+	
+	\end{textblock}
+}
+
+\section{Template Parametrisation} 
 
 \frame{
 	\frametitle{Template parametrisation}
+	
+	
+	\begin{textblock}{10}(0.5,2.5)
+		%	\begin{alertblock}
+		\begin{itemize}
+			
+			
+			\item Schau in die Int note!!!! 
+			
+			
+		\end{itemize}
+		%\end{alertblock}
+	\end{textblock}
+}
+	
+	
 	
 }
 \frame{

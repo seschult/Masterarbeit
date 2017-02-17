@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.18)  16 FEB 2017 21:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.18)  18 FEB 2017 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,7 +897,11 @@ TextBlockOrigin set to 0pt x 0pt
 This is path.sty, Version 3.05 <7-Apr-2011>
 \c@tcode=\count159
 \c@unter=\count160
-) (./beamerthemeIlmenau.sty
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/underscore/underscore.sty
+Package: underscore 2006/09/13
+LaTeX Info: Redefining \_ on input line 42.
+)
+(./beamerthemeIlmenau.sty
 Package: beamerthemeIlmenau 2007/01/28  (rcs-revision 1.11)
  (./beamerouterthememiniframes.sty
 Package: beamerouterthememiniframes 2007/01/28  (rcs-revision 1.8)
@@ -1144,19 +1148,19 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 Missing character: There is no è in font cmex10!
-<Logo/Tum.jpg, id=31, 220.825pt x 220.825pt>
+<Logo/Tum.jpg, id=36, 220.825pt x 220.825pt>
 File: Logo/Tum.jpg Graphic file (type jpg)
  <use Logo/Tum.jpg>
 Package pdftex.def Info: Logo/Tum.jpg used on input line 107.
 (pdftex.def)             Requested size: 65.04256pt x 65.04172pt.
 
-<Logo/MPPGr.png, id=32, 204.765pt x 141.6492pt>
+<Logo/MPPGr.png, id=37, 204.765pt x 141.6492pt>
 File: Logo/MPPGr.png Graphic file (type png)
  <use Logo/MPPGr.png>
 Package pdftex.def Info: Logo/MPPGr.png used on input line 107.
 (pdftex.def)             Requested size: 133.69994pt x 92.4945pt.
 
-<Logo/ATLAS.png, id=34, 481.8pt x 481.8pt>
+<Logo/ATLAS.png, id=39, 481.8pt x 481.8pt>
 File: Logo/ATLAS.png Graphic file (type png)
  <use Logo/ATLAS.png>
 Package pdftex.def Info: Logo/ATLAS.png used on input line 107.
@@ -1205,27 +1209,85 @@ Missing character: There is no è in font cmex10!
 
 ] [6
 
-] [7
+]
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \vskip 
+l.297 }
+       
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+[7
 
 ] [8
 
 ] [9
 
-] [10
+]
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \vskip 
+l.350 }
+       
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+[10
 
 ] [11
 
-] [12
+]
+
+LaTeX Warning: Command \= invalid in math mode on input line 391.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.391 }
+       
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.391 }
+       
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+Missing character: There is no è in font cmex10!
+[12
 
 ] [13
 
 ] [14
 
-] [15
+]
+! Too many }'s.
+l.437 }
+       
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+[15
 
 ] [16
 
 ] [17
+
+] [18
 
 ]
 \tf@nav=\write6
@@ -1237,41 +1299,50 @@ Missing character: There is no è in font cmex10!
 \tf@snm=\write8
 \openout8 = `Talk.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 262.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 262.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 461.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 461.
  (./Talk.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 262.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 262.
-Package rerunfilecheck Info: File `Talk.out' has not changed.
-(rerunfilecheck)             Checksum: 945770ACD333DACDA5A569DBDD91DCEE;144.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 461.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 461.
 
+
+Package rerunfilecheck Warning: File `Talk.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Talk.out':
+(rerunfilecheck)             Before: 57EEE3AD7A4DCCCCD73601DDFBA2ACA3;211
+(rerunfilecheck)             After:  B7F222C446D29448C61A2BCB65F1D895;270.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 262.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 461.
  ) 
 Here is how much of TeX's memory you used:
- 17911 strings out of 493089
- 342503 string characters out of 6134842
- 407772 words of memory out of 5000000
- 20877 multiletter control sequences out of 15000+600000
- 11930 words of font info for 45 fonts, out of 8000000 for 9000
+ 18026 strings out of 493089
+ 344882 string characters out of 6134842
+ 411904 words of memory out of 5000000
+ 20974 multiletter control sequences out of 15000+600000
+ 20376 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,56p,413b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Talk.pdf (17 pages, 267665 bytes).
+ 56i,15n,56p,413b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Talk.pdf (18 pages, 304515 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 104 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 280 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

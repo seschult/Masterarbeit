@@ -170,14 +170,15 @@ void mtop_fit :: top_fit(){
 	
 	
 	h1->GetXaxis()->SetLabelFont(63);
-	h1->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
-	h1->GetXaxis()->SetTitleSize(0.035);
-    h1->GetXaxis()->SetTitleOffset(1.11);
+	h1->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
+	h1->GetXaxis()->SetTitleSize(0.0);
+    h1->GetXaxis()->SetTitleOffset(1.5);
     h1->GetXaxis()->SetTitleFont(42);
 	h1->GetXaxis()->SetTitle("m_{top}[GeV]"); // labels will be 14 pixels
 	h1->GetYaxis()->SetLabelFont(63);
-	h1->GetYaxis()->SetLabelSize(20);
-	h1->GetYaxis()->SetRangeUser(-120,1930);
+	h1->GetYaxis()->SetLabelSize(25);
+	
+	h1->GetYaxis()->SetRangeUser(-120,20930);
 	h1->GetYaxis()->SetTitle("Entries");
 	
 	//Fit of the histogram
@@ -293,7 +294,7 @@ void mtop_fit :: top_fit(){
    
 
    c1->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
+   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.38);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->Range(0,0,0,0.0);
@@ -318,25 +319,25 @@ void mtop_fit :: top_fit(){
 
 	  htop->GetXaxis()->SetRangeUser(124,214);
       htop->GetXaxis()->SetLabelFont(42);
-      htop->GetXaxis()->SetLabelSize(0.08);
+      htop->GetXaxis()->SetLabelSize(0.12);
       
       
      
       htop->GetXaxis()->SetTitle("m_{top}[GeV]");
-      htop->GetXaxis()->SetTitleSize(0.08);
-      htop->GetXaxis()->SetTitleOffset(1.18);
+      htop->GetXaxis()->SetTitleSize(0.12);
+      htop->GetXaxis()->SetTitleOffset(1.3);
       htop->GetXaxis()->SetTitleFont(42);
  
  
 
       htop->GetYaxis()->SetLabelFont(42);
-      htop->GetYaxis()->SetLabelSize(0.08);
-      htop->GetYaxis()->SetTitleSize(0.035);
+      htop->GetYaxis()->SetLabelSize(0.12);
+      htop->GetYaxis()->SetTitleSize(0.12);
       htop->GetYaxis()->SetTitleFont(42);
       htop->GetYaxis()->SetRangeUser(-2.9,2.9);	
       
-      htop->GetYaxis()->SetTitleSize(0.08);
-	  htop->GetYaxis()->SetTitleOffset(0.29);
+      htop->GetYaxis()->SetTitleSize(0.12);
+	  htop->GetYaxis()->SetTitleOffset(0.5);
 	  htop->GetYaxis()->SetTitleFont(42);
       
       htop->GetYaxis()->SetTitle("(Data-Fit)/Error[#sigma]");

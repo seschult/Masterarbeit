@@ -171,7 +171,7 @@ void mtop_fit :: top_fit(){
 	h1->GetXaxis()->SetRangeUser(124,214);
 	h1->GetYaxis()->SetLabelFont(63);
 	h1->GetYaxis()->SetLabelSize(20);
-	h1->GetYaxis()->SetRangeUser(-120,1930);
+	h1->GetYaxis()->SetRangeUser(-120,19300);
 	h1->GetYaxis()->SetTitleOffset(1.40);
 	h1->GetYaxis()->SetTitle("Entries");
 	
@@ -203,7 +203,7 @@ void mtop_fit :: top_fit(){
 	//Draw functions
 	////////////////////////////////////////////////////////////////////
 	f00->SetParameters(p[0],p[1],p[2]);
-	f00->SetLineColor(3);
+	f00->SetLineColor(6);
 	f00->SetFillStyle(0); 
 	f00->SetLineWidth(3);   
 	f00->Draw("SAME");
@@ -215,7 +215,7 @@ void mtop_fit :: top_fit(){
 	f01->Draw("SAME");
   
 	f02->SetParameters(p[6],p[7],p[8]);
-	f02->SetLineColor(9);
+	f02->SetLineColor(8);
 	f02->SetFillStyle(0); 
 	f02->SetLineWidth(3);  
 	f02->Draw("SAME");
@@ -278,7 +278,7 @@ void mtop_fit :: top_fit(){
     leg->SetLineWidth(1);
     leg->SetFillColor(0);
     leg->SetFillStyle(1001);
-    leg->AddEntry(h1,"Data","lep");
+    leg->AddEntry(h1,"Simulation","lep");
     leg->AddEntry(ftop,"Fit","l");
     leg->AddEntry(f00,"Gauss","l");
     leg->AddEntry(f01,"Landau","l");
@@ -408,7 +408,7 @@ void mtop_fit :: mw_fit(){
 	h2->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]"); // labels will be 14 pixels
 	h2->GetYaxis()->SetLabelFont(63);
 	h2->GetYaxis()->SetLabelSize(20);
-	h2->GetYaxis()->SetRangeUser(-120,4030);
+	h2->GetYaxis()->SetRangeUser(-120,34030);
 	h2->GetYaxis()->SetTitleOffset(1.40);
 	
 	h2->GetYaxis()->SetTitle("Entries");
@@ -418,7 +418,7 @@ void mtop_fit :: mw_fit(){
 	
 	fmw->SetFillColor(19);
 	fmw->SetFillStyle(0);
-	fmw->SetLineColor(2);
+	fmw->SetLineColor(3);
     fmw->SetLineWidth(3);   
     h2->SetLineWidth(3);
 	
@@ -644,7 +644,7 @@ void mtop_fit :: rbq_fit(){
 	h3->GetXaxis()->SetTitle("R_{bq}^{reco}"); // labels will be 14 pixels
 	h3->GetYaxis()->SetLabelFont(63);
 	h3->GetYaxis()->SetLabelSize(20);
-	h3->GetYaxis()->SetRangeUser(-120,4030);
+	h3->GetYaxis()->SetRangeUser(-120,20030);
 	
 	h3->GetYaxis()->SetTitleOffset(1.40);
 	h3->GetYaxis()->SetTitle("Entries");

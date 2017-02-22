@@ -118,8 +118,10 @@ mtop_fit :: mtop_fit (const char *File){
 	
 	
 	 
-	//ftop->SetParameters(10, 170, 0.5, 400, 175, 8, 400, 120 ,9);
-	ftop->SetParameters(1318, 167, -1.05, 4340, 182, 1.27, 54200, 142 ,9.56);
+	//ftop->SetParameters(3260, 176, -45, 40000, 189, 4.4, 700000, 160 ,10);
+	//ftop->SetParameters(1318, 167, -1.05, 4340, 182, 1.27, 54200, 142 ,9.56);
+	ftop->SetParameters(1318, 172, 1.05, 4340, 182, 1.27, 54200, 132 ,9.56);
+	
 	ftop->SetParLimits(3,0.0,1000000);
 	ftop->SetParLimits(6,0.0,1000000);
     ftop->SetParLimits(7,100.0,1000000);
@@ -172,15 +174,23 @@ void mtop_fit :: top_fit(){
 	h1->GetXaxis()->SetLabelFont(63);
 	h1->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
 	h1->GetXaxis()->SetTitleSize(0.0);
-    h1->GetXaxis()->SetTitleOffset(1.5);
+    h1->GetXaxis()->SetTitleOffset(1.0);
     h1->GetXaxis()->SetTitleFont(42);
 	h1->GetXaxis()->SetTitle("m_{top}[GeV]"); // labels will be 14 pixels
 	h1->GetYaxis()->SetLabelFont(63);
-	h1->GetYaxis()->SetLabelSize(25);
 	
-	h1->GetYaxis()->SetRangeUser(-120,20930);
-	h1->GetYaxis()->SetTitle("Entries");
 	
+	
+	h1->GetYaxis()->SetLabelSize(26);
+	
+   double x = h1->GetMaximum();
+   double limit = x + x*0.1;
+	
+	h1->GetYaxis()->SetRangeUser(-430,limit);
+	
+	h1->GetYaxis()->SetTitleSize(26);
+	h1->GetYaxis()->SetTitle("Events");
+	h1->GetYaxis()->SetTitleOffset(0.5);
 	//Fit of the histogram
 	ftop->SetFillColor(19);
 	ftop->SetFillStyle(0);
@@ -294,7 +304,7 @@ void mtop_fit :: top_fit(){
    
 
    c1->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.38);
+   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.39);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->Range(0,0,0,0.0);
@@ -316,29 +326,30 @@ void mtop_fit :: top_fit(){
     
     std::cout<<"constructor 38";
 	TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
+	
 
 	  htop->GetXaxis()->SetRangeUser(124,214);
-      htop->GetXaxis()->SetLabelFont(42);
-      htop->GetXaxis()->SetLabelSize(0.12);
+      htop->GetXaxis()->SetLabelFont(63);
+      htop->GetXaxis()->SetLabelSize(0.11);
       
       
      
       htop->GetXaxis()->SetTitle("m_{top}[GeV]");
-      htop->GetXaxis()->SetTitleSize(0.12);
-      htop->GetXaxis()->SetTitleOffset(1.3);
+      htop->GetXaxis()->SetTitleSize(0.10);
+      htop->GetXaxis()->SetTitleOffset(1.0);
       htop->GetXaxis()->SetTitleFont(42);
  
  
 
-      htop->GetYaxis()->SetLabelFont(42);
-      htop->GetYaxis()->SetLabelSize(0.12);
-      htop->GetYaxis()->SetTitleSize(0.12);
+      htop->GetYaxis()->SetLabelFont(63);
+      htop->GetYaxis()->SetLabelSize(26);
+      htop->GetYaxis()->SetTitleSize(0.11);
       htop->GetYaxis()->SetTitleFont(42);
-      htop->GetYaxis()->SetRangeUser(-2.9,2.9);	
+      	
       
-      htop->GetYaxis()->SetTitleSize(0.12);
-	  htop->GetYaxis()->SetTitleOffset(0.5);
-	  htop->GetYaxis()->SetTitleFont(42);
+      htop->GetYaxis()->SetTitleSize(0.11);
+	  htop->GetYaxis()->SetTitleOffset(0.4);
+	  htop->GetYaxis()->SetTitleFont(63);
       
       htop->GetYaxis()->SetTitle("(Data-Fit)/Error[#sigma]");
       htop->SetLineWidth(3);  
@@ -368,6 +379,11 @@ void mtop_fit :: top_fit(){
 		
 		};
 		
+		
+		double x1 = htop->GetMaximum();
+		double limit1 = x1+ x1*0.1;
+	
+	htop->GetYaxis()->SetRangeUser(-limit1,limit1);	
 	
 	int nbins = htop -> GetNbinsX();
 
@@ -441,14 +457,18 @@ void mtop_fit :: mw_fit(){
 	
 		
 	h2->GetXaxis()->SetLabelFont(63);
-	h2->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
+	h2->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
 	h2->GetXaxis()->SetTitleSize(0.035);
     h2->GetXaxis()->SetTitleOffset(1.11);
     h2->GetXaxis()->SetTitleFont(42);
 	h2->GetXaxis()->SetTitle("m_{w}[GeV]"); // labels will be 14 pixels
 	h2->GetYaxis()->SetLabelFont(63);
-	h2->GetYaxis()->SetLabelSize(20);
-	h2->GetYaxis()->SetRangeUser(-120,4030);
+	h2->GetYaxis()->SetLabelSize(25);
+	
+	double x = h2->GetMaximum();
+   double limit = x + x*0.1;
+	
+	h2->GetYaxis()->SetRangeUser(-120,limit);
 	h2->GetYaxis()->SetTitle("Entries");
 	
 	
@@ -566,7 +586,7 @@ void mtop_fit :: mw_fit(){
    leg->Draw();
 	
    c2->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
+   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.38);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->SetGridx(); // vertical grid
@@ -585,9 +605,9 @@ void mtop_fit :: mw_fit(){
     
 	TH1F *hw = new TH1F("hw", "dif", bin_tot, 40, 120);
 	hw->GetXaxis()->SetLabelFont(63);
-	hw->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
+	hw->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
 	hw->GetYaxis()->SetLabelFont(63);
-	hw->GetYaxis()->SetLabelSize(14);
+	hw->GetYaxis()->SetLabelSize(25);
 	//TF1 *func = h1->GetFunction("ftop");
 	 
  	for (int bin=2; bin<=bin_tot;bin++) {
@@ -616,13 +636,14 @@ void mtop_fit :: mw_fit(){
        
        
        
-	
+	   double x1 = hw->GetMaximum();
+       double limit1 = x1 + x1*0.1;
 	
 	
 	
 	  hw->GetXaxis()->SetRangeUser(54,115);
       hw->GetXaxis()->SetLabelFont(42);
-      hw->GetXaxis()->SetLabelSize(0.08);
+      hw->GetXaxis()->SetLabelSize(0.11);
       
       
      
@@ -634,10 +655,10 @@ void mtop_fit :: mw_fit(){
  
 
       hw->GetYaxis()->SetLabelFont(42);
-      hw->GetYaxis()->SetLabelSize(0.08);
+      hw->GetYaxis()->SetLabelSize(0.11);
       hw->GetYaxis()->SetTitleSize(0.035);
       hw->GetYaxis()->SetTitleFont(42);
-      hw->GetYaxis()->SetRangeUser(-3.4,3.4);	
+      hw->GetYaxis()->SetRangeUser(-limit1,limit1);	
       
       hw->GetYaxis()->SetTitleSize(0.08);
 	  hw->GetYaxis()->SetTitleOffset(0.29);
@@ -688,14 +709,18 @@ void mtop_fit :: rbq_fit(){
 	
 		
 	h3->GetXaxis()->SetLabelFont(63);
-	h3->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
+	h3->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
 	h3->GetXaxis()->SetTitleSize(0.035);
     h3->GetXaxis()->SetTitleOffset(1.11);
     h3->GetXaxis()->SetTitleFont(42);
 	h3->GetXaxis()->SetTitle("R_{bq}"); // labels will be 14 pixels
 	h3->GetYaxis()->SetLabelFont(63);
-	h3->GetYaxis()->SetLabelSize(20);
-	h3->GetYaxis()->SetRangeUser(-120,4030);
+	h3->GetYaxis()->SetLabelSize(25);
+	
+	
+	double x = h3->GetMaximum();
+    double limit = x + x*0.1;
+	h3->GetYaxis()->SetRangeUser(-120,limit);
 	h3->GetYaxis()->SetTitle("Entries");
 	
 	
@@ -818,7 +843,7 @@ void mtop_fit :: rbq_fit(){
  
  
    c3->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
+   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.38);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->SetGridx(); // vertical grid
@@ -838,9 +863,9 @@ void mtop_fit :: rbq_fit(){
 	
 	TH1F *hrbq = new TH1F("hw", "dif", bin_tot, 0, 3);
 	hrbq->GetXaxis()->SetLabelFont(63);
-	hrbq->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
+	hrbq->GetXaxis()->SetLabelSize(0.11); // labels will be 14 pixels
 	hrbq->GetYaxis()->SetLabelFont(63);
-	hrbq->GetYaxis()->SetLabelSize(14);
+	hrbq->GetYaxis()->SetLabelSize(0.11);
 	
 	
  
@@ -879,7 +904,7 @@ void mtop_fit :: rbq_fit(){
 	
 	  hrbq->GetXaxis()->SetRangeUser(0.1,4);
       hrbq->GetXaxis()->SetLabelFont(42);
-      hrbq->GetXaxis()->SetLabelSize(0.08);
+      hrbq->GetXaxis()->SetLabelSize(0.11);
       
       
      
@@ -891,10 +916,13 @@ void mtop_fit :: rbq_fit(){
  
 
       hrbq->GetYaxis()->SetLabelFont(42);
-      hrbq->GetYaxis()->SetLabelSize(0.08);
+      hrbq->GetYaxis()->SetLabelSize(0.11);
       hrbq->GetYaxis()->SetTitleSize(0.035);
       hrbq->GetYaxis()->SetTitleFont(42);
-      hrbq->GetYaxis()->SetRangeUser(-5.4,5.4);	
+      
+      double x1 = hrbq->GetMaximum();
+      double limit1 = x1 + x1*0.1;
+      hrbq->GetYaxis()->SetRangeUser(-limit1, limit1);	
       
       hrbq->GetYaxis()->SetTitleSize(0.08);
 	  hrbq->GetYaxis()->SetTitleOffset(0.29);

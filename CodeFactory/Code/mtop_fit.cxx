@@ -97,10 +97,10 @@ mtop_fit :: mtop_fit (){
 mtop_fit :: mtop_fit (const char *File){
 	
 	//Top 
-	f00 = new TF1("f5",signal,125,210,3);
-	f01 = new TF1("f1",landau,125,210,3);
-	f02 = new TF1("f2",landau_n,125,210,3);
-    ftop = new TF1("ftop",fit_mtop,125,210,9);
+	f00 = new TF1("f5",signal,130,210,3);
+	f01 = new TF1("f1",landau,130,210,3);
+	f02 = new TF1("f2",landau_n,130,210,3);
+    ftop = new TF1("ftop",fit_mtop,130,210,9);
 	  
 	 
 	//MW 
@@ -163,17 +163,24 @@ void mtop_fit :: top_fit(){
     pad1->cd();               // pad1 becomes the current pad
 	
 	h1->GetXaxis()->SetLabelFont(63);
-	h1->GetXaxis()->SetLabelSize(20);
-	h1->GetXaxis()->SetTitleSize(0.035);
-    h1->GetXaxis()->SetTitleOffset(1.11);
-    h1->GetXaxis()->SetTitleFont(42);
-	h1->GetXaxis()->SetTitle("m_{top}^{reco}[GeV]"); 
+	h1->GetXaxis()->SetLabelSize(0);
+	h1->GetXaxis()->SetTitleSize(0.0);
+   
+   
 	h1->GetXaxis()->SetRangeUser(124,214);
+	
+	
 	h1->GetYaxis()->SetLabelFont(63);
-	h1->GetYaxis()->SetLabelSize(20);
-	h1->GetYaxis()->SetRangeUser(-120,19300);
+	h1->GetYaxis()->SetLabelSize(26);
+	
+	double x = h1->GetMaximum();
+	double limit = x + x*0.1;
+	h1->GetYaxis()->SetRangeUser(-433,limit);
 	h1->GetYaxis()->SetTitleOffset(1.40);
-	h1->GetYaxis()->SetTitle("Entries");
+	
+	h1->GetYaxis()->SetTitleFont(63);
+	h1->GetYaxis()->SetTitleSize(26);
+	h1->GetYaxis()->SetTitle("Events");
 	
 	//Fit of the histogram   
 	ftop->SetFillColor(19);
@@ -209,13 +216,13 @@ void mtop_fit :: top_fit(){
 	f00->Draw("SAME");
  
 	f01->SetParameters(p[3],p[4],p[5]);
-	f01->SetLineColor(7);
+	f01->SetLineColor(209);
 	f01->SetFillStyle(0); 
 	f01->SetLineWidth(3);  
 	f01->Draw("SAME");
   
 	f02->SetParameters(p[6],p[7],p[8]);
-	f02->SetLineColor(8);
+	f02->SetLineColor(96);
 	f02->SetFillStyle(0); 
 	f02->SetLineWidth(3);  
 	f02->Draw("SAME");
@@ -289,7 +296,7 @@ void mtop_fit :: top_fit(){
 	
 	////////////////////////////////////////////////////////////////////
    c1->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
+   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.39);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->SetGridx(); // vertical grid
@@ -312,24 +319,8 @@ void mtop_fit :: top_fit(){
    
 	TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
 
-	  htop->GetXaxis()->SetRangeUser(124,214);
-      htop->GetXaxis()->SetLabelFont(42);
-      htop->GetXaxis()->SetLabelSize(0.08);
-      htop->GetXaxis()->SetTitle("m_{top}^{reco}[GeV]");
-      htop->GetXaxis()->SetTitleSize(0.08);
-      htop->GetXaxis()->SetTitleOffset(1.18);
-      htop->GetXaxis()->SetTitleFont(42);
-      htop->GetYaxis()->SetLabelFont(42);
-      htop->GetYaxis()->SetLabelSize(0.08);
-      htop->GetYaxis()->SetTitleSize(0.035);
-      htop->GetYaxis()->SetTitleFont(42);
-      htop->GetYaxis()->SetRangeUser(-2.9,2.9);	      
-      htop->GetYaxis()->SetTitleSize(0.08);
-	  htop->GetYaxis()->SetTitleOffset(0.29);
-	  htop->GetYaxis()->SetTitleFont(42);
-      htop->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
-      htop->SetLineWidth(3);  
-	 
+
+
  	 
  	for (int bin=2; bin<=bin_tot;bin++) {
 		
@@ -338,28 +329,46 @@ void mtop_fit :: top_fit(){
 		double dif = h1->GetBinContent(bin);
 		double sub = h1->GetBinContent(bin)-fval;
     
-		if(sub > -100){
+			if(sub > -100){
 			htop->SetBinContent(bin, sub);
 			err = h1->GetBinError(bin);
 			div = sub/err;
-			htop->SetBinContent(bin, div);
-			
-			
+			htop->SetBinContent(x, div);
 			}else continue;
-		
-		};
 
-	//Red line
-	////////////////////////////////////////////////////////////////////
-	int nbins = htop -> GetNbinsX();
+			};
+			
+	 int nbins = htop -> GetNbinsX();
 
 	float lower_edge  = htop -> GetBinLowEdge(1);
 	float bin_width   = htop -> GetBinWidth(1);
 	float number_bins = htop -> GetNbinsX();
 	float upper_edge = htop -> GetBinLowEdge(number_bins) + htop->GetBinWidth(number_bins);
-
+       
+	  htop->GetXaxis()->SetRangeUser(124,214);
+      htop->GetXaxis()->SetLabelFont(63);
+      htop->GetXaxis()->SetLabelSize(26);
+      htop->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]");
+      htop->GetXaxis()->SetTitleSize(26);
+      htop->GetXaxis()->SetTitleOffset(3.0);
+      htop->GetXaxis()->SetTitleFont(63);
+      htop->GetYaxis()->SetLabelFont(63);
+      htop->GetYaxis()->SetLabelSize(26);
+      htop->GetYaxis()->SetTitleSize(26);
+      htop->GetYaxis()->SetTitleFont(63);
+      
+   
+      htop->GetYaxis()->SetRangeUser(-3.4,3.4);	      
+      
+	  htop->GetYaxis()->SetTitleOffset(3.4);
+	
+      htop->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
+      htop->SetLineWidth(3);  
+	
+	
+	
 	htop->Draw();
-
+	
 	TF1 *norm1 = new TF1("fa1","0", lower_edge, upper_edge);
 	norm1 -> SetLineColor(kRed);
 	norm1 -> SetLineStyle(1);
@@ -369,7 +378,7 @@ void mtop_fit :: top_fit(){
 	string Name = file->GetName();
 	string Base = gSystem->BaseName(Name.c_str());
 	
-	 c1 -> Print(("/home/iwsatlas1/schulte/plots_15217/"+ Base +"mtop.png").c_str());
+	 c1 -> Print(("/Users/sebastianschulte/"+ Base +"mtop.png").c_str());
 
  
  
@@ -401,24 +410,31 @@ void mtop_fit :: mw_fit(){
 	
 	
 	h2->GetXaxis()->SetLabelFont(63);
-	h2->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
-	h2->GetXaxis()->SetTitleSize(0.035);
+	h2->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
+	h2->GetXaxis()->SetTitleSize(0.0);
     h2->GetXaxis()->SetTitleOffset(1.11);
-    h2->GetXaxis()->SetTitleFont(42);
-	h2->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]"); // labels will be 14 pixels
-	h2->GetYaxis()->SetLabelFont(63);
-	h2->GetYaxis()->SetLabelSize(20);
-	h2->GetYaxis()->SetRangeUser(-120,34030);
-	h2->GetYaxis()->SetTitleOffset(1.40);
+    h2->GetXaxis()->SetTitleFont(26);
+    h2->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]"); // labels will be 14 pixels
 	
-	h2->GetYaxis()->SetTitle("Entries");
+	
+	
+	h2->GetYaxis()->SetLabelFont(63);
+	h2->GetYaxis()->SetLabelSize(26);
+	
+	double x = h2->GetMaximum();
+    double limit = x + x*0.1;
+	h2->GetYaxis()->SetRangeUser(-120,limit);
+	h2->GetYaxis()->SetTitleOffset(1.40);
+	h2->GetYaxis()->SetTitleFont(63);
+	h2->GetYaxis()->SetTitleSize(26);
+	h2->GetYaxis()->SetTitle("Events");
 	
 	//Fit of the histogram   
 	
 	
 	fmw->SetFillColor(19);
 	fmw->SetFillStyle(0);
-	fmw->SetLineColor(3);
+	fmw->SetLineColor(2);
     fmw->SetLineWidth(3);   
     h2->SetLineWidth(3);
 	
@@ -441,13 +457,13 @@ void mtop_fit :: mw_fit(){
 	
 	//Draw functions
 	f13->SetParameters(p[0],p[1],p[2]);
-	f13->SetLineColor(3);
+	f13->SetLineColor(6);
 	f13->SetFillStyle(0); 
 	f13->SetLineWidth(3);
 	f13->Draw("SAME");
  
 	f14->SetParameters(p[3],p[4],p[5]);
-	f14->SetLineColor(7);
+	f14->SetLineColor(159);
 	f14->SetFillStyle(0); 
 	f14->SetLineWidth(3);
 	f14->Draw("SAME");
@@ -528,7 +544,7 @@ void mtop_fit :: mw_fit(){
 	
 	
    c2->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
+   TPad *pad2 = new TPad("pad2", "pad2",0, 0.08, 1, 0.39);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->SetGridx(); // vertical grid
@@ -549,11 +565,11 @@ void mtop_fit :: mw_fit(){
     double div;
     double err;
     
-	TH1F *hw = new TH1F("hw", "dif", bin_tot, 40, 120);
+	TH1F *hw = new TH1F("hw", "dif", bin_tot, 56, 115);
 	hw->GetXaxis()->SetLabelFont(63);
-	hw->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
+	hw->GetXaxis()->SetLabelSize(26); // labels will be 14 pixels
 	hw->GetYaxis()->SetLabelFont(63);
-	hw->GetYaxis()->SetLabelSize(14);
+	hw->GetYaxis()->SetLabelSize(26);
 	//TF1 *func = h1->GetFunction("ftop");
 	 
  	for (int bin=2; bin<=bin_tot;bin++) {
@@ -580,21 +596,23 @@ void mtop_fit :: mw_fit(){
 	float number_bins = hw -> GetNbinsX();
 	float upper_edge = hw -> GetBinLowEdge(number_bins) + hw->GetBinWidth(number_bins);
        
-	  hw->GetXaxis()->SetRangeUser(54,115);
-      hw->GetXaxis()->SetLabelFont(42);
-      hw->GetXaxis()->SetLabelSize(0.08);
+	  hw->GetXaxis()->SetRangeUser(56,115);
+      hw->GetXaxis()->SetLabelFont(63);
+      hw->GetXaxis()->SetLabelSize(26);
       hw->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]");
-      hw->GetXaxis()->SetTitleSize(0.08);
-      hw->GetXaxis()->SetTitleOffset(1.18);
-      hw->GetXaxis()->SetTitleFont(42);
-      hw->GetYaxis()->SetLabelFont(42);
-      hw->GetYaxis()->SetLabelSize(0.08);
-      hw->GetYaxis()->SetTitleSize(0.035);
-      hw->GetYaxis()->SetTitleFont(42);
+      hw->GetXaxis()->SetTitleSize(26);
+      hw->GetXaxis()->SetTitleOffset(1.0);
+      hw->GetXaxis()->SetTitleFont(63);
+      hw->GetYaxis()->SetLabelFont(63);
+      hw->GetYaxis()->SetLabelSize(26);
+      hw->GetYaxis()->SetTitleSize(26);
+      hw->GetYaxis()->SetTitleFont(63);
+      
+   
       hw->GetYaxis()->SetRangeUser(-3.4,3.4);	      
-      hw->GetYaxis()->SetTitleSize(0.08);
-	  hw->GetYaxis()->SetTitleOffset(0.29);
-	  hw->GetYaxis()->SetTitleFont(42);
+      
+	  hw->GetYaxis()->SetTitleOffset(1.4);
+	
       hw->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
       hw->SetLineWidth(3);  
 	
@@ -613,7 +631,7 @@ void mtop_fit :: mw_fit(){
 	string Base = gSystem->BaseName(Name.c_str());
 	
 	 //c2 -> Print(("~/plots15217/" + Base +".png").c_str());
- 	 c2 -> Print(("/home/iwsatlas1/schulte/plots_15217/"+ Base +"mw.png").c_str());
+ 	 c2 -> Print(("/Users/sebastianschulte/"+ Base +"mw.png").c_str());
  
 }
  
@@ -637,17 +655,26 @@ void mtop_fit :: rbq_fit(){
     pad1->cd();               // pad1 becomes the current pad
 	
 	h3->GetXaxis()->SetLabelFont(63);
-	h3->GetXaxis()->SetLabelSize(20); // labels will be 14 pixels
-	h3->GetXaxis()->SetTitleSize(0.035);
+	h3->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
+	h3->GetXaxis()->SetTitleSize(0.0);
     h3->GetXaxis()->SetTitleOffset(1.11);
-    h3->GetXaxis()->SetTitleFont(42);
+    h3->GetXaxis()->SetTitleFont(63);
 	h3->GetXaxis()->SetTitle("R_{bq}^{reco}"); // labels will be 14 pixels
-	h3->GetYaxis()->SetLabelFont(63);
-	h3->GetYaxis()->SetLabelSize(20);
-	h3->GetYaxis()->SetRangeUser(-120,20030);
 	
+	
+
+	h3->GetYaxis()->SetLabelFont(63);
+	h3->GetYaxis()->SetLabelSize(26);
+	
+	double x = h3->GetMaximum();
+    double limit = x + x*0.1;
+	h3->GetYaxis()->SetRangeUser(-120,limit);
+	
+	
+	h3->GetYaxis()->SetTitleFont(63);
+	h3->GetYaxis()->SetTitleSize(26);
 	h3->GetYaxis()->SetTitleOffset(1.40);
-	h3->GetYaxis()->SetTitle("Entries");
+	h3->GetYaxis()->SetTitle("Events");
 	
 	
 	//Fit of the histogram
@@ -683,18 +710,18 @@ void mtop_fit :: rbq_fit(){
  
 	//Draw functions
 	f25->SetParameters(p[0],p[1],p[2]);
-	f25->SetLineColor(3);
+	f25->SetLineColor(209);
 	f25->SetLineWidth(3);
 	f25->Draw("SAME");
  
 	f26->SetParameters(p[3],p[4],p[5]);
-	f26->SetLineColor(7);
+	f26->SetLineColor(6);
 	f26->SetLineWidth(3);
 	f26->Draw("SAME");
   
 
 	f27->SetParameters(p[6],p[7],p[8]);
-	f27->SetLineColor(9);
+	f27->SetLineColor(159);
 	f27->SetLineWidth(3);
 	f27->Draw("SAME");
 	
@@ -763,7 +790,7 @@ void mtop_fit :: rbq_fit(){
  
  
    c3->cd(); 
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
+   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.08, 1, 0.39);
    pad2->SetTopMargin(0);
    pad2->SetBottomMargin(0.2);
    pad2->SetGridx(); // vertical grid
@@ -783,10 +810,7 @@ void mtop_fit :: rbq_fit(){
     
 	
 	TH1F *hrbq = new TH1F("hrbq", "dif", bin_tot, 0, 3);
-	hrbq->GetXaxis()->SetLabelFont(63);
-	hrbq->GetXaxis()->SetLabelSize(14); // labels will be 14 pixels
-	hrbq->GetYaxis()->SetLabelFont(63);
-	hrbq->GetYaxis()->SetLabelSize(14);
+	
 	
 	
  
@@ -823,25 +847,27 @@ void mtop_fit :: rbq_fit(){
 	
 	
 	
-	  hrbq->GetXaxis()->SetRangeUser(0.1,4);
-      hrbq->GetXaxis()->SetLabelFont(42);
-      hrbq->GetXaxis()->SetLabelSize(0.08);
+	  hrbq->GetXaxis()->SetRangeUser(0.3,4);
+      hrbq->GetXaxis()->SetLabelFont(63);
+      hrbq->GetXaxis()->SetLabelSize(26);
       hrbq->GetXaxis()->SetTitle("R_{bq}^{reco}");
-      hrbq->GetXaxis()->SetTitleSize(0.08);
-      hrbq->GetXaxis()->SetTitleOffset(1.18);
-      hrbq->GetXaxis()->SetTitleFont(42);
+      hrbq->GetXaxis()->SetTitleSize(26);
+      hrbq->GetXaxis()->SetTitleOffset(3.2);
+      hrbq->GetXaxis()->SetTitleFont(63);
  
  
 
-      hrbq->GetYaxis()->SetLabelFont(42);
-      hrbq->GetYaxis()->SetLabelSize(0.08);
-      hrbq->GetYaxis()->SetTitleSize(0.035);
-      hrbq->GetYaxis()->SetTitleFont(42);
-      hrbq->GetYaxis()->SetRangeUser(-5.4,5.4);	
+      hrbq->GetYaxis()->SetLabelFont(63);
+      hrbq->GetYaxis()->SetLabelSize(26);
+      hrbq->GetYaxis()->SetTitleSize(26);
+      hrbq->GetYaxis()->SetTitleFont(63);
       
-      hrbq->GetYaxis()->SetTitleSize(0.08);
-	  hrbq->GetYaxis()->SetTitleOffset(0.29);
-	  hrbq->GetYaxis()->SetTitleFont(42);
+      
+      hrbq->GetYaxis()->SetRangeUser(-3.4,3.4);	
+      
+      hrbq->GetYaxis()->SetTitleSize(26);
+	  hrbq->GetYaxis()->SetTitleOffset(1.4);
+	  hrbq->GetYaxis()->SetTitleFont(63);
       
       hrbq->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
       hrbq->SetLineWidth(3);  
@@ -860,7 +886,7 @@ void mtop_fit :: rbq_fit(){
 	string Base = gSystem->BaseName(Name.c_str());
 	
 	// c3 -> Print(("~/plots15217/" + Base +".png").c_str());
- 	 c3 -> Print(("/home/iwsatlas1/schulte/plots_15217/"+ Base +"rbq.png").c_str());
+ 	 c3 -> Print(("/Users/sebastianschulte/"+ Base +"rbq.png").c_str());
 }	
 	
 	

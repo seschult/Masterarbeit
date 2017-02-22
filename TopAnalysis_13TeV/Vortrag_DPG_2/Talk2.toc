@@ -1,6 +1,6 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@sectionintoc {2}{Event selection}{8}{0}{2}
-\beamer@sectionintoc {3}{Data/MC agreement 13 TeV}{8}{0}{3}
-\beamer@sectionintoc {4}{Event reconstruction}{10}{0}{4}
-\beamer@sectionintoc {5}{Template parametrization}{12}{0}{5}
+\beamer@sectionintoc {2}{Event selection}{7}{0}{2}
+\beamer@sectionintoc {3}{Event reconstruction}{8}{0}{3}
+\beamer@sectionintoc {4}{Data/MC agreement 13 TeV}{9}{0}{4}
+\beamer@sectionintoc {5}{Template parametrization}{11}{0}{5}

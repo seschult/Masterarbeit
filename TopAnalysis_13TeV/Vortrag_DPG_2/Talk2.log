@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.18)  21 FEB 2017 01:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.18)  22 FEB 2017 03:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1177,13 +1177,13 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./Logo/Tum.jpg> <./Logo/MPPGr.png> <./Logo/ATLAS.png>]
-<PicsTop/EW.png, id=67, 569.12625pt x 385.44pt>
+<PicsTop/EW.png, id=68, 569.12625pt x 385.44pt>
 File: PicsTop/EW.png Graphic file (type png)
  <use PicsTop/EW.png>
 Package pdftex.def Info: PicsTop/EW.png used on input line 157.
 (pdftex.def)             Requested size: 163.88676pt x 110.99251pt.
 
-<PicsTop/Univ.png, id=68, 317.185pt x 336.25626pt>
+<PicsTop/Univ.png, id=69, 317.185pt x 336.25626pt>
 File: PicsTop/Univ.png Graphic file (type png)
  <use PicsTop/Univ.png>
 Package pdftex.def Info: PicsTop/Univ.png used on input line 157.
@@ -1192,11 +1192,11 @@ Package pdftex.def Info: PicsTop/Univ.png used on input line 157.
 [2
 
  <./PicsTop/EW.png> <./PicsTop/Univ.png>]
-<PicsTop/mtopSum.png, id=85, 1986.42125pt x 1621.05624pt>
+<PicsTop/mtopSum.png, id=86, 1986.42125pt x 1621.05624pt>
 File: PicsTop/mtopSum.png Graphic file (type png)
 
 <use PicsTop/mtopSum.png>
-Package pdftex.def Info: PicsTop/mtopSum.png used on input line 189.
+Package pdftex.def Info: PicsTop/mtopSum.png used on input line 192.
 (pdftex.def)             Requested size: 200.30818pt x 163.45082pt.
  [3
 
@@ -1204,12 +1204,12 @@ Package pdftex.def Info: PicsTop/mtopSum.png used on input line 189.
 
 ]
 
-LaTeX Warning: Command \= invalid in math mode on input line 239.
+LaTeX Warning: Command \= invalid in math mode on input line 242.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.239 	}
+l.242 	}
         
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1217,7 +1217,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.239 	}
+l.242 	}
         
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1229,29 +1229,61 @@ Missing character: There is no è in font cmex10!
 
 ]
 
-LaTeX Warning: File `PicsTop/Untitled 1.png' not found on input line 257.
+LaTeX Warning: File `PicsTop/Untitled 1.png' not found on input line 260.
 
-<PicsTop/Untitled 1.png, id=124, 1126.2075pt x 795.97375pt>
+<PicsTop/Untitled 1.png, id=125, 1126.2075pt x 795.97375pt>
 File: PicsTop/Untitled 1.png Graphic file (type png)
 
 <use PicsTop/Untitled 1.png>
-Package pdftex.def Info: PicsTop/Untitled 1.png used on input line 257.
+Package pdftex.def Info: PicsTop/Untitled 1.png used on input line 260.
 (pdftex.def)             Requested size: 286.80255pt x 202.69734pt.
  [6
 
  <./PicsTop/Untitled 1.png>] [7
 
 ]
-<PicsTop/Tab.png, id=147, 1029.8475pt x 346.29375pt>
+<PicsTop/Feynman.png, id=147, 1086.0575pt x 622.325pt>
+File: PicsTop/Feynman.png Graphic file (type png)
+
+<use PicsTop/Feynman.png>
+Package pdftex.def Info: PicsTop/Feynman.png used on input line 334.
+(pdftex.def)             Requested size: 204.85846pt x 117.37885pt.
+
+
+LaTeX Warning: Command \= invalid in math mode on input line 334.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.334 }
+       
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.334 }
+       
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+Missing character: There is no è in font cmex10!
+[8
+
+ <./PicsTop/Feynman.png>]
+<PicsTop/Tab.png, id=158, 1029.8475pt x 346.29375pt>
 File: PicsTop/Tab.png Graphic file (type png)
  <use PicsTop/Tab.png>
-Package pdftex.def Info: PicsTop/Tab.png used on input line 331.
+Package pdftex.def Info: PicsTop/Tab.png used on input line 370.
 (pdftex.def)             Requested size: 345.98686pt x 116.33804pt.
 
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \vskip 
-l.331 }
+l.370 }
        
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1260,64 +1292,99 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-[8
+[9
 
  <./PicsTop/Tab.png>]
-<PicsTop/1NumberJets.png, id=158, 718.685pt x 875.27pt>
+<PicsTop/1NumberJets.png, id=170, 718.685pt x 875.27pt>
 File: PicsTop/1NumberJets.png Graphic file (type png)
 
 <use PicsTop/1NumberJets.png>
-Package pdftex.def Info: PicsTop/1NumberJets.png used on input line 360.
+Package pdftex.def Info: PicsTop/1NumberJets.png used on input line 399.
 (pdftex.def)             Requested size: 91.04916pt x 110.87758pt.
 
-<PicsTop/1NJet.jpg, id=159, 718.685pt x 875.27pt>
+<PicsTop/1NJet.jpg, id=171, 718.685pt x 875.27pt>
 File: PicsTop/1NJet.jpg Graphic file (type jpg)
  <use PicsTop/1NJet.jpg>
-Package pdftex.def Info: PicsTop/1NJet.jpg used on input line 360.
+Package pdftex.def Info: PicsTop/1NJet.jpg used on input line 399.
 (pdftex.def)             Requested size: 91.04916pt x 110.87758pt.
 
-<PicsTop/logL.jpg, id=160, 718.685pt x 875.27pt>
+<PicsTop/logL.jpg, id=172, 718.685pt x 875.27pt>
 File: PicsTop/logL.jpg Graphic file (type jpg)
  <use PicsTop/logL.jpg>
-Package pdftex.def Info: PicsTop/logL.jpg used on input line 360.
+Package pdftex.def Info: PicsTop/logL.jpg used on input line 399.
 (pdftex.def)             Requested size: 91.04916pt x 110.87758pt.
 
-<PicsTop/jetpt.png, id=161, 718.685pt x 875.27pt>
+<PicsTop/jetpt.png, id=173, 718.685pt x 875.27pt>
 File: PicsTop/jetpt.png Graphic file (type png)
  <use PicsTop/jetpt.png>
-Package pdftex.def Info: PicsTop/jetpt.png used on input line 360.
+Package pdftex.def Info: PicsTop/jetpt.png used on input line 399.
 (pdftex.def)             Requested size: 91.04916pt x 110.87758pt.
 
-<PicsTop/ttbarpt.jpg, id=162, 718.685pt x 875.27pt>
+<PicsTop/ttbarpt.jpg, id=174, 718.685pt x 875.27pt>
 File: PicsTop/ttbarpt.jpg Graphic file (type jpg)
  <use PicsTop/ttbarpt.jpg>
-Package pdftex.def Info: PicsTop/ttbarpt.jpg used on input line 360.
+Package pdftex.def Info: PicsTop/ttbarpt.jpg used on input line 399.
 (pdftex.def)             Requested size: 91.04916pt x 110.87758pt.
 
-<PicsTop/hadpt.jpg, id=163, 718.685pt x 875.27pt>
+<PicsTop/hadpt.jpg, id=175, 718.685pt x 875.27pt>
 File: PicsTop/hadpt.jpg Graphic file (type jpg)
  <use PicsTop/hadpt.jpg>
-Package pdftex.def Info: PicsTop/hadpt.jpg used on input line 360.
+Package pdftex.def Info: PicsTop/hadpt.jpg used on input line 399.
 (pdftex.def)             Requested size: 91.04916pt x 110.87758pt.
 
-[9
+[10
 
  <./PicsTop/1NumberJets.png> <./PicsTop/1NJet.jpg> <./PicsTop/logL.jpg> <./Pics
-Top/jetpt.png> <./PicsTop/ttbarpt.jpg> <./PicsTop/hadpt.jpg>]
-<PicsTop/Feynman.png, id=177, 1086.0575pt x 622.325pt>
-File: PicsTop/Feynman.png Graphic file (type png)
+Top/jetpt.png> <./PicsTop/ttbarpt.jpg> <./PicsTop/hadpt.jpg>] [11
 
-<use PicsTop/Feynman.png>
-Package pdftex.def Info: PicsTop/Feynman.png used on input line 400.
-(pdftex.def)             Requested size: 204.85846pt x 117.37885pt.
+]
+<PicsTop/170mtop.png, id=197, 951.555pt x 877.2775pt>
+File: PicsTop/170mtop.png Graphic file (type png)
+
+<use PicsTop/170mtop.png>
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 532.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+ <PicsTop/170mw.png, id=198, 951.555pt x 877.2775pt>
+File: PicsTop/170mw.png Graphic file (type png)
+
+<use PicsTop/170mw.png>
+Package pdftex.def Info: PicsTop/170mw.png used on input line 532.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+ <PicsTop/170rbq.png, id=199, 951.555pt x 877.2775pt>
+File: PicsTop/170rbq.png Graphic file (type png)
+
+<use PicsTop/170rbq.png>
+Package pdftex.def Info: PicsTop/170rbq.png used on input line 532.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+
+<PicsTop/171p5mtop.png, id=200, 951.555pt x 877.2775pt>
+File: PicsTop/171p5mtop.png Graphic file (type png)
+
+<use PicsTop/171p5mtop.png>
+Package pdftex.def Info: PicsTop/171p5mtop.png used on input line 532.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+
+<PicsTop/171p5mw.png, id=201, 951.555pt x 877.2775pt>
+File: PicsTop/171p5mw.png Graphic file (type png)
+
+<use PicsTop/171p5mw.png>
+Package pdftex.def Info: PicsTop/171p5mw.png used on input line 532.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+
+<PicsTop/171p5rbq.png, id=202, 951.555pt x 877.2775pt>
+File: PicsTop/171p5rbq.png Graphic file (type png)
+
+<use PicsTop/171p5rbq.png>
+Package pdftex.def Info: PicsTop/171p5rbq.png used on input line 532.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 
 
-LaTeX Warning: Command \= invalid in math mode on input line 400.
+LaTeX Warning: Command \= invalid in math mode on input line 532.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.400 }
+l.532 }
        
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1325,7 +1392,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.400 }
+l.532 }
        
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1333,67 +1400,57 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 Missing character: There is no è in font cmex10!
-[10
+[12
 
- <./PicsTop/Feynman.png>]
-<PicsTop/Likeli.png, id=190, 533.995pt x 202.7575pt>
-File: PicsTop/Likeli.png Graphic file (type png)
- <use PicsTop/Likeli.png>
-Package pdftex.def Info: PicsTop/Likeli.png used on input line 439.
-(pdftex.def)             Requested size: 204.85846pt x 77.78497pt.
+ <./PicsTop/170mtop.png> <./PicsTop/170mw.png> <./PicsTop/170rbq.png> <./PicsTo
+p/171p5mtop.png> <./PicsTop/171p5mw.png> <./PicsTop/171p5rbq.png>]
+<PicsTop/173p5mtop.png, id=213, 951.555pt x 877.2775pt>
+File: PicsTop/173p5mtop.png Graphic file (type png)
 
-[11
-
- <./PicsTop/Likeli.png>] [12
-
-]
-<PicsTop/170mtop.png, id=214, 951.555pt x 877.2775pt>
-File: PicsTop/170mtop.png Graphic file (type png)
-
-<use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 558.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
- <PicsTop/170mw.png, id=215, 951.555pt x 877.2775pt>
-File: PicsTop/170mw.png Graphic file (type png)
-
-<use PicsTop/170mw.png>
-Package pdftex.def Info: PicsTop/170mw.png used on input line 558.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
- <PicsTop/170rbq.png, id=216, 951.555pt x 877.2775pt>
-File: PicsTop/170rbq.png Graphic file (type png)
-
-<use PicsTop/170rbq.png>
-Package pdftex.def Info: PicsTop/170rbq.png used on input line 558.
+<use PicsTop/173p5mtop.png>
+Package pdftex.def Info: PicsTop/173p5mtop.png used on input line 581.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 
-<PicsTop/171p5mtop.png, id=217, 951.555pt x 877.2775pt>
-File: PicsTop/171p5mtop.png Graphic file (type png)
+<PicsTop/173p5mw.png, id=214, 951.555pt x 877.2775pt>
+File: PicsTop/173p5mw.png Graphic file (type png)
 
-<use PicsTop/171p5mtop.png>
-Package pdftex.def Info: PicsTop/171p5mtop.png used on input line 558.
+<use PicsTop/173p5mw.png>
+Package pdftex.def Info: PicsTop/173p5mw.png used on input line 581.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 
-<PicsTop/171p5mw.png, id=218, 951.555pt x 877.2775pt>
-File: PicsTop/171p5mw.png Graphic file (type png)
+<PicsTop/173p5rbq.png, id=215, 951.555pt x 877.2775pt>
+File: PicsTop/173p5rbq.png Graphic file (type png)
 
-<use PicsTop/171p5mw.png>
-Package pdftex.def Info: PicsTop/171p5mw.png used on input line 558.
+<use PicsTop/173p5rbq.png>
+Package pdftex.def Info: PicsTop/173p5rbq.png used on input line 581.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 
-<PicsTop/171p5rbq.png, id=219, 951.555pt x 877.2775pt>
-File: PicsTop/171p5rbq.png Graphic file (type png)
+<PicsTop/175mtop.png, id=216, 951.555pt x 877.2775pt>
+File: PicsTop/175mtop.png Graphic file (type png)
 
-<use PicsTop/171p5rbq.png>
-Package pdftex.def Info: PicsTop/171p5rbq.png used on input line 558.
+<use PicsTop/175mtop.png>
+Package pdftex.def Info: PicsTop/175mtop.png used on input line 581.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+ <PicsTop/175mw.png, id=217, 951.555pt x 877.2775pt>
+File: PicsTop/175mw.png Graphic file (type png)
+
+<use PicsTop/175mw.png>
+Package pdftex.def Info: PicsTop/175mw.png used on input line 581.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+ <PicsTop/175rbq.png, id=218, 951.555pt x 877.2775pt>
+File: PicsTop/175rbq.png Graphic file (type png)
+
+<use PicsTop/175rbq.png>
+Package pdftex.def Info: PicsTop/175rbq.png used on input line 581.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 
 
-LaTeX Warning: Command \= invalid in math mode on input line 558.
+LaTeX Warning: Command \= invalid in math mode on input line 581.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.558 }
+l.581 }
        
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1401,7 +1458,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.558 }
+l.581 }
        
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1411,90 +1468,36 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 Missing character: There is no è in font cmex10!
 [13
 
- <./PicsTop/170mtop.png> <./PicsTop/170mw.png> <./PicsTop/170rbq.png> <./PicsTo
-p/171p5mtop.png> <./PicsTop/171p5mw.png> <./PicsTop/171p5rbq.png>]
-<PicsTop/173p5mtop.png, id=231, 951.555pt x 877.2775pt>
-File: PicsTop/173p5mtop.png Graphic file (type png)
-
-<use PicsTop/173p5mtop.png>
-Package pdftex.def Info: PicsTop/173p5mtop.png used on input line 607.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
-
-<PicsTop/173p5mw.png, id=232, 951.555pt x 877.2775pt>
-File: PicsTop/173p5mw.png Graphic file (type png)
-
-<use PicsTop/173p5mw.png>
-Package pdftex.def Info: PicsTop/173p5mw.png used on input line 607.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
-
-<PicsTop/173p5rbq.png, id=233, 951.555pt x 877.2775pt>
-File: PicsTop/173p5rbq.png Graphic file (type png)
-
-<use PicsTop/173p5rbq.png>
-Package pdftex.def Info: PicsTop/173p5rbq.png used on input line 607.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
-
-<PicsTop/175mtop.png, id=234, 951.555pt x 877.2775pt>
-File: PicsTop/175mtop.png Graphic file (type png)
-
-<use PicsTop/175mtop.png>
-Package pdftex.def Info: PicsTop/175mtop.png used on input line 607.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
- <PicsTop/175mw.png, id=235, 951.555pt x 877.2775pt>
-File: PicsTop/175mw.png Graphic file (type png)
-
-<use PicsTop/175mw.png>
-Package pdftex.def Info: PicsTop/175mw.png used on input line 607.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
- <PicsTop/175rbq.png, id=236, 951.555pt x 877.2775pt>
-File: PicsTop/175rbq.png Graphic file (type png)
-
-<use PicsTop/175rbq.png>
-Package pdftex.def Info: PicsTop/175rbq.png used on input line 607.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
-
-
-LaTeX Warning: Command \= invalid in math mode on input line 607.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ...@spacefactor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.607 }
-       
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ...}\accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.607 }
-       
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-Missing character: There is no è in font cmex10!
-[14
-
  <./PicsTop/173p5mtop.png> <./PicsTop/173p5mw.png> <./PicsTop/173p5rbq.png> <./
 PicsTop/175mtop.png> <./PicsTop/175mw.png> <./PicsTop/175rbq.png>]
-<PicsTop/Like.png, id=247, 594.22pt x 166.6225pt>
+<PicsTop/Like.png, id=230, 594.22pt x 166.6225pt>
 File: PicsTop/Like.png Graphic file (type png)
  <use PicsTop/Like.png>
-Package pdftex.def Info: PicsTop/Like.png used on input line 660.
+Package pdftex.def Info: PicsTop/Like.png used on input line 632.
 (pdftex.def)             Requested size: 239.2897pt x 67.09782pt.
 
-[15
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.632 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[14
 
  <./PicsTop/Like.png>]
 
-LaTeX Warning: Command \= invalid in math mode on input line 702.
+LaTeX Warning: Command \= invalid in math mode on input line 677.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.702 }
+l.677 }
        
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1502,7 +1505,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.702 }
+l.677 }
        
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1510,47 +1513,55 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 Missing character: There is no è in font cmex10!
-[16
+[15
+
+] [16
 
 ] [17
 
-] [18
+] <PicsTop/Likeli.png, id=275, 533.995pt x 202.7575pt>
+File: PicsTop/Likeli.png Graphic file (type png)
 
-]
+<use PicsTop/Likeli.png>
+Package pdftex.def Info: PicsTop/Likeli.png used on input line 807.
+(pdftex.def)             Requested size: 204.85846pt x 77.78497pt.
+ [18
+
+ <./PicsTop/Likeli.png>]
 File: PicsTop/170mtop.png Graphic file (type png)
  <use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 848.
-(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
-File: PicsTop/170mtop.png Graphic file (type png)
- <use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 848.
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 864.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 File: PicsTop/170mtop.png Graphic file (type png)
 
 <use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 848.
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 864.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 File: PicsTop/170mtop.png Graphic file (type png)
  <use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 848.
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 864.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 File: PicsTop/170mtop.png Graphic file (type png)
  <use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 848.
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 864.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 File: PicsTop/170mtop.png Graphic file (type png)
 
 <use PicsTop/170mtop.png>
-Package pdftex.def Info: PicsTop/170mtop.png used on input line 848.
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 864.
+(pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
+File: PicsTop/170mtop.png Graphic file (type png)
+ <use PicsTop/170mtop.png>
+Package pdftex.def Info: PicsTop/170mtop.png used on input line 864.
 (pdftex.def)             Requested size: 123.77054pt x 114.10362pt.
 
 
-LaTeX Warning: Command \= invalid in math mode on input line 848.
+LaTeX Warning: Command \= invalid in math mode on input line 864.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.848 }
+l.864 }
        
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1558,7 +1569,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.848 }
+l.864 }
        
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1571,13 +1582,13 @@ Missing character: There is no è in font cmex10!
 ]
 File: PicsTop/Like.png Graphic file (type png)
  <use PicsTop/Like.png>
-Package pdftex.def Info: PicsTop/Like.png used on input line 859.
+Package pdftex.def Info: PicsTop/Like.png used on input line 875.
 (pdftex.def)             Requested size: 239.2897pt x 67.09782pt.
 
-<PicsTop/Prob.png, id=301, 625.33624pt x 236.885pt>
+<PicsTop/Prob.png, id=300, 625.33624pt x 236.885pt>
 File: PicsTop/Prob.png Graphic file (type png)
  <use PicsTop/Prob.png>
-Package pdftex.def Info: PicsTop/Prob.png used on input line 859.
+Package pdftex.def Info: PicsTop/Prob.png used on input line 875.
 (pdftex.def)             Requested size: 239.2897pt x 90.64616pt.
 
 [20
@@ -1592,19 +1603,19 @@ Package pdftex.def Info: PicsTop/Prob.png used on input line 859.
 \tf@snm=\write8
 \openout8 = `Talk2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 864.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 864.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 880.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 880.
  (./Talk2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 864.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 864.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 880.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 880.
 Package rerunfilecheck Info: File `Talk2.out' has not changed.
-(rerunfilecheck)             Checksum: 3469A441B766958C868EB24B74703CC4;270.
+(rerunfilecheck)             Checksum: FB74997205F65770A3A2739666F59EE5;270.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 864.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 880.
  ) 
 Here is how much of TeX's memory you used:
  18194 strings out of 493089
@@ -1625,12 +1636,11 @@ local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Talk2.pdf (20 pages, 1490740 bytes).
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Talk2.pdf (20 pages, 1484017 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 271 compressed objects within 3 object streams
+ 365 PDF objects out of 1000 (max. 8388607)
+ 268 compressed objects within 3 object streams
  46 named destinations out of 1000 (max. 500000)
  267 words of extra memory for PDF output out of 10000 (max. 10000000)
 

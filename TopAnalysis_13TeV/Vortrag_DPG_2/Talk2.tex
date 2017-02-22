@@ -133,7 +133,7 @@
 		\vspace{0.2cm}
 			\item Top mass is close to electroweak symmetry breaking scale  
 			\vspace{0.2cm}
-			\item Significant contribution to radiative corrections
+			\item Significant contributions to radiative corrections 
 			\vspace{0.2cm}
 			\item Important for physics beyond the SM
 			\vspace{0.2cm}
@@ -158,18 +158,21 @@
 
 \frame{
 	\frametitle{\bfseries{Previous results}}
-		\begin{textblock}{6.5}(0.5, 2.7)	
+		\begin{textblock}{6.5}(0.5, 4.7)	
 	
-			\begin{alertblock}{World Comb. value (2014):}
+			\begin{alertblock}{World comb. value (2014):}
 				\begin{itemize}
 					\item 	$m_{top} = 173.34 \pm 0.76$ GeV
 				\end{itemize}
 			
 			\end{alertblock}
 			
-			\begin{alertblock}{l+jets measurements with 3D-template method:}
+			\begin{alertblock}{l+jets /3D-template method:}
 				\begin{itemize}
-					\item 7 TeV (ATLAS): 	\href{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopMassNtuplesRun2}{\beamergotobutton{Top Mass Ntuple production}}	
+					\item 7 TeV: \href{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopMassNtuplesRun2}{\beamergotobutton{Top Mass Ntuple production}}	
+					\vspace{0.2cm}
+						$m_{top} = 172.33 \pm 1.27$ GeV
+						
 					
 				\end{itemize}
 				
@@ -180,7 +183,7 @@
 
 	
 	
-	\begin{textblock}{11}(6.5, 2.7)	
+	\begin{textblock}{11}(6.5, 3.7)	
 	
 	\includegraphics[width=0.8\linewidth]{PicsTop/mtopSum.png}
 	
@@ -257,7 +260,7 @@
 }	
 
 
-
+\section{Event selection}
 
 \frame{
 	\frametitle{\bfseries{Pre-selection}}
@@ -289,10 +292,46 @@
 }
 
 
-\section{Event selection}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Event reconstruction}
+
+\frame{
+	\frametitle{\bfseries{$t\={t}$-final state}}
+	
+	\begin{textblock}{18}(0.5,2.3)
+		%	\begin{alertblock}
+		\begin{itemize}
+			
+			
+			\item 4 jet event $\Rightarrow$ 24 possible jet-parton assignments
+			\vspace{0.2cm}
+			\item 12 permutations left since light jets from W are  indistinguishable
+			\vspace{0.2cm}
+			\item Kinematic liklihood fit with KLFitter\\
+			\vspace{0.2cm}
+			\item KLFitter input: charged lepton, missing $E_T$ and at least four jets\\
+			\vspace{0.2cm}
+			
+			$\Rightarrow$ \bfseries{choose best  permutations for calculation} 
+			
+			
+		\end{itemize}
+		%\end{alertblock}
+	\end{textblock}
+	
+	\begin{textblock}{10}(5.5,8.5)
+		
+		\includegraphics[width=0.9\linewidth]{PicsTop/Feynman.png}
+	\end{textblock}	
+	
+	
+	
+	
+	
+}
 
 
 
@@ -369,74 +408,9 @@
 
 
 
-\section{Event reconstruction}
-
-\frame{
-	\frametitle{\bfseries{$t\={t}$-final state}}
-
-	\begin{textblock}{10}(2,2.5)
-%	\begin{alertblock}
-	\begin{itemize}
-		
-	
-	\item 4 jet event $\Rightarrow$ 24 possible jet-parton assignments
-	\vspace{0.2cm}
-	\item 12 permutations left since light jets from W are  indistinguishable
-	\vspace{0.2cm}
-	\item Kinematic liklihood fit with KLFitter\\
-	\vspace{0.2cm}
-	$\Rightarrow$ \bfseries{choose best  permutations for calculation} 
 
 
-	\end{itemize}
-%\end{alertblock}
-    \end{textblock}
 
-	\begin{textblock}{10}(3.5,8)
-		
-			\includegraphics[width=0.9\linewidth]{PicsTop/Feynman.png}
-	\end{textblock}	
- 
-}
-
-\frame{
-	\frametitle{\bfseries{Reconstruction with KLFitter}}
-	\begin{textblock}{13}(0,2.5)
-	\begin{itemize}
-		\item KLFitter input: charged lepton, missing $E_T$ and at least four jets\\
-		\vspace{0.2cm}
-		
-		$\Rightarrow$ one or two b-tagged jets + untagged jets with highest $p_T$
-		\vspace{0.2cm}
-		\item Definition of kinematic Likelihood:\\
-		\begin{itemize}
-			\item $W$: transfer functions for detector response
-			\item $BW$:Breit-Wigner distributions 
-			\item different options to use b-tagging information 
-		\end{itemize}
-			
-	\end{itemize}
-\end{textblock}
-	\begin{textblock}{10}(3,8.5)
-		\begin{block}{\bfseries{Likelihoodfunction}}
-			
-				\includegraphics[width=0.9\linewidth]{PicsTop/Likeli}
-			
-			% $L = BW(m_{q_{1}q_{2}}|m_W, \Gamma _W)\cdot BW(m_{l\nu}|m_W, \Gamma _W)\cdot
-			 %BW(m_{q_{1}q_{2}b_{had}}|m_{top}, \Gamma _{top})\cdot
-			 %BW(m_{l\nub_{lep}}|m_{top}_, \Gamma _{top})\cdot
-			% W(\~{E}_{jet_1}|E_b_{had})\cdot 
-			% W(\~{E}_{jet_2}|E_b_{lep}) \cdot
-			% W(\~{E}_{jet_3}|q_1) \cdot
-			 %W(\~{E}_{jet_4}|q_2) \cdot
-			 %W(\~{E}_{X}^{miss}|p_{X,\nu})\cdot
-			 %W(\~{E}_{Y}^{miss}|p_{Y,\nu}) \begin{cases} W(\~{E}_{l}|E_l)  \\ W(\~{p}_{T,l}|p_{T,l})  \end{cases}
-			
-			
-	
-	\end{block}
-	\end{textblock}
-}
 
 \section{Template parametrization} 
 \frame{
@@ -447,7 +421,7 @@
 			
 			\item Simultaneous determination of $m_{top}, JSF$ and $bJSF$\\
 			\vspace{0.2cm}
-			$\Rightarrow JES/bJES$  uncertainties, become an additional statical component
+			$\Rightarrow JES/bJES$  uncertainties, become an additional statisticall component
 			\vspace {0.2cm}
 			\item Templates are derived for $m_{top}^{reco}, m_{top}^{reco}$ from MC samples
 				\vspace {0.2cm}
@@ -463,7 +437,7 @@
 		\begin{textblock}{7}(0.5,8.5)
 	\begin{block}{\bfseries{Fit (signal)}}
 		\begin{itemize}
-			\item $m_{top}^{reco}$:   gauss+ landau + landau$^{-1}$
+			\item $m_{top}^{reco}$:   gauss+ landau + landau$_{mirrored}$
 		\vspace{0.2cm}
 		\item $m_{W}^{reco}$: gauss + gauss
 		\vspace {0.2cm}
@@ -487,7 +461,7 @@
 			\vspace{0.2cm}
 			\item $JSF = 0.96-1.04$
 			\vspace {0.2cm}
-			\item  $JSF = 0.96-1.04$
+			\item  $bJSF = 0.96-1.04$
 			
 			
 		
@@ -649,11 +623,9 @@
 		\begin{itemize}
 			
 	
-				\item Verification of the internal fitting consistency via pseudo-experiments
+				
 		
-		\vspace {0.2cm}
-		
-		\item Optimization of the analysis to reject combinatorial background 
+	
 			\end{itemize}
 \end{textblock}	
 	
@@ -663,14 +635,14 @@
 
 \frame{
 	\frametitle{\bfseries{Summery $\&$ outlook}}
-	\begin{textblock}{15}(0.5, 2.5)	
+	\begin{textblock}{15}(0.5, 2.0)	
 		\begin{alertblock}{Current status}
 			\begin{itemize}
-				\item Did several vent selection and reconstruction with 13 TeV samples \\
+				\item Event selection and reconstruction with 13 TeV samples \\
 				\vspace{0.1cm}
-				$\Rightarrow$ data MC agreement: good for four jets one tag inclusive, except for b-tagging multiplicity, worse agreement for four jets, two b-tagged inclusive 
+				$\Rightarrow$ good data/MC agreement, except for b-tagging multiplicity, worse agreement for four jets, two b-tagged inclusive 
 				\vspace{0.2cm}
-				\item Implemented the template parametrisation for several $t\={t}$ signal samples \\
+				\item Template parametrisation for several $t\={t}$ signal samples \\
 					\vspace{0.1cm}
 				$\Rightarrow$ good description by the chosen functions,  fit converge for all $m_{top}$
 				\vspace{0.2cm}
@@ -680,19 +652,22 @@
 		\end{alertblock}
 		\end{textblock}	
 
-			\begin{textblock}{15}(0.5, 9.5)	
+			\begin{textblock}{15}(0.5, 7.5)	
 			\begin{alertblock}{Next steps}
 				\begin{itemize}
-					\item Include single top into the signal fits \\
 				
 				
-					\vspace{0.2cm}
-					\item Perform the fit for all $JSF$ and $bJSF$\\
+				
+					
+					\item Perform the parametrization for all $JSF$ and $bJSF$\\
 					
 					\vspace{0.2cm}
 					\item Use probability density functions  for $m_{top}^{reco}$, $m_{W}^{reco}$  and $R_{bq}^{reco}$  in  unbinned likelihood fit to the data for all events
-					
-				
+						\vspace {0.2cm}
+						
+						\item Optimization of the analysis to reject combinatorial background 
+						\vspace{0.2cm}
+						\item Verification of the internal fitting consistency via pseudo-experiments
 				\end{itemize}
 			\end{alertblock}
 		
@@ -794,6 +769,47 @@
 	\end{textblock}
 	
 }
+
+\frame{
+	\frametitle{\bfseries{Reconstruction with KLFitter}}
+	\begin{textblock}{13}(0,2.5)
+		\begin{itemize}
+			
+			\vspace{0.2cm}
+			\item Definition of kinematic Likelihood:\\
+			\begin{itemize}
+				\item $W$: transfer functions for detector response
+				\item $BW$:Breit-Wigner distributions 
+				\item different options to use b-tagging information 
+			\end{itemize}
+			
+		\end{itemize}
+	\end{textblock}
+	\begin{textblock}{10}(3,8.5)
+		\begin{block}{\bfseries{Likelihoodfunction}}
+			
+			\includegraphics[width=0.9\linewidth]{PicsTop/Likeli}
+			
+			% $L = BW(m_{q_{1}q_{2}}|m_W, \Gamma _W)\cdot BW(m_{l\nu}|m_W, \Gamma _W)\cdot
+			%BW(m_{q_{1}q_{2}b_{had}}|m_{top}, \Gamma _{top})\cdot
+			%BW(m_{l\nub_{lep}}|m_{top}_, \Gamma _{top})\cdot
+			% W(\~{E}_{jet_1}|E_b_{had})\cdot 
+			% W(\~{E}_{jet_2}|E_b_{lep}) \cdot
+			% W(\~{E}_{jet_3}|q_1) \cdot
+			%W(\~{E}_{jet_4}|q_2) \cdot
+			%W(\~{E}_{X}^{miss}|p_{X,\nu})\cdot
+			%W(\~{E}_{Y}^{miss}|p_{Y,\nu}) \begin{cases} W(\~{E}_{l}|E_l)  \\ W(\~{p}_{T,l}|p_{T,l})  \end{cases}
+			
+			
+			
+		\end{block}
+	\end{textblock}
+}
+
+
+
+
+
 
 \frame{
 	\frametitle{\bfseries{Signal templates $t\={t}$ only for 173.5 GeV $\&$ 175 GeV }}

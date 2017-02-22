@@ -317,7 +317,12 @@ void mtop_fit :: top_fit(){
     
     
    
-	TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
+ TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
+
+
+
+	
+    
 
 
 
@@ -328,15 +333,19 @@ void mtop_fit :: top_fit(){
 		double fval = ftop->Eval(x);
 		double dif = h1->GetBinContent(bin);
 		double sub = h1->GetBinContent(bin)-fval;
-    
-			if(sub > -100){
+    if(sub > -100 && x > 130){
 			htop->SetBinContent(bin, sub);
 			err = h1->GetBinError(bin);
 			div = sub/err;
-			htop->SetBinContent(x, div);
+			htop->SetBinContent(bin, div);
 			}else continue;
 
 			};
+			
+	double x1 = htop->GetMaximum();
+    double limit1 = x1 + x1*0.1;
+	htop->GetYaxis()->SetRangeUser(-2.99,2.99);
+			
 			
 	 int nbins = htop -> GetNbinsX();
 
@@ -347,18 +356,18 @@ void mtop_fit :: top_fit(){
        
 	  htop->GetXaxis()->SetRangeUser(124,214);
       htop->GetXaxis()->SetLabelFont(63);
-      htop->GetXaxis()->SetLabelSize(26);
-      htop->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]");
-      htop->GetXaxis()->SetTitleSize(26);
+      htop->GetXaxis()->SetLabelSize(28);
+      htop->GetXaxis()->SetTitle("m_{top}^{reco}[GeV]");
+      htop->GetXaxis()->SetTitleSize(25);
       htop->GetXaxis()->SetTitleOffset(3.0);
       htop->GetXaxis()->SetTitleFont(63);
       htop->GetYaxis()->SetLabelFont(63);
-      htop->GetYaxis()->SetLabelSize(26);
-      htop->GetYaxis()->SetTitleSize(26);
+      htop->GetYaxis()->SetLabelSize(28);
+      htop->GetYaxis()->SetTitleSize(28);
       htop->GetYaxis()->SetTitleFont(63);
       
    
-      htop->GetYaxis()->SetRangeUser(-3.4,3.4);	      
+      //htop->GetYaxis()->SetRangeUser(-3.4,3.4);	      
       
 	  htop->GetYaxis()->SetTitleOffset(3.4);
 	
@@ -378,7 +387,7 @@ void mtop_fit :: top_fit(){
 	string Name = file->GetName();
 	string Base = gSystem->BaseName(Name.c_str());
 	
-	 c1 -> Print(("/Users/sebastianschulte/"+ Base +"mtop.png").c_str());
+	 c1 -> Print(("/home/iwsatlas1/schulte/plots"+ Base +"mtop.png").c_str());
 
  
  
@@ -463,7 +472,7 @@ void mtop_fit :: mw_fit(){
 	f13->Draw("SAME");
  
 	f14->SetParameters(p[3],p[4],p[5]);
-	f14->SetLineColor(159);
+	f14->SetLineColor(8);
 	f14->SetFillStyle(0); 
 	f14->SetLineWidth(3);
 	f14->Draw("SAME");
@@ -579,7 +588,7 @@ void mtop_fit :: mw_fit(){
 		double dif = h2->GetBinContent(bin);
 		double sub = h2->GetBinContent(bin)-fval;
     
-		if(sub > -100){
+		if(sub > -100 && x > 56){
 			hw->SetBinContent(bin, sub);
 			err = h2->GetBinError(bin);
 			div = sub/err;
@@ -631,7 +640,7 @@ void mtop_fit :: mw_fit(){
 	string Base = gSystem->BaseName(Name.c_str());
 	
 	 //c2 -> Print(("~/plots15217/" + Base +".png").c_str());
- 	 c2 -> Print(("/Users/sebastianschulte/"+ Base +"mw.png").c_str());
+ 	 c2 -> Print(("/home/iwsatlas1/schulte/plots"+ Base +"mw.png").c_str());
  
 }
  
@@ -721,7 +730,7 @@ void mtop_fit :: rbq_fit(){
   
 
 	f27->SetParameters(p[6],p[7],p[8]);
-	f27->SetLineColor(159);
+	f27->SetLineColor(7);
 	f27->SetLineWidth(3);
 	f27->Draw("SAME");
 	
@@ -821,7 +830,7 @@ void mtop_fit :: rbq_fit(){
 		double dif = h3->GetBinContent(bin);
 		double sub = h3->GetBinContent(bin)-fval;
     
-		if(sub > -100 && dif !=0){
+		if(sub > -100 && x > 0.3){
 			hrbq->SetBinContent(bin, sub);
 			err = h3->GetBinError(bin);
 			div = sub/err;
@@ -848,6 +857,7 @@ void mtop_fit :: rbq_fit(){
 	
 	
 	  hrbq->GetXaxis()->SetRangeUser(0.3,4);
+	  
       hrbq->GetXaxis()->SetLabelFont(63);
       hrbq->GetXaxis()->SetLabelSize(26);
       hrbq->GetXaxis()->SetTitle("R_{bq}^{reco}");
@@ -863,7 +873,7 @@ void mtop_fit :: rbq_fit(){
       hrbq->GetYaxis()->SetTitleFont(63);
       
       
-      hrbq->GetYaxis()->SetRangeUser(-3.4,3.4);	
+      hrbq->GetYaxis()->SetRangeUser(-2.4,2.4);	
       
       hrbq->GetYaxis()->SetTitleSize(26);
 	  hrbq->GetYaxis()->SetTitleOffset(1.4);
@@ -886,7 +896,7 @@ void mtop_fit :: rbq_fit(){
 	string Base = gSystem->BaseName(Name.c_str());
 	
 	// c3 -> Print(("~/plots15217/" + Base +".png").c_str());
- 	 c3 -> Print(("/Users/sebastianschulte/"+ Base +"rbq.png").c_str());
+ 	 c3 -> Print(("/home/iwsatlas1/schulte/plots"+ Base +"rbq.png").c_str());
 }	
 	
 	

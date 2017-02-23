@@ -104,9 +104,9 @@ mtop_fit :: mtop_fit (const char *File){
 	  
 	 
 	//MW 
-    f13 = new TF1("f3",signal,56,110,3);
-    f14 = new TF1("f4",signal,56,110,3);
-	fmw = new TF1("fmw",fit_mw,56,110,6);
+    f13 = new TF1("f3",signal,56,105,3);
+    f14 = new TF1("f4",signal,56,105,3);
+	fmw = new TF1("fmw",fit_mw,56,105,6);
 	
 	
 	//RBQ 
@@ -171,15 +171,15 @@ void mtop_fit :: top_fit(){
 	
 	
 	h1->GetYaxis()->SetLabelFont(63);
-	h1->GetYaxis()->SetLabelSize(26);
+	h1->GetYaxis()->SetLabelSize(28);
 	
 	double x = h1->GetMaximum();
 	double limit = x + x*0.1;
-	h1->GetYaxis()->SetRangeUser(-433,limit);
-	h1->GetYaxis()->SetTitleOffset(1.40);
+	h1->GetYaxis()->SetRangeUser(-73,limit);
+	h1->GetYaxis()->SetTitleOffset(1.45);
 	
 	h1->GetYaxis()->SetTitleFont(63);
-	h1->GetYaxis()->SetTitleSize(26);
+	h1->GetYaxis()->SetTitleSize(28);
 	h1->GetYaxis()->SetTitle("Events");
 	
 	//Fit of the histogram   
@@ -191,6 +191,7 @@ void mtop_fit :: top_fit(){
 	
 	h1->Fit("ftop","RI","",130,210);
 	h1->Draw();
+	
 	
 	
 
@@ -222,10 +223,12 @@ void mtop_fit :: top_fit(){
 	f01->Draw("SAME");
   
 	f02->SetParameters(p[6],p[7],p[8]);
-	f02->SetLineColor(96);
+	f02->SetLineColor(12);
 	f02->SetFillStyle(0); 
 	f02->SetLineWidth(3);  
 	f02->Draw("SAME");
+	
+	
 	
 	//Get chi^2 
 	////////////////////////////////////////////////////////////////////
@@ -238,10 +241,10 @@ void mtop_fit :: top_fit(){
 	oss_Sep   << setprecision(3) << chi2_0;
 	TLatex l00;
 	l00.SetTextAlign(9);
-	l00.SetTextSize(0.038);
+	l00.SetTextSize(0.048);
 	l00.SetLineWidth(2);
 	l00.SetNDC();
-	l00.DrawLatex(0.1358774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
+	//l00.DrawLatex(0.1358774,0.6824242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
 	
 	std::stringstream oss_NDF_0;
@@ -249,20 +252,20 @@ void mtop_fit :: top_fit(){
 	
 	TLatex l01;
 	l01.SetTextAlign(9);
-	l01.SetTextSize(0.038);
+	l01.SetTextSize(0.048);
 	l01.SetLineWidth(2);
 	l01.SetNDC();
-	l01.DrawLatex(.1358774,0.7811448, ("NDF: " + oss_NDF_0.str()).c_str());
+	//l01.DrawLatex(.1358774,0.7211448, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
 	
 	TLatex l03;
 	l03.SetTextAlign(9);
-	l03.SetTextSize(0.038);
+	l03.SetTextSize(0.048);
 	l03.SetLineWidth(2);
 	l03.SetNDC();
-	l03.DrawLatex(0.1369345,0.8299663, ("Prob: " + oss_Prob.str()).c_str());
+	//l03.DrawLatex(0.1369345,0.7699663, ("Prob: " + oss_Prob.str()).c_str());
 	
 	
 	
@@ -270,10 +273,18 @@ void mtop_fit :: top_fit(){
 	oss_COM   << setprecision(3) << COM;
 	TLatex l04;
 	l04.SetTextAlign(9);
-	l04.SetTextSize(0.038);
+	l04.SetTextSize(0.048);
 	l04.SetLineWidth(2);
 	l04.SetNDC();
-	l04.DrawLatex(0.1358774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	//l04.DrawLatex(0.1358774,0.6352862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	//l04.DrawLatex(0.1,0.77, ("#chi^{2}/NDF = "+ oss_Sep.str() + "/" +oss_NDF_0.str() + " = " + oss_COM.str()).c_str());
+	l04.DrawLatex(0.12,0.8, ("#chi^{2}/NDF = "+ oss_Sep.str() + "/" +oss_NDF_0.str() + " = " + oss_COM.str()).c_str());
+	TLatex l05;
+	l05.SetTextAlign(9);
+	l05.SetTextSize(0.058);
+	l05.SetLineWidth(2);
+	l05.SetNDC();
+	l05.DrawLatex(0.1258774,0.8552862, ("ATLAS work-in-progress"));
 	////////////////////////////////////////////////////////////////////
 	
 	//Legend
@@ -290,6 +301,8 @@ void mtop_fit :: top_fit(){
     leg->AddEntry(f00,"Gauss","l");
     leg->AddEntry(f01,"Landau","l");
     leg->AddEntry(f02,"Landau_n","l");
+     leg->SetTextFont(63);
+   leg->SetTextSize(25);
     leg->Draw();
 	
 	
@@ -317,7 +330,7 @@ void mtop_fit :: top_fit(){
     
     
    
- TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
+     TH1F *htop = new TH1F("htop", "dif", bin_tot, 120, 220);
 
 
 
@@ -333,7 +346,7 @@ void mtop_fit :: top_fit(){
 		double fval = ftop->Eval(x);
 		double dif = h1->GetBinContent(bin);
 		double sub = h1->GetBinContent(bin)-fval;
-    if(sub > -100 && x > 130){
+    if(sub > -100 && x > 130 ){
 			htop->SetBinContent(bin, sub);
 			err = h1->GetBinError(bin);
 			div = sub/err;
@@ -343,8 +356,8 @@ void mtop_fit :: top_fit(){
 			};
 			
 	double x1 = htop->GetMaximum();
-    double limit1 = x1 + x1*0.1;
-	htop->GetYaxis()->SetRangeUser(-2.99,2.99);
+    double limit1 = x1 + x1*0.12;
+	htop->GetYaxis()->SetRangeUser(-2.8,2.8);
 			
 			
 	 int nbins = htop -> GetNbinsX();
@@ -369,7 +382,7 @@ void mtop_fit :: top_fit(){
    
       //htop->GetYaxis()->SetRangeUser(-3.4,3.4);	      
       
-	  htop->GetYaxis()->SetTitleOffset(3.4);
+	  htop->GetYaxis()->SetTitleOffset(1.4);
 	
       htop->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
       htop->SetLineWidth(3);  
@@ -387,7 +400,7 @@ void mtop_fit :: top_fit(){
 	string Name = file->GetName();
 	string Base = gSystem->BaseName(Name.c_str());
 	
-	 c1 -> Print(("/home/iwsatlas1/schulte/plots"+ Base +"mtop.png").c_str());
+	 c1 -> Print(("/Users/sebastianschulte/"+ Base +"mtop.png").c_str());
 
  
  
@@ -421,21 +434,22 @@ void mtop_fit :: mw_fit(){
 	h2->GetXaxis()->SetLabelFont(63);
 	h2->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
 	h2->GetXaxis()->SetTitleSize(0.0);
-    h2->GetXaxis()->SetTitleOffset(1.11);
-    h2->GetXaxis()->SetTitleFont(26);
+    h2->GetXaxis()->SetTitleOffset(1.45);
+    h2->GetXaxis()->SetTitleFont(28);
     h2->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]"); // labels will be 14 pixels
 	
-	
+	h2->GetXaxis()->SetRangeUser(50,115);
 	
 	h2->GetYaxis()->SetLabelFont(63);
-	h2->GetYaxis()->SetLabelSize(26);
+	h2->GetYaxis()->SetLabelSize(28);
 	
 	double x = h2->GetMaximum();
     double limit = x + x*0.1;
 	h2->GetYaxis()->SetRangeUser(-120,limit);
-	h2->GetYaxis()->SetTitleOffset(1.40);
+	h2->GetYaxis()->SetTitleOffset(1.45);
+
 	h2->GetYaxis()->SetTitleFont(63);
-	h2->GetYaxis()->SetTitleSize(26);
+	h2->GetYaxis()->SetTitleSize(28);
 	h2->GetYaxis()->SetTitle("Events");
 	
 	//Fit of the histogram   
@@ -448,8 +462,8 @@ void mtop_fit :: mw_fit(){
     h2->SetLineWidth(3);
 	
 	   
-	h2->Fit("fmw","","",56,110);
-	
+	h2->Fit("fmw","","",56,105);
+	h2->Draw();
 
 	
 	//Get fit parameters 
@@ -472,10 +486,12 @@ void mtop_fit :: mw_fit(){
 	f13->Draw("SAME");
  
 	f14->SetParameters(p[3],p[4],p[5]);
-	f14->SetLineColor(8);
+	f14->SetLineColor(209);
 	f14->SetFillStyle(0); 
 	f14->SetLineWidth(3);
 	f14->Draw("SAME");
+
+
 
 
 //Get chi^2
@@ -490,15 +506,14 @@ void mtop_fit :: mw_fit(){
 	
 	
 	
-	
 	std::stringstream oss_Sep;
 	oss_Sep   << setprecision(3) << chi2_0;
 	TLatex l00;
 	l00.SetTextAlign(9);
-	l00.SetTextSize(0.038);
+	l00.SetTextSize(0.048);
 	l00.SetLineWidth(2);
 	l00.SetNDC();
-	l00.DrawLatex(0.1358774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
+	//l00.DrawLatex(0.1358774,0.6824242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
 	
 	std::stringstream oss_NDF_0;
@@ -506,20 +521,20 @@ void mtop_fit :: mw_fit(){
 	
 	TLatex l01;
 	l01.SetTextAlign(9);
-	l01.SetTextSize(0.038);
+	l01.SetTextSize(0.048);
 	l01.SetLineWidth(2);
 	l01.SetNDC();
-	l01.DrawLatex(.1358774,0.7811448, ("NDF: " + oss_NDF_0.str()).c_str());
+	//l01.DrawLatex(.1358774,0.7211448, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
 	
 	TLatex l03;
 	l03.SetTextAlign(9);
-	l03.SetTextSize(0.038);
+	l03.SetTextSize(0.048);
 	l03.SetLineWidth(2);
 	l03.SetNDC();
-	l03.DrawLatex(0.1369345,0.8299663, ("Prob: " + oss_Prob.str()).c_str());
+	//l03.DrawLatex(0.1369345,0.7699663, ("Prob: " + oss_Prob.str()).c_str());
 	
 	
 	
@@ -527,10 +542,19 @@ void mtop_fit :: mw_fit(){
 	oss_COM   << setprecision(3) << COM;
 	TLatex l04;
 	l04.SetTextAlign(9);
-	l04.SetTextSize(0.038);
+	l04.SetTextSize(0.048);
 	l04.SetLineWidth(2);
 	l04.SetNDC();
-	l04.DrawLatex(0.1358774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	//l04.DrawLatex(0.1358774,0.6352862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	l04.DrawLatex(0.12,0.8, ("#chi^{2}/NDF = "+ oss_Sep.str() + "/" +oss_NDF_0.str() + " = " + oss_COM.str()).c_str());
+	
+	
+	TLatex l05;
+	l05.SetTextAlign(9);
+	l05.SetTextSize(0.058);
+	l05.SetLineWidth(2);
+	l05.SetNDC();
+	l05.DrawLatex(0.1258774,0.8552862, ("ATLAS work-in-progress"));
 	////////////////////////////////////////////////////////////////////
 	
 	
@@ -542,10 +566,12 @@ void mtop_fit :: mw_fit(){
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(1001);
-   leg->AddEntry(h2,"Data","lep");
+   leg->AddEntry(h2,"Simulation","lep");
    leg->AddEntry(fmw,"Fit","l");
    leg->AddEntry(f13,"Gauss","l");
    leg->AddEntry(f14,"Gauss","l");
+    leg->SetTextFont(63);
+   leg->SetTextSize(25);
   
    leg->Draw();
 	
@@ -574,7 +600,7 @@ void mtop_fit :: mw_fit(){
     double div;
     double err;
     
-	TH1F *hw = new TH1F("hw", "dif", bin_tot, 56, 115);
+	TH1F *hw = new TH1F("hw", "dif", bin_tot, 45, 120);
 	hw->GetXaxis()->SetLabelFont(63);
 	hw->GetXaxis()->SetLabelSize(26); // labels will be 14 pixels
 	hw->GetYaxis()->SetLabelFont(63);
@@ -588,7 +614,7 @@ void mtop_fit :: mw_fit(){
 		double dif = h2->GetBinContent(bin);
 		double sub = h2->GetBinContent(bin)-fval;
     
-		if(sub > -100 && x > 56){
+		if(sub > -100 && x > 54 && x < 105){
 			hw->SetBinContent(bin, sub);
 			err = h2->GetBinError(bin);
 			div = sub/err;
@@ -605,22 +631,23 @@ void mtop_fit :: mw_fit(){
 	float number_bins = hw -> GetNbinsX();
 	float upper_edge = hw -> GetBinLowEdge(number_bins) + hw->GetBinWidth(number_bins);
        
-	  hw->GetXaxis()->SetRangeUser(56,115);
+	  hw->GetXaxis()->SetRangeUser(50,115);
+	  
       hw->GetXaxis()->SetLabelFont(63);
-      hw->GetXaxis()->SetLabelSize(26);
+      hw->GetXaxis()->SetLabelSize(28);
       hw->GetXaxis()->SetTitle("m_{w}^{reco}[GeV]");
-      hw->GetXaxis()->SetTitleSize(26);
-      hw->GetXaxis()->SetTitleOffset(1.0);
+      hw->GetXaxis()->SetTitleSize(28);
+      hw->GetXaxis()->SetTitleOffset(3.0);
       hw->GetXaxis()->SetTitleFont(63);
       hw->GetYaxis()->SetLabelFont(63);
-      hw->GetYaxis()->SetLabelSize(26);
-      hw->GetYaxis()->SetTitleSize(26);
+      hw->GetYaxis()->SetLabelSize(28);
+      hw->GetYaxis()->SetTitleSize(28);
       hw->GetYaxis()->SetTitleFont(63);
       
    
-      hw->GetYaxis()->SetRangeUser(-3.4,3.4);	      
+      hw->GetYaxis()->SetRangeUser(-2.8,2.8);	      
       
-	  hw->GetYaxis()->SetTitleOffset(1.4);
+	  hw->GetYaxis()->SetTitleOffset(1.45);
 	
       hw->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
       hw->SetLineWidth(3);  
@@ -640,7 +667,7 @@ void mtop_fit :: mw_fit(){
 	string Base = gSystem->BaseName(Name.c_str());
 	
 	 //c2 -> Print(("~/plots15217/" + Base +".png").c_str());
- 	 c2 -> Print(("/home/iwsatlas1/schulte/plots"+ Base +"mw.png").c_str());
+ 	 c2 -> Print(("/Users/sebastianschulte/"+ Base +"mw.png").c_str());
  
 }
  
@@ -666,14 +693,15 @@ void mtop_fit :: rbq_fit(){
 	h3->GetXaxis()->SetLabelFont(63);
 	h3->GetXaxis()->SetLabelSize(0); // labels will be 14 pixels
 	h3->GetXaxis()->SetTitleSize(0.0);
-    h3->GetXaxis()->SetTitleOffset(1.11);
+    h3->GetXaxis()->SetTitleOffset(1.45);
     h3->GetXaxis()->SetTitleFont(63);
 	h3->GetXaxis()->SetTitle("R_{bq}^{reco}"); // labels will be 14 pixels
 	
 	
 
 	h3->GetYaxis()->SetLabelFont(63);
-	h3->GetYaxis()->SetLabelSize(26);
+	
+	h3->GetYaxis()->SetLabelSize(28);
 	
 	double x = h3->GetMaximum();
     double limit = x + x*0.1;
@@ -681,8 +709,8 @@ void mtop_fit :: rbq_fit(){
 	
 	
 	h3->GetYaxis()->SetTitleFont(63);
-	h3->GetYaxis()->SetTitleSize(26);
-	h3->GetYaxis()->SetTitleOffset(1.40);
+	h3->GetYaxis()->SetTitleSize(28);
+	h3->GetYaxis()->SetTitleOffset(1.45);
 	h3->GetYaxis()->SetTitle("Events");
 	
 	
@@ -730,24 +758,25 @@ void mtop_fit :: rbq_fit(){
   
 
 	f27->SetParameters(p[6],p[7],p[8]);
-	f27->SetLineColor(7);
+	f27->SetLineColor(12);
 	f27->SetLineWidth(3);
 	f27->Draw("SAME");
 	
+	
 	//////////////////////////////////////////////////////////////////////
-	double chi2_0 = fmw->GetChisquare();
-	double NDF_0 = fmw->GetNDF();
-	double Prob = fmw->GetProb();
+	double chi2_0 = frbq->GetChisquare();
+	double NDF_0 = frbq->GetNDF();
+	double Prob = frbq->GetProb();
 	double COM = chi2_0/NDF_0;
 
-	std::stringstream oss_Sep;
+std::stringstream oss_Sep;
 	oss_Sep   << setprecision(3) << chi2_0;
 	TLatex l00;
 	l00.SetTextAlign(9);
-	l00.SetTextSize(0.038);
+	l00.SetTextSize(0.048);
 	l00.SetLineWidth(2);
 	l00.SetNDC();
-	l00.DrawLatex(0.1358774,0.7424242, ("#chi^{2}: " + oss_Sep.str()).c_str());
+	//l00.DrawLatex(0.5058774,0.6824242, ("#chi^{2}: " + oss_Sep.str()).c_str());
 	
 	
 	std::stringstream oss_NDF_0;
@@ -755,20 +784,20 @@ void mtop_fit :: rbq_fit(){
 	
 	TLatex l01;
 	l01.SetTextAlign(9);
-	l01.SetTextSize(0.038);
+	l01.SetTextSize(0.048);
 	l01.SetLineWidth(2);
 	l01.SetNDC();
-	l01.DrawLatex(.1358774,0.7811448, ("NDF: " + oss_NDF_0.str()).c_str());
+	//l01.DrawLatex(.5058774,0.7211448, ("NDF: " + oss_NDF_0.str()).c_str());
 	
 	std::stringstream oss_Prob;
 	oss_Prob << setprecision(3) << Prob;
 	
 	TLatex l03;
 	l03.SetTextAlign(9);
-	l03.SetTextSize(0.038);
+	l03.SetTextSize(0.048);
 	l03.SetLineWidth(2);
 	l03.SetNDC();
-	l03.DrawLatex(0.1369345,0.8299663, ("Prob: " + oss_Prob.str()).c_str());
+	//l03.DrawLatex(0.5069345,0.7699663, ("Prob: " + oss_Prob.str()).c_str());
 	
 	
 	
@@ -776,11 +805,19 @@ void mtop_fit :: rbq_fit(){
 	oss_COM   << setprecision(3) << COM;
 	TLatex l04;
 	l04.SetTextAlign(9);
-	l04.SetTextSize(0.038);
+	l04.SetTextSize(0.048);
 	l04.SetLineWidth(2);
 	l04.SetNDC();
-	l04.DrawLatex(0.1358774,0.6952862, ("#chi^{2}/NDF: " + oss_COM.str()).c_str());
+	l04.DrawLatex(0.5558774,0.5652862, ("#chi^{2}/NDF = "+ oss_Sep.str() + "/" +oss_NDF_0.str() + " = " + oss_COM.str()).c_str());
 	
+	
+	TLatex l05;
+	l05.SetTextAlign(9);
+	l05.SetTextSize(0.058);
+	l05.SetLineWidth(2);
+	l05.SetNDC();
+	l05.DrawLatex(0.1258774,0.8552862, ("ATLAS work-in-progress"));
+	////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
    TLegend *leg = new TLegend(0.7078059,0.6690754,0.8987342,0.8986966,NULL,"brNDC");
    leg->SetBorderSize(1);
@@ -789,11 +826,14 @@ void mtop_fit :: rbq_fit(){
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(1001);
-   leg->AddEntry(h3,"Data","lep");
+   leg->AddEntry(h3,"Simulation","lep");
    leg->AddEntry(frbq,"Fit","l");
    leg->AddEntry(f25,"Gauss","l");
    leg->AddEntry(f26,"Gauss","l");
    leg->AddEntry(f27,"Landau","l");
+   leg->SetTextFont(63);
+   leg->SetTextSize(25);
+   
    leg->Draw();
 
  
@@ -856,27 +896,27 @@ void mtop_fit :: rbq_fit(){
 	
 	
 	
-	  hrbq->GetXaxis()->SetRangeUser(0.3,4);
+	  hrbq->GetXaxis()->SetRangeUser(0.1,4);
 	  
       hrbq->GetXaxis()->SetLabelFont(63);
-      hrbq->GetXaxis()->SetLabelSize(26);
+      hrbq->GetXaxis()->SetLabelSize(28);
       hrbq->GetXaxis()->SetTitle("R_{bq}^{reco}");
-      hrbq->GetXaxis()->SetTitleSize(26);
-      hrbq->GetXaxis()->SetTitleOffset(3.2);
+      hrbq->GetXaxis()->SetTitleSize(28);
+      hrbq->GetXaxis()->SetTitleOffset(3.0);
       hrbq->GetXaxis()->SetTitleFont(63);
  
  
 
       hrbq->GetYaxis()->SetLabelFont(63);
-      hrbq->GetYaxis()->SetLabelSize(26);
-      hrbq->GetYaxis()->SetTitleSize(26);
+      hrbq->GetYaxis()->SetLabelSize(28);
+      hrbq->GetYaxis()->SetTitleSize(28);
       hrbq->GetYaxis()->SetTitleFont(63);
       
       
-      hrbq->GetYaxis()->SetRangeUser(-2.4,2.4);	
+      hrbq->GetYaxis()->SetRangeUser(-3.4,3.4);	
       
-      hrbq->GetYaxis()->SetTitleSize(26);
-	  hrbq->GetYaxis()->SetTitleOffset(1.4);
+      hrbq->GetYaxis()->SetTitleSize(28);
+	  hrbq->GetYaxis()->SetTitleOffset(1.45);
 	  hrbq->GetYaxis()->SetTitleFont(63);
       
       hrbq->GetYaxis()->SetTitle("(Sim.-Fit)/Error[#sigma]");
@@ -896,7 +936,7 @@ void mtop_fit :: rbq_fit(){
 	string Base = gSystem->BaseName(Name.c_str());
 	
 	// c3 -> Print(("~/plots15217/" + Base +".png").c_str());
- 	 c3 -> Print(("/home/iwsatlas1/schulte/plots"+ Base +"rbq.png").c_str());
+ 	 c3 -> Print(("/Users/sebastianschulte/"+ Base +"rbq.png").c_str());
 }	
 	
 	
